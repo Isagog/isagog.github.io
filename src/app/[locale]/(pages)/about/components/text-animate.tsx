@@ -1,0 +1,19 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+export const TextAnimate = ({ value }: { value: string }) => {
+  return (
+    <div className="h-96 flex justify-center items-center">
+      <motion.span
+        initial={{ scale: 0.8, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.3 }}
+        className="text-center text-2xl font-serif text-[#86efac]"
+      >
+        {value}
+      </motion.span>
+    </div>
+  );
+};
