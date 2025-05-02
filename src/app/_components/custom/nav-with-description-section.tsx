@@ -1,15 +1,15 @@
 "use client";
-import { ArrowBigRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 1.8, ease: "easeOut" },
   },
 };
 
@@ -38,22 +38,22 @@ export const NavWithDescriptionSection = ({
         className="flex flex-col gap-4 w-fit ml-12"
       >
         <h1
-          className={`text-2xl font-serif ${
-            isHovering ? "text-green-200 opacity-50" : "text-[#86efac]"
+          className={`text-4xl ${
+            isHovering ? "text-green-200 opacity-50" : "text-[#A8FA87]"
           }`}
         >
           {title}
         </h1>
         <p
-          className={`text-sm font-light ${
+          className={`text-base font-light ${
             isHovering ? "text-green-200 opacity-50" : ""
           }`}
         >
           {description}
         </p>
-        <ArrowBigRight
+        <ArrowRight
           className={`${
-            isHovering ? "text-green-200 opacity-50" : "text-[#86efac]"
+            isHovering ? "text-green-200 opacity-50" : "text-[#A8FA87]"
           }`}
           size={24}
         />

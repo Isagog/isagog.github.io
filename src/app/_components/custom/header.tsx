@@ -1,14 +1,17 @@
 "use client";
 
-import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/app/_components/ui/dropdown-menu";
-import { useChangeLocale, useCurrentLocale } from "@/packages/locales/client";
-import { useScopedI18n } from "@/packages/locales/client";
+import {
+  useChangeLocale,
+  useCurrentLocale,
+  useScopedI18n,
+} from "@/packages/locales/client";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const languages: {
@@ -35,7 +38,7 @@ export const Header = () => {
   ];
 
   return (
-    <header className="flex fixed top-0 z-50 w-full items-center border-green-800 border-b opacity-90 bg-background">
+    <header className="flex fixed top-0 z-50 w-full items-center border-b border-border bg-background">
       <div className="flex h-18 w-full items-center justify-between gap-2 px-4">
         <div className="flex items-center gap-2">
           <Link href="/" prefetch className="text-2xl font-sans">

@@ -1,12 +1,11 @@
 import {
-  KnowledgeCard,
-  TextSection,
   Hero,
-  NavWithDescriptionSection,
   Highlight,
-  AnimateImage,
+  KnowledgeCard,
+  NavWithDescriptionSection,
 } from "@/app/_components/custom";
 import { getScopedI18n } from "@/packages/locales/server";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../_components/ui/button";
 
@@ -21,45 +20,37 @@ export default async function Home() {
       title: t("1.title"),
       subtitle: t("1.subtitle"),
       description: t("1.description"),
+      firstParagraph: tTextSection("1.firstParagraph"),
+      secondParagraph: tTextSection("1.secondParagraph"),
+      thirdParagraph: tTextSection("1.thirdParagraph"),
     },
     {
       title: t("2.title"),
       subtitle: t("2.subtitle"),
       description: t("2.description"),
+      firstParagraph: tTextSection("2.firstParagraph"),
+      secondParagraph: tTextSection("2.secondParagraph"),
+      thirdParagraph: tTextSection("2.thirdParagraph"),
     },
     {
       title: t("3.title"),
       subtitle: t("3.subtitle"),
       description: t("3.description"),
+      firstParagraph: tTextSection("3.firstParagraph"),
+      secondParagraph: tTextSection("3.secondParagraph"),
+      thirdParagraph: tTextSection("3.thirdParagraph"),
     },
   ];
 
   return (
     <main className="flex min-h-screen flex-col justify-center items-center relative isolate">
       <Hero />
-      <div className="w-full flex justify-center items-center gap-4 mt-12">
+      <div className="w-full flex justify-center items-center gap-4 min-h-screen">
         {data.map((item) => (
           <KnowledgeCard key={item.title} {...item} />
         ))}
       </div>
-      <div className="w-full flex justify-center items-center gap-4 mt-12 animate-fade-in-up">
-        <TextSection
-          firstParagraph={tTextSection("1.firstParagraph")}
-          secondParagraph={tTextSection("1.secondParagraph")}
-          thirdParagraph={tTextSection("1.thirdParagraph")}
-        />
-        <TextSection
-          firstParagraph={tTextSection("2.firstParagraph")}
-          secondParagraph={tTextSection("2.secondParagraph")}
-          thirdParagraph={tTextSection("2.thirdParagraph")}
-        />
-        <TextSection
-          firstParagraph={tTextSection("3.firstParagraph")}
-          secondParagraph={tTextSection("3.secondParagraph")}
-          thirdParagraph={tTextSection("3.thirdParagraph")}
-        />
-      </div>
-      <div className="w-full flex flex-col gap-4 mt-12">
+      <div className="w-full flex flex-col justify-evenly min-h-screen">
         <NavWithDescriptionSection
           title={tNav("about.title")}
           description={tNav("about.description")}
@@ -110,7 +101,13 @@ export default async function Home() {
         </div>
       </section>
       <Highlight />
-      <AnimateImage />
+      <Image
+        src="/image/tree.avif"
+        alt="Tree"
+        width={1000}
+        height={1000}
+        className="w-48 h-48 mb-8"
+      />
     </main>
   );
 }
