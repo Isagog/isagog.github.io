@@ -7,6 +7,8 @@ export const ImageWithDescription = ({
   thirdParagraph,
   imageUrl,
   imagePosition = "left",
+  imgClassName,
+  className,
 }: {
   title: string;
   firstParagraph: string;
@@ -14,11 +16,13 @@ export const ImageWithDescription = ({
   thirdParagraph?: string;
   imageUrl: string;
   imagePosition?: "left" | "right";
+  imgClassName?: string;
+  className?: string;
 }) => {
   return (
     <div
-      className={` w-[80%] mx-auto flex items-center justify-between gap-8 ${
-        imagePosition === "right" ? "flex-row-reverse" : ""
+      className={`xl:w-[80%] w-[90%] mx-auto flex flex-col md:flex-row items-center mb-16 gap-8 ${className} ${
+        imagePosition === "right" ? "md:flex-row-reverse" : ""
       }`}
     >
       <Image
@@ -26,13 +30,13 @@ export const ImageWithDescription = ({
         alt="placeholder"
         width={500}
         height={500}
-        className="w-1/2 h-80 object-contain"
+        className={imgClassName}
       />
-      <div className="space-y-4 w-1/2">
+      <div className="space-y-8 md:w-96 text-center md:text-left">
         <h2 className="text-2xl font-bold">{title}</h2>
-        <p>{firstParagraph}</p>
-        <p>{secondParagraph}</p>
-        {thirdParagraph && <p>{thirdParagraph}</p>}
+        <p className="font-sans">{firstParagraph}</p>
+        <p className="font-sans">{secondParagraph}</p>
+        {thirdParagraph && <p className="font-sans">{thirdParagraph}</p>}
       </div>
     </div>
   );

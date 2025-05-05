@@ -21,27 +21,27 @@ export const ProjectSection = ({
   valueName: string;
 }) => {
   return (
-    <div className="flex items-center w-[60%] mx-auto justify-between ">
+    <div className="flex flex-col md:flex-row items-center w-[90%] md:w-[60%] mx-auto justify-between gap-8 mb-16">
       <Image
         src={imageUrl}
         alt="ilManifesto"
         width={1000}
         height={1000}
-        className="w-60 h-96 object-cover"
+        className="w-full md:w-60 h-72 md:h-96 object-cover"
       />
-      <div className="flex flex-col gap-4 w-1/2">
+      <div className="flex flex-col gap-4 w-full md:w-1/2">
         <h1 className="text-2xl font-bold">{title}</h1>
-        <div className="flex justify-between">
+        <div className="flex justify-between text-sm">
           <span>{valueName}</span>
           <span>{value}</span>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between text-sm">
           <span>{name}</span>
           <span>{sector}</span>
         </div>
         <div className="flex flex-col gap-4">
           <h2 className="text-2xl font-bold">{secondTitle}</h2>
-          <p>{description}</p>
+          <p className="text-sm">{description}</p>
           <Button>Scopri di più</Button>
         </div>
       </div>

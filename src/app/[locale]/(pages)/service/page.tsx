@@ -3,64 +3,70 @@ import { ImageWithDescription } from "./components/image-with-description";
 import { Button } from "@/app/_components/ui/button";
 import { ImageWithTitle } from "./components/image-with-title";
 import { TextCarousel } from "./components/text-carousel";
+import { getScopedI18n } from "@/packages/locales/server";
 
-const ServicePage = () => {
+const ServicePage = async () => {
+  const tImageWithDescription = await getScopedI18n(
+    "service-page.image-with-description"
+  );
+  const tImageWithTitle = await getScopedI18n("service-page.image-with-title");
+  const tWhyUs = await getScopedI18n("service-page.why-us");
   return (
     <div className="flex items-center flex-col gap-8 justify-center">
       <ImageWithDescription
-        title="Accedi alla tua conoscenza"
-        firstParagraph="Struttura i tuoi dati in un archivio intelligente. "
-        secondParagraph="Ottieni una mappa dinamica dei tuoi dati e della tua conoscenza di settore."
-        thirdParagraph="Trova nuovi significati e connessioni in grandi volumi di dati."
+        title={tImageWithDescription("1.title")}
+        firstParagraph={tImageWithDescription("1.firstParagraph")}
+        secondParagraph={tImageWithDescription("1.secondParagraph")}
+        thirdParagraph={tImageWithDescription("1.thirdParagraph")}
         imageUrl="/picturesService/tree.avif"
+        imgClassName="w-1/2 h-80 object-contain"
+        className="mt-16"
       />
       <ImageWithDescription
-        title="Produci contenuti"
-        firstParagraph="Automatizza sintesi o report conformi agli  standard della tua azienda."
-        secondParagraph="Genera nuove narrazioni e nuovi modi per raccontare la tua impresa. "
+        title={tImageWithDescription("2.title")}
+        firstParagraph={tImageWithDescription("2.firstParagraph")}
+        secondParagraph={tImageWithDescription("2.secondParagraph")}
         imagePosition="right"
         imageUrl="/picturesService/fruits.avif"
       />
       <ImageWithDescription
-        title="Personalizza la tua offerta"
-        firstParagraph="Immagina nuove personalizzazioni per ogni utente."
-        secondParagraph="Comunica in linguaggio naturale con il tuo pubblico. "
-        thirdParagraph="Costruisci un'offerta mirata."
+        title={tImageWithDescription("3.title")}
+        firstParagraph={tImageWithDescription("3.firstParagraph")}
+        secondParagraph={tImageWithDescription("3.secondParagraph")}
+        thirdParagraph={tImageWithDescription("3.thirdParagraph")}
         imageUrl="/picturesService/lolipop.avif"
+        imgClassName="h-44 object-contain"
       />
       <ImageWithDescription
-        title="Costruisci la tua comunità"
-        firstParagraph="Interagisci con i tuoi utenti tramite agenti AI."
-        secondParagraph="Coinvolgi gli utenti grazie ad una ricca conoscenza di settore e fluide interazioni con l'AI. "
-        thirdParagraph="Monitora soddisfazione e richieste emergenti."
+        title={tImageWithDescription("4.title")}
+        firstParagraph={tImageWithDescription("4.firstParagraph")}
+        secondParagraph={tImageWithDescription("4.secondParagraph")}
+        thirdParagraph={tImageWithDescription("4.thirdParagraph")}
         imagePosition="right"
         imageUrl="/picturesService/mogul.avif"
+        imgClassName="h-64 object-contain"
       />
-      <section className="flex flex-col gap-4 items-center justify-center h-96">
-        <h2 className="text-2xl font-bold">PERCHÈ ISAGOG?</h2>
-        <p className="text-center">
-          Le nostre soluzioni si basano su una piattaforma aperta di AI neuro-
-          <br />
-          simbolica, che unisce creatività e logica per offrire risultati più
-          <br />
-          affidabili e intelligenti.
-        </p>
+      <section className="flex flex-col items-center space-y-16  justify-center h-[450px]">
+        <h2 className="text-2xl font-sans font-normal">{tWhyUs("title")}</h2>
+        <p className="text-center text-2xl">{tWhyUs("description")}</p>
         <Link href="https://cal.com/isagog" target="_blank" prefetch>
           <Button
             variant="ghost"
-            className="uppercase border-t border-[#86efac] rounded-none text-[#86efac] hover:bg-transparent hover:underline cursor-pointer"
+            className="uppercase border-t font-sans border-[#86efac] rounded-none text-[#86efac] hover:bg-transparent hover:underline cursor-pointer"
           >
-            PRENOTA UNA DEMO
+            {tWhyUs("linkLabel")}
           </Button>
         </Link>
       </section>
       <ImageWithTitle
-        title="Architettura della piattaforma neuro-simbolica"
+        title={tImageWithTitle("1.title")}
         imageUrl="/picturesService/mermaid.avif"
+        className="md:ml-36 ml-16 mt-16 md:mt-0 xl:h-[550px] xl:w-full h-[300px] w-[100%] "
       />
       <ImageWithTitle
-        title="Pipeline di estrazione"
+        title={tImageWithTitle("2.title")}
         imageUrl="/picturesService/mermaid-diagrame.avif"
+        className="xl:h-[500px] xl:w-[70%] h-[300px] w-[100%] md:h-[500px]"
       />
       <TextCarousel />
     </div>

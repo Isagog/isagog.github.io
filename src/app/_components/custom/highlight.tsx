@@ -13,7 +13,7 @@ const containerVariants = {
 };
 
 export const Highlight = () => {
-  const tHighlight = useScopedI18n("highlight");
+  const tHighlight = useScopedI18n("home-page.highlight");
 
   return (
     <motion.div
@@ -23,7 +23,9 @@ export const Highlight = () => {
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}
     >
-      <h1 className="text-4xl font-serif mb-4">{tHighlight("title")}</h1>
+      <h1 className="md:text-4xl text-xl font-serif mb-4">
+        {tHighlight("title")}
+      </h1>
 
       <p>
         <span className="font-bold">{tHighlight("1.title")}</span>

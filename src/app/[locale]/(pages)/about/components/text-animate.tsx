@@ -10,7 +10,7 @@ export const TextAnimate = ({ value }: { value: string }) => {
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.3 }}
-        className="text-center text-2xl font-serif text-[#86efac]"
+        className="text-center text-2xl font-serif text-[#a8fa87]"
       >
         {value}
       </motion.span>

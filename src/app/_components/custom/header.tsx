@@ -6,13 +6,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/app/_components/ui/dropdown-menu";
-import {
-  useChangeLocale,
-  useCurrentLocale,
-  useScopedI18n,
-} from "@/packages/locales/client";
+import { useScopedI18n } from "@/packages/locales/client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu } from "lucide-react";
+import Image from "next/image";
 
 const languages: {
   code: "en" | "it";
@@ -24,8 +22,6 @@ const languages: {
 ];
 
 export const Header = () => {
-  const currentLocal = useCurrentLocale();
-  const changeCurrentLocale = useChangeLocale();
   const t = useScopedI18n("header");
   const pathname = usePathname();
 
@@ -42,13 +38,18 @@ export const Header = () => {
       <div className="flex h-18 w-full items-center justify-between gap-2 px-4">
         <div className="flex items-center gap-2">
           <Link href="/" prefetch className="text-2xl font-sans">
-            <h1>ISAGOG</h1>
+            <Image
+              src="/logo.svg"
+              alt="logo"
+              width={300}
+              height={200}
+              className="w-48 h-48"
+            />
           </Link>
         </div>
-        <nav className="flex items-center gap-4">
+        <nav className="hidden md:flex items-center gap-4">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
-
             return (
               <Link
                 key={`${item.href}-${item.label}`}
@@ -60,26 +61,31 @@ export const Header = () => {
               </Link>
             );
           })}
+        </nav>
+        <div className="flex md:hidden items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger className="cursor-pointer h-8 w-8 flex items-center justify-center rounded-full bg-muted/40 hover:bg-muted/60 transition-colors">
-              <span className="text-lg">
-                {languages.find((lang) => lang.code === currentLocal)?.flag}
-              </span>
+              <Menu className="h-5 w-5" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              {languages.map((lang) => (
-                <DropdownMenuItem
-                  key={lang.code}
-                  onClick={() => changeCurrentLocale(lang.code as "en" | "it")}
-                  className="flex items-center gap-2 cursor-pointer"
-                >
-                  <span className="text-base">{lang.flag}</span>
-                  <span>{lang.name}</span>
+            <DropdownMenuContent align="end" className="w-40">
+              {navItems.map((item) => (
+                <DropdownMenuItem key={item.href} asChild>
+                  <Link
+                    href={item.href}
+                    prefetch
+                    className={
+                      pathname === item.href
+                        ? "text-[#86efac] w-full"
+                        : "w-full"
+                    }
+                  >
+                    {item.label}
+                  </Link>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-        </nav>
+        </div>
       </div>
     </header>
   );

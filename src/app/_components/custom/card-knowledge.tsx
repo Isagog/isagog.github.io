@@ -1,6 +1,6 @@
 import { TextSection } from "./text-section";
 
-type KnowledgeCardProps = {
+export type KnowledgeCardProps = {
   title: string;
   subtitle: string;
   description: string;
@@ -18,7 +18,7 @@ export const KnowledgeCard = ({
   thirdParagraph,
 }: KnowledgeCardProps) => {
   return (
-    <div className="gap-8 flex flex-col bg-transparent border-none text-center text-primary w-96">
+    <div className="gap-8 flex w-96 flex-col bg-transparent border-none text-center text-primary">
       <h2 className="text-4xl font-serif mb-2">{title}</h2>
       <p className="text-sm font-light">{subtitle}</p>
       <div className="bg-[#3a5e32] text-[#c7f5b4] text-xs uppercase py-4 px-6 font-semibold">

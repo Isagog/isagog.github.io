@@ -8,6 +8,7 @@ import { getScopedI18n } from "@/packages/locales/server";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../_components/ui/button";
+import { KnowledgeCarousel } from "../_components/custom/knowledge-wrapper";
 
 export default async function Home() {
   const t = await getScopedI18n("home-page.knowledge");
@@ -45,11 +46,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col justify-center items-center relative isolate">
       <Hero />
-      <div className="w-full flex justify-center items-center gap-4 min-h-screen">
-        {data.map((item) => (
-          <KnowledgeCard key={item.title} {...item} />
-        ))}
-      </div>
+      <KnowledgeCarousel data={data} />
       <div className="w-full flex flex-col justify-evenly min-h-screen">
         <NavWithDescriptionSection
           title={tNav("about.title")}

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export const Hero = () => {
-  const t = useScopedI18n("hero");
+  const t = useScopedI18n("home-page.hero");
 
   return (
     <div className="flex flex-col items-center gap-2 justify-center min-h-screen">
@@ -29,6 +29,7 @@ export const Hero = () => {
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.3 }}
+        className="text-center"
       >
         {t("description")}
       </motion.p>

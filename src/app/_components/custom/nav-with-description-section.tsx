@@ -38,14 +38,14 @@ export const NavWithDescriptionSection = ({
         className="flex flex-col gap-4 w-fit ml-12"
       >
         <h1
-          className={`text-4xl ${
+          className={`xl:text-4xl text-lg  ${
             isHovering ? "text-green-200 opacity-50" : "text-[#A8FA87]"
           }`}
         >
           {title}
         </h1>
         <p
-          className={`text-base font-light ${
+          className={`xl:text-base text-sm font-light ${
             isHovering ? "text-green-200 opacity-50" : ""
           }`}
         >
