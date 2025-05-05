@@ -34,7 +34,7 @@ export default async function RootLayout({
         <I18nProviderClient locale={locale}>
           <Providers>
             <Header />
-            <div className="container w-full mx-auto">{children}</div>
+            <div className="w-full sm:w-5/6 lg:w-4/6 mx-auto">{children}</div>
             <Footer />
           </Providers>
         </I18nProviderClient>

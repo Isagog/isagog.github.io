@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import {
-  useScopedI18n,
-  useCurrentLocale,
   useChangeLocale,
+  useCurrentLocale,
+  useScopedI18n,
 } from "@/packages/locales/client";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const languages: {
@@ -35,7 +35,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className=" px-6 py-8 text-xs flex justify-center items-center bg-background">
+    <footer className="container py-4 text-xs mx-auto w-full bg-background">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <nav className="flex flex-col gap-2">
           {navItems.map((item) => (
@@ -49,7 +49,7 @@ export const Footer = () => {
           ))}
         </nav>
         <div>
-          <p>(c) 2024 Isagog Srl</p>
+          <p>(c) {new Date().getFullYear()} Isagog Srl</p>
           <p>Via Faà di Bruno 52</p>
           <p>00195 Roma (IT)</p>
         </div>

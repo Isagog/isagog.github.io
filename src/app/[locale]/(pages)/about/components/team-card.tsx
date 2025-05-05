@@ -1,18 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { useScopedI18n } from "@/packages/locales/client";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-};
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const item = {
   hidden: { opacity: 0, y: 40 },
@@ -48,13 +38,7 @@ export const TeamCard = () => {
     },
   ];
   return (
-    <motion.div
-      className="mt-20"
-      variants={container}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: false, amount: 0.2 }}
-    >
+    <div className="mt-20">
       <ul className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {team.map((member, idx) => (
           <motion.li
@@ -62,13 +46,13 @@ export const TeamCard = () => {
             variants={item}
             className="bg-transparent overflow-hidden transform transition duration-500 hover:scale-105"
           >
-            <div className="relative h-56">
+            <div className="relative h-64">
               <Image
                 src={member.avatar ?? "/placeholder.png"}
                 alt={member.name}
                 width={1000}
                 height={1000}
-                className="absolute h-full w-full object-cover transition duration-300 transform hover:scale-110"
+                className="h-full w-full object-cover transition duration-300 transform hover:scale-110"
               />
             </div>
             <div>
@@ -83,6 +67,6 @@ export const TeamCard = () => {
           </motion.li>
         ))}
       </ul>
-    </motion.div>
+    </div>
   );
 };

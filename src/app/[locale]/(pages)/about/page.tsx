@@ -1,22 +1,32 @@
+import { getScopedI18n } from "@/packages/locales/server";
 import Image from "next/image";
 import {
   Highlight,
+  ServicesSection,
   TeamCard,
   TextAnimate,
-  ServicesSection,
 } from "./components";
-import { getScopedI18n } from "@/packages/locales/server";
 
 const AboutPage = async () => {
   const t = await getScopedI18n("about-page");
   return (
-    <div className="w-3/4 mx-auto flex flex-col gap-4 justify-center items-center ">
-      <Image src="/image/trees.avif" alt="Tree" width={1000} height={1000} />
+    <div className="mx-auto flex flex-col gap-16 justify-center items-center ">
+      <div className="min-h-screen flex justify-center items-center">
+        <Image src="/image/trees.avif" alt="Tree" width={1000} height={1000} />
+      </div>
       <Highlight />
-      <TextAnimate value={t("text-animate.1")} />
-      <TeamCard />
-      <ServicesSection />
-      <TextAnimate value={t("text-animate.2")} />
+      <div className="flex flex-col items-center justify-center gap-16 my-32">
+        <TextAnimate value={t("text-animate.1")} />
+      </div>
+      <div className="flex flex-col items-center justify-center gap-16 my-32">
+        <TeamCard />
+      </div>
+      <div className="flex flex-col items-center justify-center gap-16 my-32">
+        <ServicesSection />
+      </div>
+      <div className="flex flex-col items-center justify-center gap-16 my-32">
+        <TextAnimate value={t("text-animate.2")} />
+      </div>
     </div>
   );
 };
