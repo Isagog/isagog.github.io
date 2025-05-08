@@ -1,9 +1,9 @@
+import { Button } from "@/app/_components/ui/button";
+import { getScopedI18n } from "@/packages/locales/server";
 import Link from "next/link";
 import { ImageWithDescription } from "./components/image-with-description";
-import { Button } from "@/app/_components/ui/button";
 import { ImageWithTitle } from "./components/image-with-title";
 import { TextCarousel } from "./components/text-carousel";
-import { getScopedI18n } from "@/packages/locales/server";
 
 const ServicePage = async () => {
   const tImageWithDescription = await getScopedI18n(
@@ -59,14 +59,18 @@ const ServicePage = async () => {
         </Link>
       </section>
       <ImageWithTitle
-        title={tImageWithTitle("1.title")}
-        imageUrl="/picturesService/mermaid.avif"
-        className="md:ml-36 ml-16 mt-16 md:mt-0 xl:h-[550px] xl:w-full h-[300px] w-[100%] "
+        title="Architettura della piattaforma neuro-simbolica"
+        imageUrl="/picturesService/Arbre.svg"
+        imageDescription={{
+          firstParagraph: " BUSINESS NEEDS",
+          secondParagraph: " KNOWLEDGE ENGINE",
+          thirdParagraph: " KNOWLEDGE EXTRACTION",
+          fourthParagraph: " DATA SOURCE",
+        }}
       />
       <ImageWithTitle
         title={tImageWithTitle("2.title")}
         imageUrl="/picturesService/mermaid-diagrame.avif"
-        className="xl:h-[500px] xl:w-[70%] h-[300px] w-[100%] md:h-[500px]"
       />
       <TextCarousel />
     </div>

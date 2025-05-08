@@ -1,16 +1,21 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export const ImageWithTitle = ({
   title,
   imageUrl,
-  className,
+  imageDescription,
 }: {
   title: string;
-  imageUrl: string;
-  className?: string;
+  imageUrl?: string;
+  imageDescription?: {
+    firstParagraph: string;
+    secondParagraph: string;
+    thirdParagraph?: string;
+    fourthParagraph?: string;
+  };
 }) => {
   return (
     <div className="w-[80%] flex flex-col items-center justify-between gap-8 mt-28">
@@ -23,13 +28,21 @@ export const ImageWithTitle = ({
       >
         {title}
       </motion.h1>
-      <Image
-        src={imageUrl}
-        alt="Mermaid"
-        width={2000}
-        height={1000}
-        className={` ${className}`}
-      />
+      <div className="flex items-center justify-between gap-20">
+        {imageDescription && (
+          <div className="flex flex-col text-nowrap space-y-52 text-end text-[#5aff35] font-sans font-semibold">
+            <p>{imageDescription.firstParagraph}</p>
+            <p>{imageDescription.secondParagraph}</p>
+            {imageDescription.thirdParagraph && (
+              <p>{imageDescription.thirdParagraph}</p>
+            )}
+            {imageDescription.fourthParagraph && (
+              <p>{imageDescription.fourthParagraph}</p>
+            )}
+          </div>
+        )}
+        <Image src={imageUrl!} alt={title} width={1000} height={1000} />
+      </div>
     </div>
   );
 };
