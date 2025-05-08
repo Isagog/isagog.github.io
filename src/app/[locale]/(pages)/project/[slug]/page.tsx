@@ -2,20 +2,21 @@ import { getMdxBySlug } from "@/lib/mdx";
 import Image from "next/image";
 import Link from "next/link";
 
-const BlogPostPage = async ({
+const ProjectPostPage = async ({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) => {
   const { slug } = await params;
-  const post = await getMdxBySlug(slug, "articles");
+
+  const post = await getMdxBySlug(slug, "projects");
 
   if (!post) {
     return (
       <div className="text-center min-h-[70vh] flex items-center flex-col justify-center">
-        <h1 className="text-2xl font-bold">Article not found</h1>
-        <Link href="/blog" className="text-[#86efac]" prefetch>
-          Go back to blog
+        <h1 className="text-2xl font-bold">Project not found</h1>
+        <Link href="/project" className="text-[#86efac]" prefetch>
+          Go back to projects
         </Link>
       </div>
     );
@@ -38,4 +39,4 @@ const BlogPostPage = async ({
   );
 };
 
-export default BlogPostPage;
+export default ProjectPostPage;

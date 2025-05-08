@@ -1,0 +1,13 @@
+[
+  {
+    "title": "Project 1",
+    "description": "Random description",
+    "secondTitle": "Project 12",
+    "value": "800.000 articoli",
+    "sector": "media",
+    "valueName": "archivio storico",
+    "name": "settore",
+    "image": "/ilManifesto.avif",
+    "slug": "project-1"
+  }
+]

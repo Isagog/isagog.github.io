@@ -9,7 +9,7 @@ export const ImageWithTitle = ({
   imageDescription,
 }: {
   title: string;
-  imageUrl?: string;
+  imageUrl: string;
   imageDescription?: {
     firstParagraph: string;
     secondParagraph: string;
@@ -41,7 +41,7 @@ export const ImageWithTitle = ({
             )}
           </div>
         )}
-        <Image src={imageUrl!} alt={title} width={1000} height={1000} />
+        <Image src={imageUrl} alt={title} width={1000} height={1000} />
       </div>
     </div>
   );

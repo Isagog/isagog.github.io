@@ -1,45 +1,24 @@
-import { zGitHubFilesArraySchema } from "@/packages/artciles/article.model";
+import fs from 'fs';
 import { compileMDX } from 'next-mdx-remote/rsc';
-import remarkGfm from "remark-gfm";
+import path from 'path';
+import remarkGfm from 'remark-gfm';
 
-const repoOwner = process.env.GITHUB_REPO_OWNER!;
-const repoName = process.env.GITHUB_REPO_NAME!;
-const folderPath = process.env.GITHUB_FOLDER_PATH!;
-const branch = process.env.GITHUB_BRANCH!;
-const token = process.env.GITHUB_TOKEN!;
 
 export const getAllSlugs = async () => {
-  const githubApiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}?ref=${branch}`;
+  let contentDirectory;
 
-  const response = await fetch(githubApiUrl, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  contentDirectory = path.join(process.cwd(), 'content/articles');
 
-  if (!response.ok) {
-    console.error("GitHub API error:", await response.text());
-    return [];
-  }
-
-  const files = zGitHubFilesArraySchema.parse(await response.json());
+  const files = await fs.promises.readdir(contentDirectory);
 
   const slugsWithMeta = await Promise.all(
     files
-      .filter((file) => file.name.endsWith(".mdx"))
+      .filter(file => file.endsWith('.mdx'))
       .map(async (file) => {
-        const rawUrl = file.download_url;
-
-        if (!rawUrl) {
-          console.error(`No download URL for ${file.name}`);
-          return null;
-        }
-
-        const rawContent = await fetch(rawUrl, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }).then(res => res.text());
+        const rawContent = await fs.promises.readFile(
+          path.join(contentDirectory, file),
+          "utf-8"
+        );
 
         const { frontmatter } = await compileMDX({
           source: rawContent,
@@ -47,7 +26,7 @@ export const getAllSlugs = async () => {
         });
 
         return {
-          slug: file.name.replace(/\.mdx$/, ""),
+          slug: file.replace(/\.mdx$/, ""),
           title: String(frontmatter?.title || ""),
           image: String(frontmatter?.image || "/placeholder.png"),
         };
@@ -57,25 +36,27 @@ export const getAllSlugs = async () => {
   return slugsWithMeta;
 };
 
-export const getMdxBySlug = async (slug: string) => {
-  const rawUrl = `https://raw.githubusercontent.com/${repoOwner}/${repoName}/${branch}/${folderPath}/${slug}.mdx`;
+export const getMdxBySlug = async (slug: string, type: "articles" | "projects") => {
+  let contentDirectory;
+
+  if (type === "articles") {
+    contentDirectory = path.join(process.cwd(), 'content/articles');
+  } else {
+    contentDirectory = path.join(process.cwd(), 'content/projects');
+  }
+  const filePath = path.join(contentDirectory, `${slug}.mdx`);
 
   try {
-    const response = await fetch(rawUrl, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    if (!response.ok) {
-      console.error(`GitHub fetch error for ${slug}:`, await response.text());
-      return null;
-    }
-
-    const rawContent = await response.text();
+    const rawContent = await fs.promises.readFile(filePath, 'utf-8');
 
     const { content, frontmatter } = await compileMDX({
       source: rawContent,
-      options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
+      options: {
+        parseFrontmatter: true,
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
+      },
     });
 
     return {
@@ -84,7 +65,7 @@ export const getMdxBySlug = async (slug: string) => {
       slug,
     };
   } catch (error) {
-    console.error(`Error processing MDX for ${slug}:`, error);
+    console.error(`Error reading MDX file for slug ${slug}:`, error);
     return null;
   }
 };

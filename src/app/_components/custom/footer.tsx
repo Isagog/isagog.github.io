@@ -35,7 +35,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="container py-4 text-xs mx-auto w-full bg-background">
+    <footer className="container py-4 text-xs mx-auto w-[70%] bg-background">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <nav className="flex flex-col gap-2">
           {navItems.map((item) => (
