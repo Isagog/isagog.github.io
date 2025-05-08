@@ -14,24 +14,24 @@ export const BlogCard = ({
   slug: string;
 }) => {
   return (
-    <div className="flex bg-green-700 w-3xl">
-      <div>
+    <div className="flex flex-col sm:flex-row bg-green-700 rounded-lg overflow-hidden w-full max-w-3xl mx-auto shadow-md">
+      <div className="flex-shrink-0">
         <Image
           src={imageUrl}
           alt={title}
           width={200}
           height={200}
-          className="w-44 h-44 object-cover"
+          className="w-full sm:w-44 h-44 object-cover"
         />
       </div>
-      <div className="flex justify-center items-center mx-auto">
+      <div className="flex justify-center items-center p-4 text-center sm:text-left w-full">
         <motion.h1
-          whileHover={{ scale: 1.2 }}
+          whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
           <Link
             href={`/blog/${slug}`}
-            className="text-center text-green-400 text-2xl"
+            className="text-green-200 text-xl sm:text-2xl font-semibold hover:underline"
           >
             {title}
           </Link>

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Check } from "lucide-react";
 import { useScopedI18n } from "@/packages/locales/client";
+import { Check } from "lucide-react";
+import { useState } from "react";
 
 export const TextCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -35,7 +35,7 @@ export const TextCarousel = () => {
   ];
 
   return (
-    <div className="relative xl:w-[50%] w-[100%] xl:h-[450px] md:h-[70vh] h-[100vh] bg-transparent  flex items-center justify-center overflow-hidden">
+    <div className="relative w-[100%] xl:h-[450px] md:h-[70vh] h-[100vh] bg-transparent  flex items-center justify-center overflow-hidden">
       <div className="relative h-full w-full flex items-center justify-center">
         {slides.map((slide, index) => (
           <div

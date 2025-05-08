@@ -1,4 +1,4 @@
-import { ProjectSection } from "./components/project-section";
+import { ProjectSection } from "./_components/project-section";
 
 const ProjectPage = async () => {
   return (

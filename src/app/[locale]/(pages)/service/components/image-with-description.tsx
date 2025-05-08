@@ -21,7 +21,7 @@ export const ImageWithDescription = ({
 }) => {
   return (
     <div
-      className={`xl:w-[80%] w-[90%] mx-auto flex flex-col md:flex-row justify-between items-center mb-16 gap-8 ${className} ${
+      className={` flex flex-col md:flex-row justify-between items-center mb-16 gap-8 ${className} ${
         imagePosition === "right" ? "md:flex-row-reverse" : ""
       }`}
     >

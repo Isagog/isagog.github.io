@@ -1,5 +1,4 @@
 import { getMdxBySlug } from "@/lib/mdx";
-import Image from "next/image";
 import Link from "next/link";
 
 const ProjectPostPage = async ({
@@ -24,16 +23,6 @@ const ProjectPostPage = async ({
 
   return (
     <article className="prose max-w-4xl mx-auto space-y-4">
-      <h1 className="text-2xl font-bold text-center font-sans">
-        {post.frontmatter.title as string}
-      </h1>
-      <Image
-        src={post.frontmatter.image as string}
-        alt={post.frontmatter.title as string}
-        width={1000}
-        height={1000}
-        className="w-auto mx-auto h-[75vh] object-contain rounded-3xl"
-      />
       {post.content}
     </article>
   );

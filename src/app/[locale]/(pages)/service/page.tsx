@@ -11,6 +11,7 @@ const ServicePage = async () => {
   );
   const tImageWithTitle = await getScopedI18n("service-page.image-with-title");
   const tWhyUs = await getScopedI18n("service-page.why-us");
+
   return (
     <div className="flex items-center flex-col gap-8 justify-center">
       <ImageWithDescription
@@ -61,12 +62,6 @@ const ServicePage = async () => {
       <ImageWithTitle
         title="Architettura della piattaforma neuro-simbolica"
         imageUrl="/picturesService/Arbre.svg"
-        imageDescription={{
-          firstParagraph: " BUSINESS NEEDS",
-          secondParagraph: " KNOWLEDGE ENGINE",
-          thirdParagraph: " KNOWLEDGE EXTRACTION",
-          fourthParagraph: " DATA SOURCE",
-        }}
       />
       <ImageWithTitle
         title={tImageWithTitle("2.title")}
