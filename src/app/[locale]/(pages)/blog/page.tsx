@@ -1,19 +1,26 @@
-import { BlogCard } from "./components/blog-card";
+import { getAllSlugs } from "@/lib/mdx";
+import { BlogCard } from "./_components/blog-card";
 
-const BlogPage = () => {
+const BlogPage = async () => {
+  const slugs = await getAllSlugs();
+
+  console.log(slugs);
+
   return (
-    <div className="flex justify-center flex-col items-center gap-4">
-      <BlogCard
-        title="Il linguaggio non è algebra"
-        imageUrl="/placeholder.png"
-      />
-      <BlogCard title="Linguaggio e conoscenza" imageUrl="/placeholder.png" />
-      <BlogCard
-        title="Il problema delle allucinazioni"
-        imageUrl="/placeholder.png"
-      />
-      <BlogCard title="La recerca aumentata" imageUrl="/placeholder.png" />
+    <div className="flex justify-center min-h-[70vh] flex-col items-center gap-4">
+      {slugs.map(
+        (item) =>
+          item && (
+            <BlogCard
+              key={item.slug}
+              title={item.title}
+              imageUrl={item.image}
+              slug={item.slug}
+            />
+          )
+      )}
     </div>
   );
 };
+
 export default BlogPage;

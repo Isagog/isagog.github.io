@@ -1,23 +1,21 @@
+import createMDX from "@next/mdx";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack(config) {
-    // Exclude SVGs from Next's default asset loader
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.(".svg")
-    );
-    if (fileLoaderRule) {
-      fileLoaderRule.exclude = /\.svg$/i;
-    }
-
-    // Add SVGR support
-    config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ["@svgr/webpack"],
-    });
-
-    return config;
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        pathname: "/**",
+      },
+    ],
   },
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+});
+
+export default withMDX(nextConfig);
