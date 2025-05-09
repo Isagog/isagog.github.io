@@ -3,7 +3,8 @@
 import { cn } from "@/lib/utils";
 import { Spectral } from "next/font/google";
 import { usePathname } from "next/navigation";
-import { ReactNode, useEffect, useState } from "react";
+import type { ReactNode } from "react";
+import { useEffect, useState } from "react";
 
 const inter = Spectral({
   weight: "200",
