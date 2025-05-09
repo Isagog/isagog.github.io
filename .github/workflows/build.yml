@@ -1,4 +1,4 @@
-name: Build Frontend
+name: Build Website Image
 on:
   workflow_call:
     inputs:
@@ -8,13 +8,15 @@ on:
         description: "Environment (dev, staging, prod)"
 
 env:
-  IMAGE: isagog-website:${{ inputs.env || 'dev'}}-${{ github.sha }}
-  # ENV_FILE: .env.${{ inputs.env || 'dev'}}
+  IMAGE: isagog-website:${{ inputs.env }}-${{ github.sha }}
 
 jobs:
   build:
     runs-on: self-hosted
     environment: ${{ inputs.env }}
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,13 +27,12 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            --build-arg BUILD_ENV=${{ inputs.env || 'dev'}} \
+            --target runner \
             -t $IMAGE \
-            -f Dockerfile .
+            .
 
       - name: Save image details
-        run: |
-          echo "MEMA_FRONTEND_IMAGE=$IMAGE" > image.env
+        run: echo "WEBSITE_IMAGE=$IMAGE" > image.env
 
       - name: Upload image details
         uses: actions/upload-artifact@v4

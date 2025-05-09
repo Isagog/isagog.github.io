@@ -2,8 +2,6 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [master, develop]
-  # pull_request:
-  #   branches: [main, develop]
   workflow_dispatch:
     inputs:
       env:
@@ -27,10 +25,10 @@ jobs:
     needs: lint-and-format
     uses: ./.github/workflows/build.yml
     with:
-      env: ${{ github.ref == 'refs/heads/main' && 'prod' || (github.ref == 'refs/heads/develop' && 'dev') || 'dev' }}
+      env: ${{ github.ref == 'refs/heads/master' && 'prod' || (github.ref == 'refs/heads/develop' && 'dev') || 'dev' }}
 
   deploy:
     needs: build
     uses: ./.github/workflows/deploy.yml
     with:
-      env: ${{ github.ref == 'refs/heads/main' && 'prod' || (github.ref == 'refs/heads/develop' && 'dev') || 'dev' }}
+      env: ${{ github.ref == 'refs/heads/master' && 'prod' || (github.ref == 'refs/heads/develop' && 'dev') || 'dev' }}
