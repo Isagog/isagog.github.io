@@ -13,7 +13,7 @@ export const AnimateImage = () => {
       className="h-72 flex justify-center items-center"
     >
       <Image
-        src="/image/tree.avif"
+        src="/images/tree.avif"
         alt="Your Image"
         className="w-72 h-72"
         width={1000}

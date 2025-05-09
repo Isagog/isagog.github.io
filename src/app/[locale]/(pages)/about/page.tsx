@@ -12,7 +12,7 @@ const AboutPage = async () => {
   return (
     <div className="mx-[10%] flex flex-col gap-16 justify-center items-center ">
       <div className="min-h-screen flex justify-center items-center">
-        <Image src="/image/trees.avif" alt="Tree" width={1000} height={1000} />
+        <Image src="/images/trees.avif" alt="Tree" width={1000} height={1000} />
       </div>
       <Highlight />
       <div className="flex flex-col items-center justify-center gap-16 my-32">

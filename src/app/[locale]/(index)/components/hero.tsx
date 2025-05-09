@@ -9,7 +9,7 @@ export const Hero = () => {
   return (
     <div className="flex flex-col items-center gap-2 justify-center min-h-screen">
       <Image
-        src="/image/tree.avif"
+        src="/images/tree.avif"
         alt="Tree"
         width={1000}
         height={1000}

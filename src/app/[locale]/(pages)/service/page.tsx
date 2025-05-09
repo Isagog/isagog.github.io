@@ -19,7 +19,7 @@ const ServicePage = async () => {
         firstParagraph={tImageWithDescription("1.firstParagraph")}
         secondParagraph={tImageWithDescription("1.secondParagraph")}
         thirdParagraph={tImageWithDescription("1.thirdParagraph")}
-        imageUrl="/picturesService/tree.avif"
+        imageUrl="/images/service-images/tree.avif"
         imgClassName="w-1/2 h-80 object-contain"
         className="mt-16"
       />
@@ -28,14 +28,14 @@ const ServicePage = async () => {
         firstParagraph={tImageWithDescription("2.firstParagraph")}
         secondParagraph={tImageWithDescription("2.secondParagraph")}
         imagePosition="right"
-        imageUrl="/picturesService/fruits.avif"
+        imageUrl="/images/service-images/fruits.avif"
       />
       <ImageWithDescription
         title={tImageWithDescription("3.title")}
         firstParagraph={tImageWithDescription("3.firstParagraph")}
         secondParagraph={tImageWithDescription("3.secondParagraph")}
         thirdParagraph={tImageWithDescription("3.thirdParagraph")}
-        imageUrl="/picturesService/lolipop.avif"
+        imageUrl="/images/service-images/lolipop.avif"
         imgClassName="h-44 object-contain"
       />
       <ImageWithDescription
@@ -44,7 +44,7 @@ const ServicePage = async () => {
         secondParagraph={tImageWithDescription("4.secondParagraph")}
         thirdParagraph={tImageWithDescription("4.thirdParagraph")}
         imagePosition="right"
-        imageUrl="/picturesService/mogul.avif"
+        imageUrl="/images/service-images/mogul.avif"
         imgClassName="h-64 object-contain"
       />
       <section className="flex flex-col items-center mx-[10%] space-y-16  justify-center h-[450px]">
@@ -65,7 +65,7 @@ const ServicePage = async () => {
       />
       <ImageWithTitle
         title={tImageWithTitle("2.title")}
-        imageUrl="/images/picturesService/mermaid-diagrame.avif"
+        imageUrl="/images/service-images/mermaid-diagrame.avif"
       />
       <TextCarousel />
     </div>
