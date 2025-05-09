@@ -1,4 +1,5 @@
 import MarkdownToJSX from "markdown-to-jsx";
+import Image from "next/image";
 
 interface MarkdownRendererProps {
   content: string;
@@ -36,7 +37,11 @@ export const MarkdownRenderer = ({
           img: {
             component: ({ ...props }) => (
               <div className="flex justify-center my-6">
-                <img {...props} className={imageClassName} />
+                <Image
+                  {...props}
+                  className={imageClassName}
+                  alt="article-image"
+                />
               </div>
             ),
           },
