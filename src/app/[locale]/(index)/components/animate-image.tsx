@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export const AnimateImage = () => {
   return (
@@ -10,7 +10,7 @@ export const AnimateImage = () => {
       whileInView={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: false, amount: 0.3 }}
-      className="h-screen flex justify-center items-center"
+      className="h-72 flex justify-center items-center"
     >
       <Image
         src="/image/tree.avif"

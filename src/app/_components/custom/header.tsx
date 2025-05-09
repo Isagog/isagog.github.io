@@ -6,6 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/app/_components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 import { useScopedI18n } from "@/packages/locales/client";
 import { Menu } from "lucide-react";
 import Image from "next/image";
@@ -15,6 +16,7 @@ import { usePathname } from "next/navigation";
 export const Header = () => {
   const t = useScopedI18n("header");
   const pathname = usePathname();
+  const isProject = pathname.startsWith("/project");
 
   const navItems = [
     { href: "/about", label: t("about") },
@@ -25,7 +27,12 @@ export const Header = () => {
   ];
 
   return (
-    <header className="flex fixed top-0 z-50 w-full items-center border-b border-border bg-background">
+    <header
+      className={cn(
+        "flex fixed top-0 z-50 w-full items-center border-b border-border",
+        isProject ? "bg-white" : "bg-background"
+      )}
+    >
       <div className="flex h-18 w-full items-center justify-between gap-2 px-4">
         <div className="flex items-center gap-2">
           <Link href="/" prefetch className="text-2xl font-sans">

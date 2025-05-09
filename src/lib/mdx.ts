@@ -1,7 +1,7 @@
 import fs from "fs";
+import matter from "gray-matter";
 import { compileMDX } from "next-mdx-remote/rsc";
 import path from "path";
-import remarkGfm from "remark-gfm";
 
 export const getAllSlugs = async () => {
   const contentDirectory = path.join(process.cwd(), "content/articles");
@@ -48,16 +48,7 @@ export const getMdxBySlug = async (
 
   try {
     const rawContent = await fs.promises.readFile(filePath, "utf-8");
-
-    const { content, frontmatter } = await compileMDX({
-      source: rawContent,
-      options: {
-        parseFrontmatter: true,
-        mdxOptions: {
-          remarkPlugins: [remarkGfm],
-        },
-      },
-    });
+    const { content, data: frontmatter } = matter(rawContent);
 
     return {
       content,
@@ -65,7 +56,7 @@ export const getMdxBySlug = async (
       slug,
     };
   } catch (error) {
-    console.error(`Error reading MDX file for slug ${slug}:`, error);
+    console.error(`Error reading MDX file for slug "${slug}":`, error);
     return null;
   }
 };

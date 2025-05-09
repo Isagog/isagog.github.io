@@ -1,15 +1,15 @@
+import { Button } from "@/app/_components/ui/button";
+import { getScopedI18n } from "@/packages/locales/server";
+import Link from "next/link";
 import {
+  AnimateImage,
   Hero,
   Highlight,
+  KnowledgeCarousel,
   NavWithDescriptionSection,
-} from "@/app/_components/custom";
-import { getScopedI18n } from "@/packages/locales/server";
-import Image from "next/image";
-import Link from "next/link";
-import { KnowledgeCarousel } from "../_components/custom/knowledge-wrapper";
-import { Button } from "../_components/ui/button";
+} from "./components";
 
-export default async function Home() {
+const HomePage = async () => {
   const t = await getScopedI18n("home-page.knowledge");
   const tNav = await getScopedI18n("home-page.navigation");
   const tTextSection = await getScopedI18n("home-page.text-section");
@@ -68,10 +68,10 @@ export default async function Home() {
           href="/blog"
         />
       </div>
-      <section
+      <div
         className="relative w-full bg-[#3a5e32] bg-cover bg-center text-center text-[#86efac] py-24 px-6 mt-12"
         style={{
-          backgroundImage: "url('/image/tree.avif')",
+          backgroundImage: "url('/images/tree.avif')",
           backgroundBlendMode: "multiply",
         }}
       >
@@ -95,15 +95,11 @@ export default async function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </div>
       <Highlight />
-      <Image
-        src="/image/tree.avif"
-        alt="Tree"
-        width={1000}
-        height={1000}
-        className="w-48 h-48 mb-8"
-      />
+      <AnimateImage />
     </main>
   );
-}
+};
+
+export default HomePage;

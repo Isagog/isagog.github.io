@@ -61,11 +61,11 @@ const ServicePage = async () => {
       </section>
       <ImageWithTitle
         title="Architettura della piattaforma neuro-simbolica"
-        imageUrl="/picturesService/Arbre.svg"
+        imageUrl="/images/picturesService/Arbre.svg"
       />
       <ImageWithTitle
         title={tImageWithTitle("2.title")}
-        imageUrl="/picturesService/mermaid-diagrame.avif"
+        imageUrl="/images/picturesService/mermaid-diagrame.avif"
       />
       <TextCarousel />
     </div>

@@ -2,22 +2,16 @@ import { Footer, Header } from "@/app/_components/custom";
 import { Providers } from "@/app/_components/providers";
 import { I18nProviderClient } from "@/packages/locales/client";
 import type { Metadata } from "next";
-import { Spectral } from "next/font/google";
 import type { ReactNode } from "react";
 
-import { cn } from "../../lib/utils";
+import { BodyWrapper } from "@/app/_components/custom/body-wrapper";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "JStack App",
-  description: "Created using JStack",
+  title: "ISAGOG",
+  description: "",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
-
-const inter = Spectral({
-  weight: "200",
-  subsets: ["latin"],
-});
 
 export default async function RootLayout({
   children,
@@ -30,15 +24,15 @@ export default async function RootLayout({
 
   return (
     <html lang={locale ?? "it"}>
-      <body className={cn("antialiased bg-background pt-22", inter.className)}>
-        <I18nProviderClient locale={locale}>
-          <Providers>
+      <I18nProviderClient locale={locale}>
+        <Providers>
+          <BodyWrapper>
             <Header />
             <div className="w-full sm:w-5/6 lg:w-4/6 mx-auto">{children}</div>
             <Footer />
-          </Providers>
-        </I18nProviderClient>
-      </body>
+          </BodyWrapper>
+        </Providers>
+      </I18nProviderClient>
     </html>
   );
 }
