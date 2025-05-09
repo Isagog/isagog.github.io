@@ -33,7 +33,13 @@ export const MarkdownRenderer = ({
                 "border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-4",
             },
           },
-          img: { props: { className: imageClassName } },
+          img: {
+            component: ({ ...props }) => (
+              <div className="flex justify-center my-6">
+                <img {...props} className={imageClassName} />
+              </div>
+            ),
+          },
           code: {
             props: {
               className: "bg-gray-100 text-sm px-1 py-0.5 rounded font-mono",

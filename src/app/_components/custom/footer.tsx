@@ -11,10 +11,9 @@ import { usePathname } from "next/navigation";
 const languages: {
   code: "en" | "it";
   name: string;
-  flag: string;
 }[] = [
-  { code: "it", name: "Italiano", flag: "🇮🇹" },
-  { code: "en", name: "English", flag: "🇬🇧" },
+  { code: "it", name: "Italiano" },
+  { code: "en", name: "English" },
 ];
 
 export const Footer = () => {
@@ -35,7 +34,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="container w-[70%] mx-auto py-4 text-xs">
+    <footer className="container w-[70%] mx-auto py-4 text-xs mt-24">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <nav className="flex flex-col gap-2">
           {navItems.map((item) => (
@@ -76,7 +75,6 @@ export const Footer = () => {
                   : ""
               }`}
             >
-              <span>{lang.flag}</span>
               <span>{lang.name}</span>
             </button>
           ))}

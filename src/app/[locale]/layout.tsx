@@ -28,7 +28,7 @@ export default async function RootLayout({
         <Providers>
           <BodyWrapper>
             <Header />
-            <div className="w-full sm:w-5/6 lg:w-4/6 mx-auto">{children}</div>
+            {children}
             <Footer />
           </BodyWrapper>
         </Providers>

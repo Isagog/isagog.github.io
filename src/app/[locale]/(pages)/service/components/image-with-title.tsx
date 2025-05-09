@@ -11,7 +11,7 @@ export const ImageWithTitle = ({
   imageUrl: string;
 }) => {
   return (
-    <div className="w-[80%] flex flex-col items-center justify-center gap-8 mt-28">
+    <div className="flex flex-col items-center justify-center gap-8 mt-28">
       <motion.h1
         initial={{ scale: 0.8, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}

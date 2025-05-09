@@ -13,25 +13,25 @@ export const TeamCard = () => {
   const t = useScopedI18n("about-page.team");
   const team = [
     {
-      avatar: "/teamPictures/Guido.avif",
+      avatar: "/images/team-images/Guido.avif",
       name: "Guido Vetere",
       title: t("1.title"),
       desc: t("1.desc"),
     },
     {
-      avatar: "/teamPictures/Robert.avif",
+      avatar: "/images/team-images/Robert.avif",
       name: "Rober J. Alexander",
       title: t("2.title"),
       desc: t("2.desc"),
     },
     {
-      avatar: "/teamPictures/David.avif",
+      avatar: "/images/team-images/David.avif",
       name: "David Valente",
       title: t("3.title"),
       desc: t("3.desc"),
     },
     {
-      avatar: "/teamPictures/Lucas.avif",
+      avatar: "/images/team-images/Lucas.avif",
       name: "Luca De Biase",
       title: "",
       desc: t("4.desc"),

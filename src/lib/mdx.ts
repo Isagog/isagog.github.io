@@ -1,37 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
-import { compileMDX } from "next-mdx-remote/rsc";
 import path from "path";
-
-export const getAllSlugs = async () => {
-  const contentDirectory = path.join(process.cwd(), "content/articles");
-
-  const files = await fs.promises.readdir(contentDirectory);
-
-  const slugsWithMeta = await Promise.all(
-    files
-      .filter((file) => file.endsWith(".mdx"))
-      .map(async (file) => {
-        const rawContent = await fs.promises.readFile(
-          path.join(contentDirectory, file),
-          "utf-8"
-        );
-
-        const { frontmatter } = await compileMDX({
-          source: rawContent,
-          options: { parseFrontmatter: true },
-        });
-
-        return {
-          slug: file.replace(/\.mdx$/, ""),
-          title: String(frontmatter?.title || ""),
-          image: String(frontmatter?.image || "/placeholder.png"),
-        };
-      })
-  );
-
-  return slugsWithMeta;
-};
 
 export const getMdxBySlug = async (
   slug: string,
@@ -44,6 +13,7 @@ export const getMdxBySlug = async (
   } else {
     contentDirectory = path.join(process.cwd(), "content/projects");
   }
+
   const filePath = path.join(contentDirectory, `${slug}.mdx`);
 
   try {

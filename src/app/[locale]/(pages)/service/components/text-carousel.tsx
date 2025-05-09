@@ -36,7 +36,7 @@ export const TextCarousel = () => {
 
   return (
     <div className="relative w-[100%] xl:h-[450px] md:h-[70vh] h-[100vh] bg-transparent  flex items-center justify-center overflow-hidden">
-      <div className="relative h-full w-full flex items-center justify-center">
+      <div className="relative h-full w-full mx-[10%] flex items-center justify-center">
         {slides.map((slide, index) => (
           <div
             key={index}

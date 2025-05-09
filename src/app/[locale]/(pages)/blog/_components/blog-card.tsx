@@ -1,42 +1,53 @@
 "use client";
 
+import { Skeleton } from "@/app/_components/ui/skeleton";
+import { fetchArticles } from "@/packages/action/articles/article.action";
+import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-export const BlogCard = ({
-  title,
-  imageUrl,
-  slug,
-}: {
-  title: string;
-  imageUrl: string;
-  slug: string;
-}) => {
+export const BlogCard = () => {
+  const { data: articles, isLoading } = useQuery({
+    queryKey: ["articles"],
+    queryFn: fetchArticles,
+  });
+
   return (
-    <div className="flex flex-col sm:flex-row bg-green-700 rounded-lg overflow-hidden w-full max-w-3xl mx-auto shadow-md">
-      <div className="flex-shrink-0">
-        <Image
-          src={imageUrl}
-          alt={title}
-          width={200}
-          height={200}
-          className="w-full sm:w-44 h-44 object-cover"
-        />
-      </div>
-      <div className="flex justify-center items-center p-4 text-center sm:text-left w-full">
-        <motion.h1
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
+    <>
+      {articles?.map((article) => (
+        <div
+          key={article.slug}
+          className="flex flex-col sm:flex-row bg-green-700 rounded-lg overflow-hidden w-full max-w-3xl mx-auto shadow-md"
         >
-          <Link
-            href={`/blog/${slug}`}
-            className="text-green-200 text-xl sm:text-2xl font-semibold hover:underline"
-          >
-            {title}
-          </Link>
-        </motion.h1>
-      </div>
-    </div>
+          <div className="flex-shrink-0">
+            <Image
+              src={isLoading ? "/images/blog-placeholder.avif" : article.image}
+              alt={article.title}
+              width={200}
+              height={200}
+              className="w-full sm:w-44 h-44 object-cover"
+            />
+          </div>
+          <div className="flex justify-center items-center p-4 text-center sm:text-left w-full">
+            <motion.h1
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              {isLoading ? (
+                <Skeleton className="h-6 w-3/4" />
+              ) : (
+                <Link
+                  href={`/blog/${article.slug}`}
+                  className="text-green-200 text-xl sm:text-2xl font-semibold hover:underline"
+                >
+                  {article.title}
+                </Link>
+              )}
+            </motion.h1>
+          </div>
+        </div>
+      ))}
+    </>
   );
 };

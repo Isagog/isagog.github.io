@@ -47,7 +47,7 @@ const ServicePage = async () => {
         imageUrl="/picturesService/mogul.avif"
         imgClassName="h-64 object-contain"
       />
-      <section className="flex flex-col items-center space-y-16  justify-center h-[450px]">
+      <section className="flex flex-col items-center mx-[10%] space-y-16  justify-center h-[450px]">
         <h2 className="text-2xl font-sans font-normal">{tWhyUs("title")}</h2>
         <p className="text-center text-2xl">{tWhyUs("description")}</p>
         <Link href="https://cal.com/isagog" target="_blank" prefetch>
@@ -61,7 +61,7 @@ const ServicePage = async () => {
       </section>
       <ImageWithTitle
         title="Architettura della piattaforma neuro-simbolica"
-        imageUrl="/images/picturesService/Arbre.svg"
+        imageUrl="/images/service-images/mermaid-graph.svg"
       />
       <ImageWithTitle
         title={tImageWithTitle("2.title")}

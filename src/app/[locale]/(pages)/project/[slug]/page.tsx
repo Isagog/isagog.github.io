@@ -23,7 +23,7 @@ const ProjectPostPage = async ({
   }
 
   return (
-    <div className="bg-white">
+    <div className="mx-[10%]">
       <MarkdownRenderer content={post.content} />
     </div>
   );

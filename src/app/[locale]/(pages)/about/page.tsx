@@ -10,7 +10,7 @@ import {
 const AboutPage = async () => {
   const t = await getScopedI18n("about-page");
   return (
-    <div className="mx-auto flex flex-col gap-16 justify-center items-center ">
+    <div className="mx-[10%] flex flex-col gap-16 justify-center items-center ">
       <div className="min-h-screen flex justify-center items-center">
         <Image src="/image/trees.avif" alt="Tree" width={1000} height={1000} />
       </div>

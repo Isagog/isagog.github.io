@@ -16,7 +16,7 @@ export default {
   },
   "home-page": {
     hero: {
-      title: "Ai che ha senso",
+      title: "AI che ha senso",
       description: "Costruiamo tecnologie neuro-simboliche aperte per analizzare grandi quantità di dati, estrarre significati e progettare con consapevolezza il futuro",
     },
     "knowledge": {
@@ -44,7 +44,7 @@ export default {
       },
       solution: {
         title: "Servizie e soluzioni",
-        description: "Grazie a una piattaforma innovita, realliziamo infrastrutture che danno forma e senso ai dati, lungo tutto il loro ciclo di vita"
+        description: "Grazie a una piattaforma innovita, realliziamo infrastrutture che danno forma e senso AI dati, lungo tutto il loro ciclo di vita"
       },
       project: {
         title: "Progetti",
@@ -245,7 +245,7 @@ export default {
         points: {
           "1": "Risparmi il tuo tempo.",
           "2": "Ottieni risposte immediate e verificabili. Nel formato che preferisci.",
-          "3": "Offri ai tuoi utenti un’esperienza coinvolgente: metti a loro disposizione informazioni mirate e approfondisci la conoscenza dei loro interessi.",
+          "3": "Offri AI tuoi utenti un’esperienza coinvolgente: metti a loro disposizione informazioni mirate e approfondisci la conoscenza dei loro interessi.",
         },
       }
     }

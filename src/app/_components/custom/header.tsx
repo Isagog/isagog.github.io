@@ -13,10 +13,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const whitePages = ["/project", "/blog/"];
+
 export const Header = () => {
   const t = useScopedI18n("header");
   const pathname = usePathname();
-  const isProject = pathname.startsWith("/project");
+  const isWhitePage = whitePages.some(
+    (page) => pathname.startsWith(page) && pathname !== "/blog"
+  );
 
   const navItems = [
     { href: "/about", label: t("about") },
@@ -30,21 +34,19 @@ export const Header = () => {
     <header
       className={cn(
         "flex fixed top-0 z-50 w-full items-center border-b border-border",
-        isProject ? "bg-white" : "bg-background"
+        isWhitePage ? "bg-white" : "bg-background"
       )}
     >
-      <div className="flex h-18 w-full items-center justify-between gap-2 px-4">
-        <div className="flex items-center gap-2">
-          <Link href="/" prefetch className="text-2xl font-sans">
-            <Image
-              src="/logo.svg"
-              alt="logo"
-              width={300}
-              height={200}
-              className="w-48 h-48"
-            />
-          </Link>
-        </div>
+      <div className="flex w-full items-center justify-between gap-2 px-8 py-4">
+        <Link href="/" prefetch>
+          <Image
+            src="/logo-new.png"
+            alt="logo isagog"
+            width={300}
+            height={200}
+            className="-ml-16"
+          />
+        </Link>
         <nav className="hidden md:flex items-center gap-4">
           {navItems.map((item) => {
             const isActive = pathname === item.href;

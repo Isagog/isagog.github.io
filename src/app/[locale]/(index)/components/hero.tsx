@@ -15,24 +15,16 @@ export const Hero = () => {
         height={1000}
         className="w-48 h-48 mb-8"
       />
-      <motion.h1
+      <h1 className="text-7xl text-center text-primary">{t("title")}</h1>
+      <motion.span
         initial={{ scale: 0.8, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.3 }}
-        className="text-7xl text-center text-primary"
-      >
-        {t("title")}
-      </motion.h1>
-      <motion.p
-        initial={{ scale: 0.8, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.3 }}
-        className="text-center"
+        className="text-center font-semibold w-2/3"
       >
         {t("description")}
-      </motion.p>
+      </motion.span>
     </div>
   );
 };
