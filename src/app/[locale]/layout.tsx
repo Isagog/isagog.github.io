@@ -3,7 +3,7 @@ import { Providers } from "@/app/_components/providers";
 import { I18nProviderClient } from "@/packages/locales/client";
 import type { Metadata } from "next";
 import { Spectral } from "next/font/google";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { cn } from "../../lib/utils";
 import "../globals.css";

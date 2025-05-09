@@ -1,14 +1,13 @@
 import {
   Hero,
   Highlight,
-  KnowledgeCard,
   NavWithDescriptionSection,
 } from "@/app/_components/custom";
 import { getScopedI18n } from "@/packages/locales/server";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../_components/ui/button";
 import { KnowledgeCarousel } from "../_components/custom/knowledge-wrapper";
+import { Button } from "../_components/ui/button";
 
 export default async function Home() {
   const t = await getScopedI18n("home-page.knowledge");

@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    restart: unless-stopped
+    ports:
+      - "10003:3000" # Host:Container, expose Next.js production server
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOSTNAME: "0.0.0.0"

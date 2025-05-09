@@ -7,19 +7,10 @@ import {
   DropdownMenuTrigger,
 } from "@/app/_components/ui/dropdown-menu";
 import { useScopedI18n } from "@/packages/locales/client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import Image from "next/image";
-
-const languages: {
-  code: "en" | "it";
-  name: string;
-  flag: string;
-}[] = [
-  { code: "en", name: "English", flag: "🇬🇧" },
-  { code: "it", name: "Italiano", flag: "🇮🇹" },
-];
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
   const t = useScopedI18n("header");

@@ -1,0 +1,41 @@
+name: Build Frontend
+on:
+  workflow_call:
+    inputs:
+      env:
+        required: true
+        type: string
+        description: "Environment (dev, staging, prod)"
+
+env:
+  IMAGE: isagog-website:${{ inputs.env || 'dev'}}-${{ github.sha }}
+  # ENV_FILE: .env.${{ inputs.env || 'dev'}}
+
+jobs:
+  build:
+    runs-on: self-hosted
+    environment: ${{ inputs.env }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            --build-arg BUILD_ENV=${{ inputs.env || 'dev'}} \
+            -t $IMAGE \
+            -f Dockerfile .
+
+      - name: Save image details
+        run: |
+          echo "MEMA_FRONTEND_IMAGE=$IMAGE" > image.env
+
+      - name: Upload image details
+        uses: actions/upload-artifact@v4
+        with:
+          name: image-details
+          path: image.env
+          retention-days: 1

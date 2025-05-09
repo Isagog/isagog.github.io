@@ -1,0 +1,36 @@
+name: CI/CD Pipeline
+on:
+  push:
+    branches: [main, develop]
+  # pull_request:
+  #   branches: [main, develop]
+  workflow_dispatch:
+    inputs:
+      env:
+        type: choice
+        description: "Environment to deploy to"
+        required: true
+        default: "dev"
+        options:
+          - dev
+          - staging
+          - prod
+
+jobs:
+  lint-and-format:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+  build:
+    needs: lint-and-format
+    uses: ./.github/workflows/build.yml
+    with:
+      env: ${{ github.ref == 'refs/heads/main' && 'prod' || (github.ref == 'refs/heads/develop' && 'dev') || 'dev' }}
+
+  deploy:
+    needs: build
+    uses: ./.github/workflows/deploy.yml
+    with:
+      env: ${{ github.ref == 'refs/heads/main' && 'prod' || (github.ref == 'refs/heads/develop' && 'dev') || 'dev' }}

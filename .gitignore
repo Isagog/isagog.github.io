@@ -86,7 +86,7 @@ next-env.d.ts
 .tern-port
 
 # Env files
-.env
+# .env
 .env.local
 .env*.local
 .env.development.local

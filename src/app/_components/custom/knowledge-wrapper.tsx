@@ -1,6 +1,7 @@
 "use client";
 import { useRef } from "react";
-import { KnowledgeCard, KnowledgeCardProps } from "./card-knowledge";
+import type { KnowledgeCardProps } from "./card-knowledge";
+import { KnowledgeCard } from "./card-knowledge";
 import { Button } from "../ui/button";
 
 type KnowledgeCarouselProps = {

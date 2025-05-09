@@ -1,4 +1,5 @@
-import { ProjectType, zProjectsSchema } from "./project.model";
+import type { ProjectType } from "./project.model";
+import { zProjectsSchema } from "./project.model";
 
 export const fetchProjects = async (): Promise<ProjectType[]> => {
   const res = await fetch("/projects-data/list.json");
@@ -9,9 +10,8 @@ export const fetchProjects = async (): Promise<ProjectType[]> => {
 
   const parsed = zProjectsSchema.safeParse(json);
   if (!parsed.success) {
-    console.error(parsed.error.format());
     throw new Error("Invalid project data format");
   }
 
   return parsed.data;
-}
+};

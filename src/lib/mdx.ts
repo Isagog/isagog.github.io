@@ -1,19 +1,16 @@
-import fs from 'fs';
-import { compileMDX } from 'next-mdx-remote/rsc';
-import path from 'path';
-import remarkGfm from 'remark-gfm';
-
+import fs from "fs";
+import { compileMDX } from "next-mdx-remote/rsc";
+import path from "path";
+import remarkGfm from "remark-gfm";
 
 export const getAllSlugs = async () => {
-  let contentDirectory;
-
-  contentDirectory = path.join(process.cwd(), 'content/articles');
+  const contentDirectory = path.join(process.cwd(), "content/articles");
 
   const files = await fs.promises.readdir(contentDirectory);
 
   const slugsWithMeta = await Promise.all(
     files
-      .filter(file => file.endsWith('.mdx'))
+      .filter((file) => file.endsWith(".mdx"))
       .map(async (file) => {
         const rawContent = await fs.promises.readFile(
           path.join(contentDirectory, file),
@@ -36,18 +33,21 @@ export const getAllSlugs = async () => {
   return slugsWithMeta;
 };
 
-export const getMdxBySlug = async (slug: string, type: "articles" | "projects") => {
+export const getMdxBySlug = async (
+  slug: string,
+  type: "articles" | "projects"
+) => {
   let contentDirectory;
 
   if (type === "articles") {
-    contentDirectory = path.join(process.cwd(), 'content/articles');
+    contentDirectory = path.join(process.cwd(), "content/articles");
   } else {
-    contentDirectory = path.join(process.cwd(), 'content/projects');
+    contentDirectory = path.join(process.cwd(), "content/projects");
   }
   const filePath = path.join(contentDirectory, `${slug}.mdx`);
 
   try {
-    const rawContent = await fs.promises.readFile(filePath, 'utf-8');
+    const rawContent = await fs.promises.readFile(filePath, "utf-8");
 
     const { content, frontmatter } = await compileMDX({
       source: rawContent,

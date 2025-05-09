@@ -3,7 +3,7 @@
 import { useScopedI18n } from "@/packages/locales/client";
 import Link from "next/link";
 
-export const WorkWithUsPage = () => {
+const WorkWithUsPage = () => {
   const t = useScopedI18n("work-with-us-page");
   return (
     <div className="flex items-center justify-center h-[80vh]">
