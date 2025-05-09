@@ -25,7 +25,7 @@ jobs:
 
       - name: Create compose override
         run: |
-          cat > docker-compose.override.yaml <<EOF
+          cat > docker-compose.override.yml <<EOF
           services:
             website:
               image: ${{ env.WEBSITE_IMAGE }}
@@ -35,7 +35,7 @@ jobs:
         run: |
           export COMPOSE_PROJECT_NAME=isagog_website_${{ inputs.env }}
           docker compose down
-          docker compose -f docker-compose.yaml -f docker-compose.override.yaml up -d
+          docker compose -f docker-compose.yml -f docker-compose.override.yml up -d
 
       - name: Check service health
         run: |
