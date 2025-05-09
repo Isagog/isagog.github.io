@@ -6,7 +6,7 @@ services:
       target: runner
     restart: unless-stopped
     ports:
-      - "80001:3000" # Host:Container, expose Next.js production server
+      - "33001:3000" # Host:Container, expose Next.js production server
     environment:
       NODE_ENV: production
       PORT: 3000
