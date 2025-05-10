@@ -56,11 +56,11 @@ export const TeamCard = () => {
               />
             </div>
             <div>
-              <h3 className="text-xl font-semibold pt-4">{member.name}</h3>
-              <p className="text-[#a8fa87] font-semibold mt-1 text-sm">
+              <h3 className="text-xl font-serif pt-4">{member.name}</h3>
+              <p className="text-[#a8fa87] font-serif mt-1 text-sm">
                 {member.title}
               </p>
-              <p className="mt-4 font-sans text-sm text-justify">
+              <p className="mt-4 font-normal font-sans text-justify">
                 {member.desc}
               </p>
             </div>

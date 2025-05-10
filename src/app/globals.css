@@ -42,7 +42,7 @@
 :root {
   --radius: 0rem;
   --background: #5e9c4d;
-  --foreground: oklch(0.141 0.005 285.823);
+  --foreground: #223319;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);

@@ -39,7 +39,7 @@ export const BlogCard = () => {
               ) : (
                 <Link
                   href={`/blog/${article.slug}`}
-                  className="text-green-200 text-xl sm:text-2xl font-semibold hover:underline"
+                  className="text-green-200 text-xl sm:text-2xl font-serif font-normal"
                 >
                   {article.title}
                 </Link>

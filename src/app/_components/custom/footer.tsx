@@ -34,7 +34,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="container w-[70%] mx-auto py-4 text-xs mt-24">
+    <footer className="container font-sans font-normal text-xs w-[70%] mx-auto py-4 mt-24">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <nav className="flex flex-col gap-2">
           {navItems.map((item) => (
@@ -47,7 +47,7 @@ export const Footer = () => {
             </Link>
           ))}
         </nav>
-        <div>
+        <div className="flex flex-col gap-2">
           <p>(c) {new Date().getFullYear()} Isagog Srl</p>
           <p>Via Faà di Bruno 52</p>
           <p>00195 Roma (IT)</p>

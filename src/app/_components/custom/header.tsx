@@ -33,7 +33,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "flex fixed top-0 z-50 w-full items-center border-b border-border",
+        "flex fixed top-0 z-50 w-full items-center font-sans font-normal border-b border-border",
         isWhitePage ? "bg-white" : "bg-background"
       )}
     >
