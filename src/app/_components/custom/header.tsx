@@ -37,7 +37,7 @@ export const Header = () => {
         isWhitePage ? "bg-white" : "bg-background"
       )}
     >
-      <div className="flex w-full items-center justify-between gap-2 px-8 py-4">
+      <div className="flex w-full items-center justify-between gap-2 px-1 sm:px-8 py-4">
         <Link href="/" prefetch>
           <Image
             src="/logo-new.png"

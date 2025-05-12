@@ -71,7 +71,7 @@ export const TextCarousel = () => {
             </div>
           </div>
         ))}
-        <div className="absolute top-1 sm:bottom-6 left-0 right-0  sm:space-x-2 space-x-6">
+        <div className="absolute top-1 right-0  sm:space-x-2 space-x-6">
           {slides.map((_, index) => (
             <button
               key={index}
