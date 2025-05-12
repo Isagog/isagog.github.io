@@ -1,4 +1,5 @@
-export default {
+export default 
+{
   header: {
     about: "Chi siamo",
     solution: "Soluzioni",
@@ -16,7 +17,7 @@ export default {
   },
   "home-page": {
     hero: {
-      title: "AI che ha senso",
+      title: "AI that makes sense",
       description:
         "Costruiamo tecnologie neuro-simboliche aperte per analizzare grandi quantità di dati, estrarre significati e progettare con consapevolezza il futuro",
     },
@@ -41,47 +42,47 @@ export default {
     },
     navigation: {
       about: {
-        title: "Chi siamo",
+        title: "CHI SIAMO",
         description:
-          "Un team di esperti di  sistemi intelligenti del loro impatto sociale ",
+          "Un team di esperti di sistemi intelligenti del loro impatto sociale ",
       },
       solution: {
-        title: "Servizie e soluzioni",
+        title: "SERVIZI E SOLUZIONI",
         description:
-          "Grazie a una piattaforma innovita, realliziamo infrastrutture che danno forma e senso AI dati, lungo tutto il loro ciclo di vita",
+          "Grazie a una piattaforma innovativa, reallizziamo infrastrutture che danno forma e senso ai dati, lungo tutto il loro ciclo di vita",
       },
       project: {
-        title: "Progetti",
+        title: "PROGETTI",
         description:
-          "Scopri alucuni dei  nostri progetti che fanno uso consapevole e ventaggioso dell'intelligenza artificiale",
+          "Scopri alcuni dei nostri progetti che fanno uso consapevole e vantaggioso dell'intelligenza artificiale",
       },
       blog: {
-        title: "Approfondimenti",
-        description: "Prepartie alle sfide di domani",
+        title: "APPROFONDIMENTI",
+        description: "Preparati alle sfide di domani",
       },
     },
     "text-section": {
       "1": {
         firstParagraph:
-          "Estrarre informazioni e significato dai tuoi documenti",
-        secondParagraph: "Ottenere una mappa del tuo settore",
+          "Estrai informazioni e significati dai tuoi documenti",
+        secondParagraph: "Ottieni una mappa della tua conoscenza di settore",
         thirdParagraph:
-          "Aggiornare facilmente la memoria della tua organizzazione",
+          "Aggiorna con facilità la memoria della tua organizzazione",
       },
       "2": {
         firstParagraph:
-          "Integrare la conoscenza della tua organizzazione nel tuo lavoro",
+          "Integra la conoscenza della tua organizzazione nei tuoi processi lavorativi",
         secondParagraph:
-          "ottenere risposte immediate e tracciabili: rilevare l'IA",
+          "Ottieni risposte immediate e tracciabili: rileva fonti e i processi di ragionamento dell'IA",
         thirdParagraph:
-          " identificare fonti e processi di ragionamento Rilevare il tono, le sfumature semantiche e tutto ciò che può essere acquisito",
+          " Identifica tono, sfumature semantiche e tutto ciò che si coglie tra le righe",
       },
       "3": {
         firstParagraph:
-          "Sviluppare agenti AI capaci di assisterti in modo naturale",
-        secondParagraph: " produrre analisi, riassunti, mappe e molto altro",
+          "Sviluppa agenti AI capaci di assisterti in linguaggio naturale",
+        secondParagraph: "Produci analisi, riassunti, mappe e tanto altro",
         thirdParagraph:
-          " Utilizzare la conoscenza della tua organizzazione per le tue squadre, i tuoi clienti, il tuo pubblico",
+          " Utilizza la conoscenza della tua organizzazione per i tuoi team, i tuoi clienti, il tuo pubblico esempi",
       },
     },
     "intro-highlight": {
@@ -129,7 +130,7 @@ export default {
       "8": {
         title: "Flessibilità",
         description:
-          "Integra conoscenza appresa dai dati con quella codificata nelle regole, aggiornandosi più rapidamente.",
+          "Le regole possono essere aggiornate o ampliate senza ricorrere a una riprogrammazione complessa, rendendo l’intervento umano più diretto e intuitivo.",
       },
     },
   },
@@ -166,26 +167,26 @@ export default {
     "faqs-list": {
       "1": {
         title: "Indipendenza",
-        a: "Sviluppiamo l'intelligenza artificiale con spirito critico e totale autonomia, creando soluzioni aperte, trasparenti e affidabili.",
-        b: "Facciamo parte di una rete di innovatori AI, uniti dalla convinzione che la collaborazione sia il vero motore del progresso.",
+        a: "Sviluppiamo intelligenza artificiale con spirito critico e totale autonomia, creando soluzioni aperte, trasparenti e affidabili.",
+        b: "Facciamo parte di una rete di innovatori nell’IA, uniti dalla convinzione che la collaborazione sia il vero motore del progresso.",
       },
       "2": {
         title: "Responsabilità",
-        a: "L'IA è etica quando è responsabilmente integrata nella società.",
+        a: "L’AI è etica quando è responsabilmente integrata nella società. ",
         b: "Costruiamo soluzioni che rispettano chi le utilizza e proteggono chi ne subisce l'impatto.",
       },
       "3": {
         title: "Impatto",
-        a: "Lavoriamo con gli innovatori AI per anticipare le sfide del futuro.",
-        b: "Progettiamo e implementiamo modelli e soluzioni che sono consapevoli, sostenibili e di reale valore per chi li adotta.",
+        a: "Dialoghiamo con innovatori nel campo dell’AI per anticipare le sfide del futuro.",
+        b: "Progettiamo e implementiamo modelli e soluzioni consapevoli, sostenibili e di reale valore per chi le adotta.",
       },
       "4": {
         title: "Trasparenza",
-        a: "Le macchine non distinguono tra verità e menzogna. Per questo motivo lavoriamo con i clienti per sviluppare modelli concettuali che permettano loro di verificare ciò che le macchine stanno pensando.",
+        a: "Le macchine non distinguono tra verità e menzogna. Per questo, sviluppiamo assieme ai clienti modelli concettuali che consentono di verificare ciò su cui le macchine ragionano.",
       },
       "5": {
         title: "Sicurezza",
-        a: "Utilizziamo tecnologie aperte e auto-gestibili per generare valore senza mai compromettere la riservatezza.",
+        a: "Utilizziamo tecnologie aperte e gestibili in autonomia per generare valore senza mai compromettere la riservatezza.",
       },
       "6": {
         title: "Esperienza",
@@ -212,7 +213,7 @@ export default {
       "2": {
         title: "Produci contenuti",
         firstParagraph:
-          "Automatizza sintesi o report conformi agli  standard della tua azienda.",
+          "Automatizza sintesi o report conformi agli standard della tua azienda.",
         secondParagraph:
           "Genera nuove narrazioni e nuovi modi per raccontare la tua impresa. ",
       },

@@ -1,4 +1,5 @@
-export default {
+export default 
+{
   header: {
     about: "About Us",
     solution: "Solutions",
@@ -17,186 +18,185 @@ export default {
   "home-page": {
     hero: {
       title: "AI that makes sense",
-      description: "Building open neuro-symbolic technologies to analyze large amounts of data, extract meaning, and mindfully design the future",
+      description: "We build open neuro-symbolic technologies to analyze vast data landscapes, extract patterns of meaning and shape the future with clarity",
     },
     "knowledge": {
       "1": {
         title: "Build",
         subtitle: "Your knowledge base",
-        description: "TRANSFORM YOUR\nDATA ASSETS INTO\nAN ARCHIVE OF YOUR KNOWLEDGE",
+        description: "TURN YOUR DATA ASSETS \nINTO A REPOSITORY OF YOUR KNOWLEDGE",
       },
       "2": {
         title: "Inform",
         subtitle: "Your decisions",
-        description: "FIND NEW CONNECTIONS AND\nHIDDEN MEANINGS IN\nLARGE VOLUMES OF DATA",
+        description: "FIND NEW CONNECTIONS \nAND HIDDEN MEANINGS IN\nLARGE VOLUMES OF DATA",
       },
       "3": {
         title: "Improve",
         subtitle: "Your work",
-        description: "MULTIPLYEFFICIENCY,\nUNDERSTANDING AND\nPRODUCTIVITY",
+        description: "MULTIPLY EFFICIENCY,\nUNDERSTANDING AND\nPRODUCTIVITY",
       },
     },
     "navigation": {
       about: {
-        title: "About Us",
+        title: "ABOUT US",
         description: "A team of experts in intelligent systems and their social impact"
       },
       solution: {
-        title: "Services and Solutions",
-        description: "Thanks to an innovative platform, we create infrastructures that give shape and meaning to data throughout their entire lifecycle"
+        title: "SERVICES AND SOLUTIONS",
+        description: "Through our innovative platform, we build infrastructures that structure, contextualize, and activate data across its entire lifecycle"
       },
       project: {
-        title: "Projects",
+        title: "PROJECTS",
         description: "Discover some of our projects that make conscious and beneficial use of artificial intelligence"
       },
       blog: {
-        title: "Insights",
+        title: "INSIGHTS",
         description: "Prepare for tomorrow's challenges"
       }
     },
     "text-section": {
       "1": {
-        firstParagraph: "Extract information and meaning from your documents",
-        secondParagraph: "Get a map of your industry",
-        thirdParagraph: "knowledge Easily update your organization's memory "
+        firstParagraph: "Extract information and patterns of meaning from your documents",
+        secondParagraph: "Get a map of your domain knowledge",
+        thirdParagraph: "Easily update your organization's digital memory"
       },
       "2": {
-        firstParagraph: "Integrate your organization's knowledge into your work",
-        secondParagraph: "processes Get immediate and traceable answers: detect AI",
-        thirdParagraph: " sources and reasoning processes Identify tone, semantic nuances and everything that can be grasped "
+        firstParagraph: "Integrate your organization’s knowledge directly into operational workflows",
+        secondParagraph: "Deliver immediate, traceable answers with transparent AI reasoning and source attribution",
+        thirdParagraph: "Detect tone, semantic nuances, and whatever hides between the lines "
       },
       "3": {
-        firstParagraph: "Develop AI agents capable of assisting you in natural",
-        secondParagraph: " language Produce analysis, summaries, maps and much more",
-        thirdParagraph: " Use your organization's knowledge for your teams, your customers, your audience examples"
+        firstParagraph: "Develop AI agents that assist you through natural language interactions",
+        secondParagraph: "Generate assessments, briefs, knowledge maps, and more—on demand",
+        thirdParagraph: "Activate institutional knowledge for your teams, your clients, your audience"
       }
     },
     "intro-highlight": {
-      title: "Your business is more than what it produces",
-      description: "hides a treasure of knowledge",
-      subtitle: "Let's discover it together",
+      title: "YOUR ORGANIZATION HOLDS A WEALTH OF KNOWLEDGE",
+      description: "WE HELP UNLOCK ITS VALUE",
       button: "Book a meeting"
     },
     "highlight": {
       title: "*Neuro-Symbolic Artificial Intelligence",
       "1": {
         title: "1. Connectionism",
-        description: "(Neural networks) – Inspired by brain function, they learn from data based on their correlations, without explicitly stating their decision criteria."
+        description: "(Neural networks) – Inspired by the functioning of the brain, they learn from data based on their correlations, without explicitly stating their decision-making criteria."
       },
       "2": {
         title: "2. Reasoning",
-        description: "(Symbolic AI) – Uses formal logic, rules, and explicit knowledge (ontology) to simulate rational reasoning processes."
+        description: "(Symbolic AI) – Uses formal logic, rules, and explicit knowledge (ontology) to simulate processes of rational reasoning."
       },
       "3": {
         name: "Neuro-Symbolic AI",
-        text: "combines the best of both worlds, integrating automatic learning with explicit knowledge representation. The main advantages include:"
+        text: "Neuro-symbolic AI combines the best of both worlds, integrating machine learning with explicit knowledge representation. Main advantages:"
       },
       "4": {
         title: "Transparency",
-        description: "AI decisions are explainable and verifiable thanks to the presence of accessible logical structures."
+        description: "Traceable and verifiable AI's outputs, thanks to accessible logical structures."
       },
       "5": {
         title: "Logical Inferences",
-        description: "The system doesn't just recognize patterns, but applies logic to handle new situations in a coherent manner."
+        description: "The system not only recognizes patterns, it is coherent. It applies logic to address new situations."
       },
       "6": {
         title: "Reliability",
-        description: "Reduces errors and the so-called “hallucinations” typical of neural networks, offering more stable and correct responses."
+        description: "Reduces errors and “hallucinations” (commonly experienced by neural networks) – provides more stable and accurate responses."
       },
       "7": {
         title: "Adaptability",
-        description: "Integrates knowledge learned from data with that encoded in rules, updating itself more quickly."
+        description: "Integrates knowledge learned from data with the encoded rules, enabling faster and smarter updated."
       },
       "8": {
         title: "Flexibility",
-        description: "Integrates knowledge learned from data with that encoded in rules, updating itself more quickly."
+        description: "The rules can be updated or expanded without resorting to complex programming, human intervention is more direct and intuitive."
       }
     },
   },
   "about-page": {
     "text-animate": {
-      "1": "We build neuro-symbolic AI for managing large volumes of structured and unstructured data, rich in semantic nuances tied to tone and context of use.",
-      "2": "We have cultivated careers in the tech, healthcare, research and culture sectors. Together we have more than 50 years of experience in artificial intelligence research and development."
+      "1": "We design neuro-symbolic AI systems to manage high volumes of diverse data and understand semantic nuance, tone and domain specific knowledge.",
+      "2": "We have worked in tech, healthcare, research, and culture. Together, we bring over 50 years of experience in AI research and development."
     },
     "highlight": {
-      "title": "We provide tools for the conscious and effective use of AI",
-      "1": "The name “Isagog” recalls the ancient Greek term *Isagoge*, meaning “introduction”: a preliminary guide, a conceptual map designed to navigate complex territories.",
-      "2": "In the treatise *Isagoge*, the philosopher Porphyry (Tyre, 233 A.D. – Rome, around 305 A.D.) provides systematic access to Aristotelian thought through a diagram: the famous *Porphyrian Tree*. This hierarchical and branched representation of abstract and concrete concepts profoundly influenced the history of Western thought, becoming a model for organizing knowledge — from medieval philosophy to modern information science.",
-      "3": "Today, that ancient “tree of thought” lives on in Knowledge Graphs: structures that represent relationships between concepts and entities, whether abstract or concrete, in a formalized and navigable way. They are a semantic infrastructure that allows information to be organized, connected, and contextualized — making it accessible, interpretable, and verifiable.",
-      "4": "The integration of generative models (Language Models) and Knowledge Graphs represents one of the most advanced frontiers in artificial intelligence research and development today. This is precisely the field in which ISAGOG operates: we leverage the expressive and computational power of language models to efficiently build formal knowledge structures — thus making transparent and verifiable what remains opaque in neural models. Our solutions are effective because they combine the flexibility of machine learning with the precision and interpretability of symbolic representation.",
+      "title": "We build tools for a responsible use of AI that drives real value.",
+      "1": "The name «Isagog» refers to the ancient Greek term Isagoge, which means «introduction»: a preliminary guide, a conceptual map designed to navigate complex territories.",
+      "2": "In the treatise Isagoge, the philosopher Porphyry (Tyrus, 233 AD – Rome, circa 305 AD) offers a systematic access to Aristotelian thought through a drawing: the famous Tree of Porphyry. This hierarchical and branching representation of abstract and concrete concepts has profoundly marked the history of Western thought, becoming a model for organizing knowledge — from medieval philosophy to modern information science.",
+      "3": "Today, that ancient knowledge tree lives on in Knowledge Graphs: structures that represent relationships between concepts and entities, whether abstract or concrete, in a formalized and accessible way. This is a semantic infrastructure that allows for organizing, connecting, and contextualizing information, making it accessible, interpretable, and verifiable.",
+      "4": "The integration between generative models (Language Models) and Knowledge Graphs represents one of the most interesting developments in AI. This is precisely the area in which ISAGOG operates: we leverage the expressive and computational power of language models to efficiently build formal knowledge structures — thus making transparent and verifiable what remains opaque in neural networks. Our neuro-symbolic solutions are effective because they combine the flexibility of machine learning with the precision and interpretability of symbolic representation.",
       "link": "Learn more"
     },
     "team": {
       "1": {
-        title: "General Director",
-        desc: "Former Research Director, IBM Italy, AI Professor, G. Marconi University, Founder of ISAGOG",
+        title: "CEO",
+        desc: "Ex Research Director, IBM Italy, AI Professor, G. Marconi University, Founder of ISAGOG",
       },
       "2": {
-        title: "Scientific Director",
-        desc: "Business Development Executive for Health and Research, IBM, Design Thinking Coach, Distinguished Architect, Open Group",
+        title: "CSO",
+        desc: "Ex Business Dev. Exec. Health Sciences, IBM, Design Thinking Coach, Distinguished Architect, Open Group",
       },
       "3": {
         title: "Technical Director",
-        desc: "Automation Engineer, HCLSoftware Data Scientist, BSc in Mathematics & Philosophy",
+        desc: "Ex Automation Engineer, HCLSoftware Data Scientist, BSc in Mathematics & Philosophy",
       },
       "4": {
-        desc: "Journalist and writer Professor of History of the Future, LUISS Prof. Knowledge Management, The Sant'Anna School of Advanced Studies and Stanford University",
+        desc: "Journalist and Writer \n Prof. of Future History, LUISS \n Prof. Knowledge Management, La Scuola Superiore Sant'Anna and Stanford University",
       },
     },
     "faqs-list": {
       "1": {
         title: "Independence",
-        a: "We develop artificial intelligence with a critical spirit and total autonomy, creating open, transparent and reliable solutions.",
-        b: "We are part of a network of AI innovators, united by the belief that collaboration is the true driver of progress.",
+        a: "We develop artificial intelligence with a critical spirit and in complete autonomy. We create open, transparent, and reliable solutions.",
+        b: "We are part of a network of innovators in AI who believe collaboration is the true engine of progress.",
       },
       "2": {
         title: "Responsibility",
-        a: "AI is ethical when it is responsibly integrated into society. ",
-        b: "We build solutions that respect those who use them and protect those who suffer their impact.",
+        a: "AI is ethical when it is responsibly integrated into society.",
+        b: "We create solutions that respect those who use them and protect those who are impacted by them.",
       },
       "3": {
         title: "Impact",
-        a: "We engage with AI innovators to anticipate the challenges of the future. ",
-        b: "We design and implement models and solutions that are conscious, sustainable and of real value for those who adopt them.",
+        a: "We nurture exchange within the AI community, to anticipate the challenges of the future together.",
+        b: "We design and implement sustainable solutions that bring real value to those who use them.",
       },
       "4": {
         title: "Transparency",
-        a: "Machines do not distinguish between truth and lies. That's why we work with customers to develop concept models that allow them to verify what machines are thinking about.",
+        a: "Machines cant tell truth from lie. Together with our clients we develop conceptual models that allow us to verify AI's applied reasoning.",
       },
       "5": {
         title: "Safety",
-        a: "We use open and self-manageable technologies to generate value without ever compromising confidentiality. ",
+        a: "We use open, easily adaptable technologies to generate value without compromising privacy.",
       },
       "6": {
         title: "Experience",
-        a: "Together we count more than 50 years of research and development in the field of Artificial Intelligence.  ",
+        a: "Together, we bring over 50 years of experience in AI research and development.",
       },
     }
   },
   "contact-page": {
-    label: "We'll be happy to answer your questions ",
+    label: "Get in touch info@isagog.com",
   },
   "work-with-us-page": {
-    label: "If you want to work with us, send us an email to",
+    label: "If you want to find out about our career opportunities, please write to hiring@isagog.com",
   },
   "service-page": {
     "image-with-description": {
       "1": {
-        title: "Access your knowledge",
-        firstParagraph: "Structure your data in an intelligent archive.",
-        secondParagraph: "Get a dynamic map of your data and industry knowledge.",
-        thirdParagraph: "Find new meanings and connections in large volumes of data.",
+        title: "Build your knowledge base",
+        firstParagraph: "Turn your data into a living archive—accessible, intelligent, and actionable",
+        secondParagraph: "Gain a dynamic map of your data and industry knowledge",
+        thirdParagraph: "Discover new meanings and connections across large volumes of data",
       },
       "2": {
         title: "Produce content",
-        firstParagraph: "Automate syntheses or reports that conform to your company's standards.",
-        secondParagraph: "Generate new narratives and new ways to tell your company's story."
+        firstParagraph: "Automate summaries and reports on demand, aligned with your company’s standards",
+        secondParagraph: "Develop new narratives and reinvent how your company communicates its value"
       },
       "3": {
-        title: "Personalize your offer",
-        firstParagraph: "Imagining new personalizations for each user.",
-        secondParagraph: "Communicate in natural language with your audience.",
-        thirdParagraph: "Building a targeted offer."
+        title: "Design tailored offerings",
+        firstParagraph: "Imagine new customizations for every user",
+        secondParagraph: "Communicate with your audience in natural language",
+        thirdParagraph: "Build targeted offerings tailored to individual needs"
       },
       "4": {
         title: "Build your community",
@@ -207,7 +207,7 @@ export default {
     },
     "why-us": {
       title: "Why Isagog?",
-      description: "Our solutions are based on an open neuro-symbolic AI platform that combines creativity and logic to deliver more reliable and intelligent results.",
+      description: "Our solutions are built on an open neuro-symbolic AI platform that blends creativity and logic to achieve more intelligent and reliable results.",
       linkLabel: "Book a demo"
     },
     "image-with-title": {
@@ -220,31 +220,31 @@ export default {
     },
     "text-carousel": {
       "1": {
-        title: "What we do",
-        subtitle: "We simplify access to information. We transform text archives into clear and immediately usable intelligence.",
+        title: "What",
+        subtitle: "We simplify access to information.We transform text archives into clear, instantly accessible intelligence.",
         points: {
           "1": "We retrieve and organize information intelligently.",
-          "2": "We make your company's digital memory instantly accessible.",
+          "2": "We enable real-time access to your company’s digital memory.",
         }
       },
       "2": {
-        title: "How we do it",
+        title: "How",
         subtitle: "We build a knowledge base with custom neuro-symbolic reasoning",
         points: {
           "1": "Our platform integrates LLMs (neural networks) with symbolic reasoning systems.",
-          "2": "We design smooth AI interactions capable of understanding natural language.",
-          "3": "We design the domain knowledge and logical rules for each project, which help eliminate hallucinations and ambiguities.",
+          "2": "We create seamless AI interactions that understand natural language.",
+          "3": "For every project, we define relevant industry knowledge and logical principles that help eliminate hallucinations and inaccuracies.",
         }
       },
       "3": {
-        title: "What results you get",
+        title: "Results",
         subtitle: "Improve the quality of your work",
         points: {
-          "1": "Save your time.",
-          "2": "Get immediate and verifiable answers. In your preferred format.",
-          "3": "Offer your users an engaging experience: provide them with targeted information and deepen their interests.",
+          "1": "Save time.",
+          "2": "Get immediate and verifiable answers. In any format.",
+          "3": "Engage your users more dynamically: offer relevant information and enrich your understanding of their needs and interests.",
         }
       }
     }
   }
-} as const
+} as const;
