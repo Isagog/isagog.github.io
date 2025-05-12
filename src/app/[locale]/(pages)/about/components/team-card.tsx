@@ -38,13 +38,13 @@ export const TeamCard = () => {
     },
   ];
   return (
-    <div className="mt-20">
-      <ul className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="sm:mt-20">
+      <ul className="grid gap-16 sm:gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {team.map((member, idx) => (
           <motion.li
             key={idx}
             variants={item}
-            className="bg-transparent overflow-hidden transform transition duration-500 hover:scale-105"
+            className="bg-transparent overflow-hidden transform transition duration-500 sm:hover:scale-105"
           >
             <div className="relative h-64">
               <Image
@@ -52,7 +52,7 @@ export const TeamCard = () => {
                 alt={member.name}
                 width={1000}
                 height={1000}
-                className="h-full w-full object-cover transition duration-300 transform hover:scale-110"
+                className="h-full w-full object-cover transition duration-300 transform sm:hover:scale-110"
               />
             </div>
             <div>

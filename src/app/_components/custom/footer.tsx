@@ -34,8 +34,8 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="container font-sans font-normal text-xs w-[70%] mx-auto py-4 mt-24">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <footer className="container font-sans font-normal text-xs w-full px-4 sm:w-[70%] mx-auto py-4 mt-24">
+      <div className="grid grid-cols-2 md:grid-cols-4 sm:gap-4 gap-8">
         <nav className="flex flex-col gap-2">
           {navItems.map((item) => (
             <Link

@@ -22,7 +22,7 @@ export const KnowledgeCarousel = ({ data }: KnowledgeCarouselProps) => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center gap-4 px-4">
+    <div className="w-full min-h-screen flex flex-col items-center gap-4 px-4 overflow-hidden">
       <div className="xl:hidden w-full flex items-center gap-2 justify-center relative">
         <Button
           onClick={() => scrollTo("prev")}
@@ -32,7 +32,7 @@ export const KnowledgeCarousel = ({ data }: KnowledgeCarouselProps) => {
         </Button>
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-4 scrollbar-hide px-4"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-12 sm:gap-4 scrollbar-hide px-4"
         >
           {data.map((item) => (
             <KnowledgeCard key={item.title} {...item} />

@@ -2,7 +2,7 @@ import { BlogCard } from "./_components/blog-card";
 
 const BlogPage = async () => {
   return (
-    <div className="flex justify-center min-h-[70vh] flex-col items-center gap-4">
+    <div className="flex justify-center min-h-[70vh] flex-col items-center gap-4 mx-2">
       <BlogCard />
     </div>
   );

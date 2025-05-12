@@ -35,7 +35,7 @@ export const NavWithDescriptionSection = ({
         href={href}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        className="flex flex-col gap-4 w-fit ml-12"
+        className="flex flex-col gap-4 w-fit sm:ml-12 sm:mr-0 ml-2 mr-2"
       >
         <h1
           className={`xl:text-4xl text-lg  ${

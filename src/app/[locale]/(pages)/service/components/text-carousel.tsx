@@ -36,17 +36,17 @@ export const TextCarousel = () => {
 
   return (
     <div className="relative w-[100%] xl:h-[450px] md:h-[70vh] h-[100vh] bg-transparent  flex items-center justify-center overflow-hidden">
-      <div className="relative h-full w-full mx-[10%] flex items-center justify-center">
+      <div className="relative h-full w-full mx-[10%] flex items-center justify-center ">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ease-in-out p-8 ${
+            className={`absolute top-8 sm:top-0 left-0 w-full h-full transition-opacity duration-500 ease-in-out sm:p-8 ${
               currentSlide === index
                 ? "opacity-100"
                 : "opacity-0 pointer-events-none"
             }`}
           >
-            <div className="md:space-y-6 space-y-4">
+            <div className="md:space-y-6">
               <div>
                 <h2 className="text-[#A8FA87] text-xl font-sans font-normal text-start">
                   {slide.title}
@@ -71,7 +71,7 @@ export const TextCarousel = () => {
             </div>
           </div>
         ))}
-        <div className="absolute bottom-6 left-0 right-0 flex justify-center space-x-2">
+        <div className="absolute top-1 sm:bottom-6 left-0 right-0  sm:space-x-2 space-x-6">
           {slides.map((_, index) => (
             <button
               key={index}

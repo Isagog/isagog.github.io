@@ -40,9 +40,9 @@ export const ServicesSection = () => {
 
   return (
     <div className="mt-12">
-      <ul className="space-y-8 gap-12 grid-cols-2 sm:grid sm:space-y-0 lg:grid-cols-3">
+      <ul className="space-y-8 sm:gap-12 gap-16 grid-cols-2 sm:grid sm:space-y-0 lg:grid-cols-3">
         {faqsList.map((item, idx) => (
-          <li key={idx} className="space-y-3">
+          <li key={idx} className="sm:space-y-3">
             <summary className="flex items-center justify-between font-normal text-2xl text-[#a8fa87]">
               {item.q}
             </summary>

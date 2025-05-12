@@ -9,7 +9,7 @@ const BlogLayout = ({ children }: { children: React.ReactNode }) => {
       document.body.classList.remove("bg-white");
     };
   }, []);
-  return <div className="mx-[10%] bg-white">{children}</div>;
+  return <div className="mx-2 sm:mx-[10%] bg-white">{children}</div>;
 };
 
 export default BlogLayout;

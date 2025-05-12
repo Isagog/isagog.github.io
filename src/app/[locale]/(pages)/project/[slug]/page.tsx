@@ -23,7 +23,7 @@ const ProjectPostPage = async ({
   }
 
   return (
-    <div className="mx-[10%]">
+    <div className="mx-2 sm:mx-[10%]">
       <MarkdownRenderer content={post.content} />
     </div>
   );
