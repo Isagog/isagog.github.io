@@ -46,7 +46,7 @@ const HomePage = async () => {
     <main className="flex min-h-screen flex-col justify-center items-center relative isolate ">
       <Hero />
       <KnowledgeCarousel data={data} />
-      <div className="w-full flex flex-col justify-evenly sm:px-6 my-18">
+      <div className="w-full flex flex-col justify-evenly  my-18 mx-auto max-w-2/3">
         <NavWithDescriptionSection
           title={tNav("about.title")}
           description={tNav("about.description")}
@@ -75,17 +75,17 @@ const HomePage = async () => {
           backgroundBlendMode: "multiply",
         }}
       >
-        <div className="max-w-3xl mx-auto space-y-6">
-          <p className="uppercase tracking-widest text-lg">
+        <div className="w-full mx-auto space-y-6">
+          <p className="uppercase tracking-widests font-sans font-[400] leading-12 text-2xl">
             {tIntroHighlight("title")}
             <br />
             {tIntroHighlight("description")}
           </p>
-          <p className="uppercase tracking-wide text-xl font-semibold">
+          <p className="uppercase tracking-wide text-xl font-sans font-[400]">
             {tIntroHighlight("subtitle")}
           </p>
           <div className="pt-6">
-            <Link href="https://cal.com/isagog" target="_blank" prefetch>
+            <Link href="https://cal.com/isagog" target="_blank">
               <Button
                 variant="ghost"
                 className="uppercase border-b border-[#86efac] rounded-none text-[#86efac] hover:bg-transparent hover:underline cursor-pointer"

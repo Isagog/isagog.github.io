@@ -35,17 +35,17 @@ export const NavWithDescriptionSection = ({
         href={href}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        className="flex flex-col gap-4 w-fit sm:ml-12 sm:mr-0 mx-2"
+        className="flex flex-col gap-2 w-fit sm:ml-12 sm:mr-0 mx-2"
       >
         <h1
-          className={`mt-10 xl:text-4xl text-2xl font-medium ${
+          className={`mt-10 text-2xl font-sans font-[400] ${
             isHovering ? "text-green-200 opacity-100" : "text-[#A8FA87]"
           }`}
         >
           {title}
         </h1>
         <p
-          className={`xl:text-base text-sm font-normal ${
+          className={`text-2xl font-serif font-[300] ${
             isHovering ? "text-green-200 opacity-100" : ""
           }`}
         >

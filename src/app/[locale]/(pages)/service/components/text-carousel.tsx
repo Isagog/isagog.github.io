@@ -48,7 +48,7 @@ export const TextCarousel = () => {
           >
             <div className="md:space-y-6">
               <div>
-                <h2 className="text-[#A8FA87] text-xl font-sans font-normal text-start">
+                <h2 className="text-[#A8FA87] text-xl font-sans font-spectral text-start">
                   {slide.title}
                 </h2>
                 <h3 className="text-2xl text-start font-serif md:mt-2">
@@ -64,7 +64,7 @@ export const TextCarousel = () => {
                         <Check size={20} />
                       </span>
                     )}
-                    <p className="text-lg font-sans font-normal">{point}</p>
+                    <p className="text-lg font-sans font-spectral">{point}</p>
                   </li>
                 ))}
               </ul>

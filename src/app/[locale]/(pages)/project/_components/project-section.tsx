@@ -54,17 +54,17 @@ export const ProjectSection = () => {
               />
               <div className="flex flex-col gap-4 w-full md:w-1/2">
                 <h1 className="text-2xl font-serif">{project.title}</h1>
-                <div className="flex justify-between font-sans font-normal text-sm">
+                <div className="flex justify-between font-sans font-spectral text-sm">
                   <span>{project.valueName}</span>
                   <span>{project.value}</span>
                 </div>
-                <div className="flex justify-between font-sans font-normal text-sm">
+                <div className="flex justify-between font-sans font-spectral text-sm">
                   <span>{project.name}</span>
                   <span>{project.sector}</span>
                 </div>
                 <div className="flex flex-col gap-4">
                   <h2 className="text-2xl font-serif">{project.secondTitle}</h2>
-                  <p className="text-sm font-sans font-normal">
+                  <p className="text-sm font-sans font-spectral">
                     {project.description}
                   </p>
                   <Link href={`/project/${project.slug}`}>

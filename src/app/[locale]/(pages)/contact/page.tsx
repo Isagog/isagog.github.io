@@ -7,7 +7,7 @@ const ContactPage = () => {
   const t = useScopedI18n("contact-page");
   return (
     <div className="flex items-center justify-center h-[80vh]">
-      <h1 className="text-center font-sans font-normal text-lg">
+      <h1 className="text-center font-sans font-spectral text-lg">
         {t("label")}
         <Link href="mailto:info@isagog.com" className="text-[#86efac]">
           info@isagog.com

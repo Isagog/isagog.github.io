@@ -13,9 +13,9 @@ export const Hero = () => {
         alt="Tree"
         width={1000}
         height={1000}
-        className="w-48 h-48 mb-8"
+        className="w-40 h-44 mb-6"
       />
-      <h1 className="text-5xl sm:text-7xl text-center text-primary font-medium">
+      <h1 className="text-5xl sm:text-7xl font-serif text-center text-primary font-[400]">
         {t("title")}
       </h1>
       <motion.span
@@ -23,9 +23,13 @@ export const Hero = () => {
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.3 }}
-        className="text-center font-normal w-full sm:w-2/3 text-lg"
+        className="text-center font-serif w-full text-lg text-primary"
       >
-        {t("description")}
+        {t("description")
+          .split("\n")
+          .map((line, i) => (
+            <p key={i}>{line}</p>
+          ))}
       </motion.span>
     </div>
   );

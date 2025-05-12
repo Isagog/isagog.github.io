@@ -22,7 +22,7 @@ export const KnowledgeCarousel = ({ data }: KnowledgeCarouselProps) => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center gap-4 px-4 overflow-hidden">
+    <div className="w-full sm:max-w-2/3 flex flex-col items-center gap-4 px-4 overflow-hidden">
       <div className="xl:hidden w-full flex items-center gap-2 justify-center relative">
         <Button
           onClick={() => scrollTo("prev")}

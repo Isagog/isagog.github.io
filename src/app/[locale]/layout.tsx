@@ -16,13 +16,15 @@ export const metadata: Metadata = {
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
-  weight: ["400", "600"],
+  weight: ["100", "200", "300", "400", "500", "600"],
+  display: "swap",
 });
 
 const spectral = Spectral({
   subsets: ["latin"],
   variable: "--font-spectral",
-  weight: ["400"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 export default async function RootLayout({
@@ -37,7 +39,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale ?? "it"}
-      className={`${montserrat.variable} ${spectral.variable}`}
+      className={`${montserrat.variable} ${spectral.variable} font-serif`}
     >
       <I18nProviderClient locale={locale}>
         <Providers>

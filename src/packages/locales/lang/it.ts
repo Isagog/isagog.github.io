@@ -1,5 +1,4 @@
-export default 
-{
+export default {
   header: {
     about: "Chi siamo",
     solution: "Soluzioni",
@@ -11,7 +10,7 @@ export default
     solutions: "Soluzioni",
     projects: "Progetti",
     insights: "Approfondimenti",
-    contact: "Contatti",
+    contact: "Conttataci",
     work_with_us: "Lavora con noi",
     languages: "Lingue",
   },
@@ -19,7 +18,7 @@ export default
     hero: {
       title: "AI that makes sense",
       description:
-        "Costruiamo tecnologie neuro-simboliche aperte per analizzare grandi quantità di dati, estrarre significati e progettare con consapevolezza il futuro",
+        "Costruiamo tecnologie neuro-simboliche aperte per analizzare grandi quantità di dati, estrarne significati \n\n e progettare con consapevolezza il futuro",
     },
     knowledge: {
       "1": {
@@ -44,7 +43,7 @@ export default
       about: {
         title: "CHI SIAMO",
         description:
-          "Un team di esperti di sistemi intelligenti del loro impatto sociale ",
+          "Un team di esperti di sistemi intelligenti e del loro impatto sociale ",
       },
       solution: {
         title: "SERVIZI E SOLUZIONI",
@@ -63,8 +62,7 @@ export default
     },
     "text-section": {
       "1": {
-        firstParagraph:
-          "Estrai informazioni e significati dai tuoi documenti",
+        firstParagraph: "Estrai informazioni e significati dai tuoi documenti",
         secondParagraph: "Ottieni una mappa della tua conoscenza di settore",
         thirdParagraph:
           "Aggiorna con facilità la memoria della tua organizzazione",
@@ -73,9 +71,8 @@ export default
         firstParagraph:
           "Integra la conoscenza della tua organizzazione nei tuoi processi lavorativi",
         secondParagraph:
-          "Ottieni risposte immediate e tracciabili: rileva fonti e i processi di ragionamento dell'IA",
-        thirdParagraph:
-          " Identifica tono, sfumature semantiche e tutto ciò che si coglie tra le righe",
+          "Ottieni risposte immediate e tracciabili: rileva fonti e i processi di ragionamento dell'AI",
+        thirdParagraph: " Identifica tono, sfumature semantiche",
       },
       "3": {
         firstParagraph:
@@ -93,6 +90,8 @@ export default
     },
     highlight: {
       title: "*Intelligenza Artificiale neuro-simbolica",
+      description:
+        "L'intelligenza artificiale si e storicamente sviluppata seguendo  due  approcci principali:",
       "1": {
         title: "1. Connessionismo",
         description:

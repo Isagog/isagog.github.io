@@ -8,6 +8,7 @@ import {
 } from "@/app/_components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { useScopedI18n } from "@/packages/locales/client";
+import clsx from "clsx";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,21 +34,20 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "flex fixed top-0 z-50 w-full items-center font-sans font-normal border-b border-border",
+        "flex fixed top-0 z-50 w-full items-center border-b border-border",
         isWhitePage ? "bg-white" : "bg-background"
       )}
     >
-      <div className="flex w-full items-center justify-between gap-2 px-1 sm:px-8 py-4">
+      <div className="flex w-full items-center justify-between gap-2 px-1 sm:px-8 py-6">
         <Link href="/" prefetch>
           <Image
             src="/logo-new.png"
             alt="logo isagog"
-            width={300}
+            width={220}
             height={200}
-            className="-ml-16"
           />
         </Link>
-        <nav className="hidden md:flex items-center gap-4">
+        <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -55,7 +55,10 @@ export const Header = () => {
                 key={`${item.href}-${item.label}`}
                 href={item.href}
                 prefetch
-                className={isActive ? "text-[#86efac]" : ""}
+                className={clsx(
+                  "font-sans font-[300] text-primary  hover:text-black text-base",
+                  isActive ? "text-[#86efac]" : ""
+                )}
               >
                 {item.label}
               </Link>

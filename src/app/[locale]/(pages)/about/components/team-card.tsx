@@ -60,7 +60,7 @@ export const TeamCard = () => {
               <p className="text-[#a8fa87] font-serif mt-1 text-sm">
                 {member.title}
               </p>
-              <p className="mt-4 font-normal font-sans text-justify">
+              <p className="mt-4 font-spectral font-sans text-justify">
                 {member.desc}
               </p>
             </div>

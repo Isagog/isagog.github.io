@@ -43,16 +43,16 @@ export const ServicesSection = () => {
       <ul className="space-y-8 sm:gap-12 gap-16 grid-cols-2 sm:grid sm:space-y-0 lg:grid-cols-3">
         {faqsList.map((item, idx) => (
           <li key={idx} className="sm:space-y-3">
-            <summary className="flex items-center justify-between font-normal text-2xl text-[#a8fa87]">
+            <summary className="flex items-center justify-between font-spectral text-2xl text-[#a8fa87]">
               {item.q}
             </summary>
             <p
               dangerouslySetInnerHTML={{ __html: item.a }}
-              className=" leading-relaxed font-sans font-normal"
+              className=" leading-relaxed font-sans font-spectral"
             ></p>
             <p
               dangerouslySetInnerHTML={{ __html: item.b }}
-              className=" leading-relaxed font-sans font-normal"
+              className=" leading-relaxed font-sans font-spectral"
             ></p>
           </li>
         ))}

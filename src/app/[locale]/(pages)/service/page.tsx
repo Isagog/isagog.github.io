@@ -48,8 +48,8 @@ const ServicePage = async () => {
         imgClassName="h-64 object-contain"
       />
       <section className="flex flex-col items-center mx-[10%] space-y-16  justify-center h-[450px]">
-        <h2 className="text-2xl font-sans font-normal">{tWhyUs("title")}</h2>
-        <p className="text-center font-normal text-2xl">
+        <h2 className="text-2xl font-sans font-spectral">{tWhyUs("title")}</h2>
+        <p className="text-center font-spectral text-2xl">
           {tWhyUs("description")}
         </p>
         <Link href="https://cal.com/isagog" target="_blank" prefetch>

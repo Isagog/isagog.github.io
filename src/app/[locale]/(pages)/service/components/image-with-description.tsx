@@ -34,10 +34,10 @@ export const ImageWithDescription = ({
       />
       <div className="space-y-8 md:w-96 text-center md:text-left">
         <h2 className="text-2xl text-nowrap font-bold">{title}</h2>
-        <p className="font-sans font-normal">{firstParagraph}</p>
-        <p className="font-sans font-normal">{secondParagraph}</p>
+        <p className="font-sans font-spectral">{firstParagraph}</p>
+        <p className="font-sans font-spectral">{secondParagraph}</p>
         {thirdParagraph && (
-          <p className="font-sans font-normal">{thirdParagraph}</p>
+          <p className="font-sans font-spectral">{thirdParagraph}</p>
         )}
       </div>
     </div>

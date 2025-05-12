@@ -2,8 +2,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        montserrat: ["var(--font-montserrat)", "sans-serif"],
-        spectral: ["var(--font-spectral)", "serif"],
+        sans: ["var(--font-montserrat)", "sans-serif"],
+        serif: ["var(--font-spectral)", "serif"],
       },
       colors: {
         brand: {
