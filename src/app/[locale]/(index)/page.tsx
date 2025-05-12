@@ -43,7 +43,7 @@ const HomePage = async () => {
   ];
 
   return (
-    <main className="flex min-h-screen flex-col justify-center items-center relative isolate">
+    <main className="flex min-h-screen flex-col justify-center items-center relative isolate mx-3">
       <Hero />
       <KnowledgeCarousel data={data} />
       <div className="w-full flex flex-col justify-evenly min-h-screen">

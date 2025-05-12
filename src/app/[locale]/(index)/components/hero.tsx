@@ -15,7 +15,7 @@ export const Hero = () => {
         height={1000}
         className="w-48 h-48 mb-8"
       />
-      <h1 className="text-5xl sm:text-7xl text-center text-primary">
+      <h1 className="text-5xl sm:text-7xl text-center text-primary font-medium">
         {t("title")}
       </h1>
       <motion.span
@@ -23,7 +23,7 @@ export const Hero = () => {
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.3 }}
-        className="text-center font-semibold w-full sm:w-2/3"
+        className="text-center font-normal w-full sm:w-2/3 text-lg"
       >
         {t("description")}
       </motion.span>
