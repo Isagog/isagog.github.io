@@ -35,25 +35,25 @@ export const NavWithDescriptionSection = ({
         href={href}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        className="flex flex-col gap-4 w-fit sm:ml-12 sm:mr-0 ml-2 mr-2"
+        className="flex flex-col gap-4 w-fit sm:ml-12 sm:mr-0 mx-2"
       >
         <h1
-          className={`xl:text-4xl text-lg  ${
-            isHovering ? "text-green-200 opacity-50" : "text-[#A8FA87]"
+          className={`mt-10 xl:text-4xl text-2xl font-medium ${
+            isHovering ? "text-green-200 opacity-100" : "text-[#A8FA87]"
           }`}
         >
           {title}
         </h1>
         <p
-          className={`xl:text-base text-sm font-light ${
-            isHovering ? "text-green-200 opacity-50" : ""
+          className={`xl:text-base text-sm font-normal ${
+            isHovering ? "text-green-200 opacity-100" : ""
           }`}
         >
           {description}
         </p>
         <ArrowRight
           className={`${
-            isHovering ? "text-green-200 opacity-50" : "text-[#A8FA87]"
+            isHovering ? "text-green-200 opacity-100" : "text-[#A8FA87]"
           }`}
           size={24}
         />

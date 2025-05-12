@@ -7,7 +7,7 @@ export const Hero = () => {
   const t = useScopedI18n("home-page.hero");
 
   return (
-    <div className="flex flex-col items-center gap-2 justify-center min-h-screen">
+    <div className="flex flex-col items-center gap-2 justify-center min-h-screen mx-2">
       <Image
         src="/images/tree.avif"
         alt="Tree"

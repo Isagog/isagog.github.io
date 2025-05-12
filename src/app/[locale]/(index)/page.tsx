@@ -43,10 +43,10 @@ const HomePage = async () => {
   ];
 
   return (
-    <main className="flex min-h-screen flex-col justify-center items-center relative isolate mx-3">
+    <main className="flex min-h-screen flex-col justify-center items-center relative isolate ">
       <Hero />
       <KnowledgeCarousel data={data} />
-      <div className="w-full flex flex-col justify-evenly min-h-screen">
+      <div className="w-full flex flex-col justify-evenly sm:px-6 my-18">
         <NavWithDescriptionSection
           title={tNav("about.title")}
           description={tNav("about.description")}
@@ -76,7 +76,7 @@ const HomePage = async () => {
         }}
       >
         <div className="max-w-3xl mx-auto space-y-6">
-          <p className="uppercase tracking-widest text-lg font-light">
+          <p className="uppercase tracking-widest text-lg">
             {tIntroHighlight("title")}
             <br />
             {tIntroHighlight("description")}
