@@ -36,7 +36,7 @@ export const TextCarousel = () => {
 
   return (
     <div className="relative w-[100%] xl:h-[450px] md:h-[70vh] h-[100vh] bg-transparent  flex items-center justify-center overflow-hidden">
-      <div className="relative h-full w-full mx-[10%] flex items-center justify-center ">
+      <div className="relative h-full sm:w-2/3 w-full mx-5 flex items-center justify-center ">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -48,7 +48,7 @@ export const TextCarousel = () => {
           >
             <div className="md:space-y-6">
               <div>
-                <h2 className="text-[#A8FA87] text-xl font-sans font-spectral text-start">
+                <h2 className="text-[#A8FA87] text-xl font-sans font-[500] text-start">
                   {slide.title}
                 </h2>
                 <h3 className="text-2xl text-start font-serif md:mt-2">
@@ -64,7 +64,7 @@ export const TextCarousel = () => {
                         <Check size={20} />
                       </span>
                     )}
-                    <p className="text-lg font-sans font-spectral">{point}</p>
+                    <p className="text-lg font-sans font-[300]">{point}</p>
                   </li>
                 ))}
               </ul>

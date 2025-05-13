@@ -11,8 +11,8 @@ export const Hero = () => {
       <Image
         src="/images/tree.avif"
         alt="Tree"
-        width={1000}
-        height={1000}
+        width={4000}
+        height={4000}
         className="w-40 h-44 mb-6"
       />
       <h1 className="text-5xl sm:text-7xl font-serif text-center text-primary font-[400]">

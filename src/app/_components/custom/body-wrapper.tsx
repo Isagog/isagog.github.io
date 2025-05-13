@@ -1,15 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Spectral } from "next/font/google";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
-
-const inter = Spectral({
-  weight: "200",
-  subsets: ["latin"],
-});
 
 export const BodyWrapper = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
@@ -23,7 +17,6 @@ export const BodyWrapper = ({ children }: { children: ReactNode }) => {
     <body
       className={cn(
         "antialiased pt-22",
-        inter.className,
         isProjectPage ? "bg-white" : "bg-background"
       )}
     >

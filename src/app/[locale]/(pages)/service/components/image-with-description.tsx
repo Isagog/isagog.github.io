@@ -32,12 +32,14 @@ export const ImageWithDescription = ({
         height={500}
         className={imgClassName}
       />
-      <div className="space-y-8 md:w-96 text-center md:text-left">
-        <h2 className="text-2xl text-nowrap font-bold">{title}</h2>
-        <p className="font-sans font-spectral">{firstParagraph}</p>
-        <p className="font-sans font-spectral">{secondParagraph}</p>
+      <div className="space-y-8 md:w-96  text-center md:text-left mx-4 sm:mx-0">
+        <h2 className="text-3xl md:text-nowrap font-serif font-bold">
+          {title}
+        </h2>
+        <p className="font-sans text-[18px] font-[300]">{firstParagraph}</p>
+        <p className="font-sans text-[18px] font-[300]">{secondParagraph}</p>
         {thirdParagraph && (
-          <p className="font-sans font-spectral">{thirdParagraph}</p>
+          <p className="font-sans text-[18px] font-[300]">{thirdParagraph}</p>
         )}
       </div>
     </div>

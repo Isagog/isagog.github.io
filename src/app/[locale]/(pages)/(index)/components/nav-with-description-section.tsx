@@ -35,28 +35,15 @@ export const NavWithDescriptionSection = ({
         href={href}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        className="flex flex-col gap-2 w-fit sm:ml-12 sm:mr-0 mx-2"
+        className={`flex flex-col gap-2 w-fit sm:ml-12 sm:mr-0 mx-2 ${
+          isHovering && "opacity-60 transition-opacity"
+        }`}
       >
-        <h1
-          className={`mt-10 text-2xl font-sans font-[400] ${
-            isHovering ? "text-green-200 opacity-100" : "text-[#A8FA87]"
-          }`}
-        >
+        <h1 className={`mt-10 text-2xl font-sans font-[400] text-[#A8FA87]`}>
           {title}
         </h1>
-        <p
-          className={`text-2xl font-serif font-[300] ${
-            isHovering ? "text-green-200 opacity-100" : ""
-          }`}
-        >
-          {description}
-        </p>
-        <ArrowRight
-          className={`${
-            isHovering ? "text-green-200 opacity-100" : "text-[#A8FA87]"
-          }`}
-          size={24}
-        />
+        <p className={`text-2xl font-serif font-[300]`}>{description}</p>
+        <ArrowRight className={`text-[#A8FA87]`} size={24} />
       </Link>
     </motion.div>
   );

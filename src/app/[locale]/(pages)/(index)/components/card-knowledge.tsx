@@ -7,6 +7,7 @@ export type KnowledgeCardProps = {
   firstParagraph: string;
   secondParagraph: string;
   thirdParagraph: string;
+  linkToExample?: string;
 };
 
 export const KnowledgeCard = ({
@@ -16,9 +17,10 @@ export const KnowledgeCard = ({
   firstParagraph,
   secondParagraph,
   thirdParagraph,
+  linkToExample,
 }: KnowledgeCardProps) => {
   return (
-    <div className="gap-8 flex w-94 flex-col bg-transparent border-none text-center text-primary">
+    <div className="gap-8 flex w-[260px] sm:w-[300px] md:w-96 flex-col bg-transparent border-none text-center text-primary">
       <h2 className="text-4xl font-serif mb-1">{title}</h2>
       <p className="text-lg font-serif font-[500]">{subtitle}</p>
       <div className="bg-[#3a5e32] text-[#a7f986] text uppercase py-8 px-8 font-sans font-[400]">
@@ -30,6 +32,7 @@ export const KnowledgeCard = ({
         firstParagraph={firstParagraph}
         secondParagraph={secondParagraph}
         thirdParagraph={thirdParagraph}
+        linkToExample={linkToExample}
       />
     </div>
   );

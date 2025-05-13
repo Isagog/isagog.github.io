@@ -1,4 +1,3 @@
-import { Button } from "@/app/_components/ui/button";
 import { getScopedI18n } from "@/packages/locales/server";
 import Link from "next/link";
 import {
@@ -39,6 +38,7 @@ const HomePage = async () => {
       firstParagraph: tTextSection("3.firstParagraph"),
       secondParagraph: tTextSection("3.secondParagraph"),
       thirdParagraph: tTextSection("3.thirdParagraph"),
+      linkToExample: tTextSection("3.linkToExample"),
     },
   ];
 
@@ -46,7 +46,7 @@ const HomePage = async () => {
     <main className="flex min-h-screen flex-col justify-center items-center relative isolate ">
       <Hero />
       <KnowledgeCarousel data={data} />
-      <div className="w-full flex flex-col justify-evenly  my-18 mx-auto max-w-2/3">
+      <div className="w-full flex flex-col justify-evenly  my-18 mx-5 sm:mx-auto sm:max-w-2/3">
         <NavWithDescriptionSection
           title={tNav("about.title")}
           description={tNav("about.description")}
@@ -69,29 +69,28 @@ const HomePage = async () => {
         />
       </div>
       <div
-        className="relative w-full bg-[#3a5e32] bg-cover bg-center text-center text-[#86efac] py-24 px-6 mt-12"
+        className="relative w-full bg-[#3a5e32] flex flex-col justify-center items-center  bg-cover bg-center text-center text-[#a8fa87] h-[498px] mt-12"
         style={{
-          backgroundImage: "url('/images/tree.avif')",
+          backgroundImage: "url('/images/tree.webp')",
           backgroundBlendMode: "multiply",
         }}
       >
-        <div className="w-full mx-auto space-y-6">
-          <p className="uppercase tracking-widests font-sans font-[400] leading-12 text-2xl">
+        <div className="space-y-6 flex flex-col justify-center items-center">
+          <p className="uppercase tracking-widests text-[22px] font-sans font-[400] leading-12">
             {tIntroHighlight("title")}
             <br />
             {tIntroHighlight("description")}
           </p>
-          <p className="uppercase tracking-wide text-xl font-sans font-[400]">
+          <p className="uppercase tracking-wide text-[22px] font-sans font-[400]">
             {tIntroHighlight("subtitle")}
           </p>
-          <div className="pt-6">
-            <Link href="https://cal.com/isagog" target="_blank">
-              <Button
-                variant="ghost"
-                className="uppercase border-b border-[#86efac] rounded-none text-[#86efac] hover:bg-transparent hover:underline cursor-pointer"
-              >
-                {tIntroHighlight("button")}
-              </Button>
+          <div className="border-t border-[#a8fa87]">
+            <Link
+              href="https://cal.com/isagog"
+              target="_blank"
+              className="inline-block pt-2 uppercase text-[15px] rounded-none text-[#a8fa87] hover:bg-transparent cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-[0_6px_6px_-2px_#223319]"
+            >
+              {tIntroHighlight("button")}
             </Link>
           </div>
         </div>

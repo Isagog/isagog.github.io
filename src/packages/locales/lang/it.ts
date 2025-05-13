@@ -13,6 +13,11 @@ export default {
     contact: "Conttataci",
     work_with_us: "Lavora con noi",
     languages: "Lingue",
+    address: {
+      copyright: "(c) {year} Isagog Srl",
+      street: "Via Faà di Bruno 52",
+      zip: "00195 Roma (IT)",
+    },
   },
   "home-page": {
     hero: {
@@ -79,7 +84,8 @@ export default {
           "Sviluppa agenti AI capaci di assisterti in linguaggio naturale",
         secondParagraph: "Produci analisi, riassunti, mappe e tanto altro",
         thirdParagraph:
-          " Utilizza la conoscenza della tua organizzazione per i tuoi team, i tuoi clienti, il tuo pubblico esempi",
+          " Utilizza la conoscenza della tua organizzazione per i tuoi team, i tuoi clienti, il tuo pubblico",
+        linkToExample: "esempi",
       },
     },
     "intro-highlight": {
@@ -136,31 +142,32 @@ export default {
   "about-page": {
     "text-animate": {
       "1": "Costruiamo AI neuro-simbolica per la gestione di grandi volumi di dati strutturati e non strutturati, ricchi di sfumature semantiche legate al tono e al contesto d’uso.",
-      "2": "Abbiamo coltivato carriere nei settori della tecnologia, della sanità, della ricerca e della cultura. Insieme abbiamo più di 50 anni di esperienza nella ricerca e nello sviluppo dell'intelligenza artificiale.",
+      "2": "Abbiamo coltivato carriere nei settori della tecnologia, della sanità, della ricerca e della cultura.",
+      "3": "Insieme abbiamo più di 50 anni di esperienza nella ricerca e nello sviluppo dell'intelligenza artificiale.",
     },
     highlight: {
       title: "Forniamo strumenti per l'uso consapevole ed efficace dell'AI",
       "1": "Il nome “Isagog” richiama il termine greco antico Isagoge, che significa “introduzione”: una guida preliminare, una mappa concettuale pensata per orientarsi in territori complessi.",
-      "2": "Nel trattato Isagoge, il filosofo Porfirio (Tiro, 233 D.C. – Roma, 305 D.C.circa) offre un accesso sistematico al pensiero aristotelico attraverso uno schema: il celebre Albero di Porfirio.Questa rappresentazione gerarchica e ramificata dei concetti astratti e concreti ha segnato profondamente la storia del pensiero occidentale, diventando un modello per organizzare il sapere — dalla filosofia medievale fino alla moderna scienza dell’informazione.",
-      "3": "Oggi, quell’antico “albero del pensiero” rivive nei Knowledge Graphs: strutture che rappresentano le relazioni tra concetti ed entità, astratti o concreti, in modo formalizzato e navigabile.Si tratta di un’infrastruttura semantica che consente di organizzare, collegare e contestualizzare l’informazione, rendendola accessibile, interpretabile e verificabile.",
-      "4": "L’integrazione tra modelli generativi (Language Models) e Knowledge Graphs rappresenta oggi una delle frontiere più avanzate della ricerca e dello sviluppo nell’ambito dell’intelligenza artificiale.È esattamente questo l’ambito in cui opera ISAGOG: sfruttiamo la potenza espressiva e computazionale dei modelli linguistici per costruire in modo efficiente strutture di conoscenza formale — rendendo così trasparente e verificabile ciò che nei modelli neurali resta opaco.Le nostre soluzioni sono efficaci perché uniscono la flessibilità dell’apprendimento automatico con la precisione e l’interpretabilità della rappresentazione simbolica.",
+      "2": "Nel trattato Isagoge, il filosofo Porfirio (Tiro, 233 D.C. – Roma, 305 D.C. circa) offre un accesso sistematico al pensiero aristotelico attraverso uno schema: il celebre Albero di Porfirio. Questa rappresentazione gerarchica e ramificata dei concetti astratti e concreti ha segnato profondamente la storia del pensiero occidentale, diventando un modello per organizzare il sapere — dalla filosofia medievale fino alla moderna scienza dell’informazione.",
+      "3": "Oggi, quell’antico “albero del pensiero” rivive nei Knowledge Graphs: strutture che rappresentano le relazioni tra concetti ed entità, astratti o concreti, in modo formalizzato e navigabile. Si tratta di un’infrastruttura semantica che consente di organizzare, collegare e contestualizzare l’informazione, rendendola accessibile, interpretabile e verificabile.",
+      "4": "L’integrazione tra modelli generativi (Language Models) e Knowledge Graphs rappresenta oggi una delle frontiere più avanzate della ricerca e dello sviluppo nell’ambito dell’intelligenza artificiale. È esattamente questo l’ambito in cui opera ISAGOG: sfruttiamo la potenza espressiva e computazionale dei modelli linguistici per costruire in modo efficiente strutture di conoscenza formale — rendendo così trasparente e verificabile ciò che nei modelli neurali resta opaco. Le nostre soluzioni sono efficaci perché uniscono la flessibilità dell’apprendimento automatico con la precisione e l’interpretabilità della rappresentazione simbolica.",
       link: "Approfondisci",
     },
     team: {
       "1": {
         title: "Direttore Generale",
-        desc: "Ex Direttore Ricerca, IBM Italia, Prof. di AI, Università G. Marconi, Fondatore di ISAGOG",
+        desc: "Ex Direttore Ricerca, \nIBM Italia, \nProf. di AI, \nUniversità G. Marconi, \nFondatore di ISAGOG",
       },
       "2": {
         title: "Direttore scientifico",
-        desc: "Business Dev. Executive Salute e ricerca, IBM, Design Thinking coach, Distinguished Architect, Open Group",
+        desc: "Business Dev. Executive \nSalute e ricerca, IBM, \nDesign Thinking coach, \nDistinguished Architect, \nOpen Group",
       },
       "3": {
         title: "Direttore tecnico",
-        desc: "Automation Engineer, HCLSoftware Data Scientist BSc Mathematics & Philosophy",
+        desc: "Automation Engineer, \nHCLSoftware \nData Scientist \nBSc Mathematics & Philosophy",
       },
       "4": {
-        desc: "Journalist and writer Professor of History of the Future, LUISS Prof. Knowledge Management, The Sant'Anna School of Advanced Studies and Stanford University",
+        desc: "Giornalista e scrittore \nProf. di Storia del \nFuturo, LUISS \nProf. Management \ndella Conoscenza, La \nScuola Superiore \nSant'Anna e Stanford \nUniversity",
       },
     },
     "faqs-list": {
@@ -171,8 +178,8 @@ export default {
       },
       "2": {
         title: "Responsabilità",
-        a: "L’AI è etica quando è responsabilmente integrata nella società. ",
-        b: "Costruiamo soluzioni che rispettano chi le utilizza e proteggono chi ne subisce l'impatto.",
+        a: "L’AI è etica quando è responsabilmente integrata nella società.",
+        b: "Costruiamo soluzioni che rispettano chi le utilizza e proteggono chi ne subisce l’impatto.",
       },
       "3": {
         title: "Impatto",

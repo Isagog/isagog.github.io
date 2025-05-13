@@ -8,17 +8,18 @@ import {
 } from "@/app/_components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { useScopedI18n } from "@/packages/locales/client";
-import clsx from "clsx";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const whitePages = ["/project", "/blog/"];
 
 export const Header = () => {
   const t = useScopedI18n("header");
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
   const isWhitePage = whitePages.some(
     (page) => pathname.startsWith(page) && pathname !== "/blog"
   );
@@ -47,7 +48,7 @@ export const Header = () => {
             height={200}
           />
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden xl:flex items-center gap-6">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -55,9 +56,9 @@ export const Header = () => {
                 key={`${item.href}-${item.label}`}
                 href={item.href}
                 prefetch
-                className={clsx(
-                  "font-sans font-[300] text-primary  hover:text-black text-base",
-                  isActive ? "text-[#86efac]" : ""
+                className={cn(
+                  "font-sans font-[300] text-primary hover:text-black text-base",
+                  isActive && "text-[#000000] font-[400]"
                 )}
               >
                 {item.label}
@@ -65,22 +66,26 @@ export const Header = () => {
             );
           })}
         </nav>
-        <div className="flex md:hidden items-center gap-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger className="cursor-pointer h-8 w-8 flex items-center justify-center rounded-full bg-muted/40 hover:bg-muted/60 transition-colors">
-              <Menu className="h-5 w-5" />
+        <div className="flex xl:hidden items-center gap-2">
+          <DropdownMenu open={open} onOpenChange={setOpen}>
+            <DropdownMenuTrigger className="cursor-pointer h-8 w-8 flex items-center justify-center rounded-full transition-colors">
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-40">
+            <DropdownMenuContent
+              align="end"
+              className={`w-40 bg-background border-none shadow-none ${
+                isWhitePage ? "bg-white" : "bg-background"
+              }`}
+            >
               {navItems.map((item) => (
                 <DropdownMenuItem key={item.href} asChild>
                   <Link
                     href={item.href}
                     prefetch
-                    className={
-                      pathname === item.href
-                        ? "text-[#86efac] w-full"
-                        : "w-full"
-                    }
+                    className={cn(
+                      "font-sans font-[300] text-primary text-base",
+                      pathname === item.href && "text-[#000000] font-[400]"
+                    )}
                   >
                     {item.label}
                   </Link>

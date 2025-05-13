@@ -48,14 +48,14 @@ const ServicePage = async () => {
         imgClassName="h-64 object-contain"
       />
       <section className="flex flex-col items-center mx-[10%] space-y-16  justify-center h-[450px]">
-        <h2 className="text-2xl font-sans font-spectral">{tWhyUs("title")}</h2>
-        <p className="text-center font-spectral text-2xl">
+        <h2 className="text-2xl font-sans font-[400]">{tWhyUs("title")}</h2>
+        <p className="text-center font-[400] text-2xl">
           {tWhyUs("description")}
         </p>
         <Link href="https://cal.com/isagog" target="_blank" prefetch>
           <Button
             variant="ghost"
-            className="uppercase border-t font-sans border-[#86efac] rounded-none text-[#86efac] hover:bg-transparent hover:underline cursor-pointer"
+            className="uppercase border-t font-sans border-[#a8fa87] rounded-none text-[#a8fa87] hover:bg-transparent hover:underline cursor-pointer"
           >
             {tWhyUs("linkLabel")}
           </Button>

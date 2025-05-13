@@ -18,6 +18,7 @@ const languages: {
 
 export const Footer = () => {
   const tFooter = useScopedI18n("footer");
+  const tAddress = useScopedI18n("footer.address");
   const pathname = usePathname();
   const currentLocale = useCurrentLocale();
   const changeLocale = useChangeLocale();
@@ -34,30 +35,30 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="container font-sans font-spectral text-xs w-full px-4 sm:w-[70%] mx-auto py-4 mt-24">
+    <footer className="container font-sans font-spectral text-xs font-[300] w-full px-4 sm:w-[70%] mx-auto py-4 mt-24">
       <div className="grid grid-cols-2 md:grid-cols-4 sm:gap-4 gap-8">
         <nav className="flex flex-col gap-2">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={pathname === item.href ? "text-[#86efac]" : ""}
+              className={pathname === item.href ? "text-black font-[400]" : ""}
             >
               {item.title}
             </Link>
           ))}
         </nav>
         <div className="flex flex-col gap-2">
-          <p>(c) {new Date().getFullYear()} Isagog Srl</p>
-          <p>Via Faà di Bruno 52</p>
-          <p>00195 Roma (IT)</p>
+          <p>{tAddress("copyright", { year: new Date().getFullYear() })}</p>
+          <p>{tAddress("street")}</p>
+          <p>{tAddress("zip")}</p>
         </div>
         <nav className="flex flex-col gap-2 xl:items-end ">
           {navItems2.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={pathname === item.href ? "text-[#86efac]" : ""}
+              className={pathname === item.href ? "text-black font-[400]" : ""}
             >
               {item.title}
             </Link>
@@ -70,9 +71,7 @@ export const Footer = () => {
               key={lang.code}
               onClick={() => changeLocale(lang.code)}
               className={`flex items-center gap-1 px-2 py-1 rounded hover:bg-muted/40 transition cursor-pointer ${
-                currentLocale === lang.code
-                  ? "font-semibold text-[#86efac]"
-                  : ""
+                currentLocale === lang.code ? "font-[400] text-black" : ""
               }`}
             >
               <span>{lang.name}</span>
