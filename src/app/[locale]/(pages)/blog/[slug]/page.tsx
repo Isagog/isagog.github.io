@@ -24,7 +24,7 @@ const BlogPostPage = async ({
   return (
     <MarkdownRenderer
       content={post.content}
-      imageClassName="w-auto mx-auto h-[75vh] object-contain rounded-3xl"
+      imageClassName="w-auto sm:max-w-2/4 mx-auto h-[75vh] object-contain rounded-3xl"
     />
   );
 };

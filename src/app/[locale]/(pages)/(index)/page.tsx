@@ -46,7 +46,7 @@ const HomePage = async () => {
     <main className="flex min-h-screen flex-col justify-center items-center relative isolate ">
       <Hero />
       <KnowledgeCarousel data={data} />
-      <div className="w-full flex flex-col justify-evenly  my-18 mx-5 sm:mx-auto sm:max-w-2/3">
+      <div className="w-full flex flex-col justify-evenly  my-18 mx-5 sm:mx-auto sm:max-w-2/4">
         <NavWithDescriptionSection
           title={tNav("about.title")}
           description={tNav("about.description")}
