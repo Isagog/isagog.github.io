@@ -33,7 +33,7 @@ export const ImageWithDescription = ({
         className={imgClassName}
       />
       <div className="space-y-8 md:w-96  text-center md:text-left mx-4 sm:mx-0">
-        <h2 className="text-3xl md:text-nowrap font-serif font-bold">
+        <h2 className="text-3xl md:text-nowrap font-serif font-semibold">
           {title}
         </h2>
         <p className="font-sans text-[18px] font-[300]">{firstParagraph}</p>

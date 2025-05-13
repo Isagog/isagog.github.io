@@ -57,7 +57,7 @@ export const Header = () => {
                 href={item.href}
                 prefetch
                 className={cn(
-                  "font-sans font-[300] text-primary hover:text-black text-base",
+                  "font-sans font-[400] text-primary hover:text-black text-base",
                   isActive && "text-[#000000] font-[400]"
                 )}
               >

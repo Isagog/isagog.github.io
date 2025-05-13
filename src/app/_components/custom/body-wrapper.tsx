@@ -5,7 +5,13 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 
-export const BodyWrapper = ({ children }: { children: ReactNode }) => {
+export const BodyWrapper = ({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) => {
   const pathname = usePathname();
   const [isProjectPage, setIsProjectPage] = useState(false);
 
@@ -16,6 +22,7 @@ export const BodyWrapper = ({ children }: { children: ReactNode }) => {
   return (
     <body
       className={cn(
+        className,
         "antialiased pt-22",
         isProjectPage ? "bg-white" : "bg-background"
       )}

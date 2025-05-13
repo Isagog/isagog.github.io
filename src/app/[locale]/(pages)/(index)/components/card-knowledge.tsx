@@ -23,7 +23,7 @@ export const KnowledgeCard = ({
     <div className="gap-8 flex w-[260px] sm:w-[300px] md:w-96 flex-col bg-transparent border-none text-center text-primary">
       <h2 className="text-4xl font-serif mb-1">{title}</h2>
       <p className="text-lg font-serif font-[500]">{subtitle}</p>
-      <div className="bg-[#3a5e32] text-[#a7f986] text uppercase py-8 px-8 font-sans font-[400]">
+      <div className="bg-[#3a5e32] text-[#a7f986] text uppercase py-8 px-8 font-sans font-[500]">
         {description.split("\n").map((line, i) => (
           <p key={i}>{line}</p>
         ))}
