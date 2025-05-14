@@ -15,7 +15,7 @@ export const Hero = () => {
         height={4000}
         className="w-40 h-44 mb-6"
       />
-      <h1 className="text-5xl sm:text-7xl font-serif text-center text-primary font-[400]">
+      <h1 className="text-3xl sm:text-4xl font-serif text-center text-primary font-[400] ">
         {t("title")}
       </h1>
       <motion.span
