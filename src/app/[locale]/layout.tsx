@@ -8,8 +8,8 @@ import type { ReactNode } from "react";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "ISAGOG",
-  description: "",
+  title: "ISAGOG - AI that makes sense",
+  description: "ISAGOG is an AI Engineering company that helps businesses to build intelligent and trustworthy AI solutions.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
