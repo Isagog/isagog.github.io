@@ -90,6 +90,6 @@
 }
 
 .font-serif {
-  letter-spacing: 0.14em;
+  /* letter-spacing: 0.14em; */
   font-family: var(--font-spectral), "Spectral", "Spectral Placeholder", serif;
 }

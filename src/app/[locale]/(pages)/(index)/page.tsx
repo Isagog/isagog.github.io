@@ -84,11 +84,11 @@ const HomePage = async () => {
           <p className="uppercase tracking-wide text-[22px] font-sans font-[400]">
             {tIntroHighlight("subtitle")}
           </p>
-          <div className="border-t border-[#a8fa87]">
+          <div className="border-y border-[#a8fa87]">
             <Link
               href="https://cal.com/isagog"
               target="_blank"
-              className="inline-block pt-2 uppercase text-[15px] rounded-none text-[#a8fa87] hover:bg-transparent cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105 hover:shadow-[0_6px_6px_-2px_#223319]"
+              className="inline-block py-2 uppercase text-[15px] rounded-none text-[#a8fa87] hover:bg-transparent cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105"
             >
               {tIntroHighlight("button")}
             </Link>
