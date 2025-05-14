@@ -39,13 +39,14 @@ export const Header = () => {
         isWhitePage ? "bg-white" : "bg-background"
       )}
     >
-      <div className="flex w-full items-center justify-between gap-2 px-1 sm:px-8 py-6">
+      <div className="flex w-full items-center justify-between gap-2 px-3 sm:px-6 py-2">
         <Link href="/" prefetch>
           <Image
             src="/logo-new.png"
             alt="logo isagog"
-            width={220}
+            width={200}
             height={200}
+            className = "p-3"
           />
         </Link>
         <nav className="hidden lg:flex items-center gap-6">
