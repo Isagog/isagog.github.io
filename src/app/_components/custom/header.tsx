@@ -20,9 +20,11 @@ export const Header = () => {
   const t = useScopedI18n("header");
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
   const isWhitePage = whitePages.some(
     (page) => pathname.startsWith(page) && pathname !== "/blog"
   );
+  const isServicePage = pathname.startsWith("/service");
 
   const navItems = [
     { href: "/about", label: t("about") },
@@ -36,13 +38,14 @@ export const Header = () => {
     <header
       className={cn(
         "flex fixed top-0 z-50 w-full items-center border-b border-border",
-        isWhitePage ? "bg-white" : "bg-background"
+        isWhitePage ? "bg-white" : "bg-background",
+        isServicePage ? "bg-[#223319] border-[#1f2e17de]" : ""
       )}
     >
       <div className="flex w-full items-center justify-between gap-2 px-1 sm:px-8 py-6">
         <Link href="/" prefetch>
           <Image
-            src="/logo-new.png"
+            src={isServicePage ? "/logo-green-dark.png" : "/logo-new.png"}
             alt="logo isagog"
             width={220}
             height={200}
@@ -58,6 +61,7 @@ export const Header = () => {
                 prefetch
                 className={cn(
                   "font-sans font-[400] text-primary hover:text-black text-base",
+                  isServicePage ? "text-white" : "",
                   isActive && "text-[#000000] font-[400]",
                   item.isContact && "text-[#a8fa87] font-[400]"
                 )}
