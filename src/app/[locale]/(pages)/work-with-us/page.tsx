@@ -9,7 +9,7 @@ const WorkWithUsPage = () => {
     <div className="flex items-center justify-center h-[80vh]">
       <h1 className="text-center font-sans font-spectral text-lg">
         {t("label")}
-        {""}
+        {" "}
         <Link href="mailto:hiring@isagog.com" className="text-[#86efac]">
           hiring@isagog.com
         </Link>

@@ -62,7 +62,7 @@ const ServicePage = async () => {
         </Link>
       </section>
       <ImageWithTitle
-        title="Architettura della piattaforma neuro-simbolica"
+        title="Platform Architecture"
         imageUrl="/images/service-images/mermaid-graph.svg"
       />
       <ImageWithTitle
