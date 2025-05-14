@@ -8,6 +8,7 @@ import {
 } from "@/app/_components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { useScopedI18n } from "@/packages/locales/client";
+import { is } from "@react-three/fiber/dist/declarations/src/core/utils";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,7 +30,7 @@ export const Header = () => {
     { href: "/service", label: t("solution") },
     { href: "/project", label: t("project") },
     { href: "/blog", label: t("blog") },
-    { href: "/contact", label: t("contact") },
+    { href: "/contact", label: t("contact"), isContact: true },
   ];
 
   return (
@@ -58,7 +59,8 @@ export const Header = () => {
                 prefetch
                 className={cn(
                   "font-sans font-[400] text-primary hover:text-black text-base",
-                  isActive && "text-[#000000] font-[400]"
+                  isActive && "text-[#000000] font-[400]",
+                  item.isContact && "text-[#a8fa87] font-[400]"
                 )}
               >
                 {item.label}
