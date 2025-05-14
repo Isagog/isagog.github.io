@@ -53,7 +53,7 @@ export default {
       solution: {
         title: "SERVIZI E SOLUZIONI",
         description:
-          "Grazie a una piattaforma innovativa, reallizziamo infrastrutture che danno forma e senso ai dati, lungo tutto il loro ciclo di vita",
+          "Grazie a una piattaforma innovativa, realizziamo infrastrutture che danno forma e senso ai dati, lungo tutto il loro ciclo di vita",
       },
       project: {
         title: "PROGETTI",
