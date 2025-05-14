@@ -8,7 +8,6 @@ import {
 } from "@/app/_components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { useScopedI18n } from "@/packages/locales/client";
-import { is } from "@react-three/fiber/dist/declarations/src/core/utils";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
