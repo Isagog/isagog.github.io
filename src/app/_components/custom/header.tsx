@@ -48,7 +48,7 @@ export const Header = () => {
             height={200}
           />
         </Link>
-        <nav className="hidden xl:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-6">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -66,7 +66,7 @@ export const Header = () => {
             );
           })}
         </nav>
-        <div className="flex xl:hidden items-center gap-2">
+        <div className="flex lg:hidden items-center gap-2">
           <DropdownMenu open={open} onOpenChange={setOpen}>
             <DropdownMenuTrigger className="cursor-pointer h-8 w-8 flex items-center justify-center rounded-full transition-colors">
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
