@@ -10,7 +10,7 @@ import {
 const AboutPage = async () => {
   const t = await getScopedI18n("about-page");
   return (
-    <div className="mx-5 sm:mx-auto sm:max-w-2/4 max-w-full flex flex-col sm:gap-16 gap-8 justify-center items-center ">
+    <div className="mx-5 sm:mx-auto sm:max-w-3/4 max-w-full flex flex-col sm:gap-16 gap-8 justify-center items-center ">
       <div className="justify-center items-center hidden sm:flex">
         <Image src="/images/trees.avif" alt="Tree" width={1000} height={1000} />
       </div>
