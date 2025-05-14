@@ -55,7 +55,7 @@ const HomePage = async () => {
         <NavWithDescriptionSection
           title={tNav("solution.title")}
           description={tNav("solution.description")}
-          href="/informs"
+          href="/service"
         />
         <NavWithDescriptionSection
           title={tNav("project.title")}
