@@ -10,7 +10,7 @@ export default {
     solutions: "Soluzioni",
     projects: "Progetti",
     insights: "Approfondimenti",
-    contact: "Conttataci",
+    contact: "Contataci",
     work_with_us: "Lavora con noi",
     languages: "Lingue",
     address: {
