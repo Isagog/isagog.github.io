@@ -9,8 +9,40 @@ import "../globals.css";
 
 export const metadata: Metadata = {
   title: "ISAGOG - AI that makes sense",
-  description: "ISAGOG is an AI Engineering company that helps businesses to build intelligent and trustworthy AI solutions.",
+  description:
+    "ISAGOG is an AI Engineering company that helps businesses to build intelligent and trustworthy AI solutions.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
+  metadataBase: new URL("https://isagog.com"),
+  openGraph: {
+    title: "ISAGOG - AI that makes sense",
+    description:
+      "ISAGOG is an AI Engineering company that helps businesses to build intelligent and trustworthy AI solutions.",
+    url: "https://isagog.com",
+    siteName: "ISAGOG",
+    images: [
+      {
+        url: "https://isagog.com/tree.avif",
+        width: 1200,
+        height: 630,
+        alt: "Illustration representing ISAGOG - AI Engineering Company",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ISAGOG - AI that makes sense",
+    description:
+      "ISAGOG is an AI Engineering company that helps businesses to build intelligent and trustworthy AI solutions.",
+    images: ["https://isagog.com/tree.avif"],
+  },
+  alternates: {
+    canonical: "https://isagog.com/",
+    languages: {
+      en: "/en",
+      it: "/it",
+    },
+  },
 };
 
 const montserrat = Montserrat({
