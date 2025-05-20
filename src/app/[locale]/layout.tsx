@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "ISAGOG",
     images: [
       {
-        url: "https://isagog.com/tree.avif",
+        url: "https://isagog.com/images/tree.avif",
         width: 1200,
         height: 630,
         alt: "Illustration representing ISAGOG - AI Engineering Company",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "ISAGOG - AI that makes sense",
     description:
       "ISAGOG is an AI Engineering company that helps businesses to build intelligent and trustworthy AI solutions.",
-    images: ["https://isagog.com/tree.avif"],
+    images: ["https://isagog.com/images/tree.avif"],
   },
   alternates: {
     canonical: "https://isagog.com/",
