@@ -23,6 +23,8 @@ export const Footer = () => {
   const currentLocale = useCurrentLocale();
   const changeLocale = useChangeLocale();
 
+  const isServicePage = pathname.startsWith("/service");
+
   const navItems = [
     { title: tFooter("solutions"), href: "/service" },
     { title: tFooter("projects"), href: "/project" },
@@ -35,9 +37,11 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="container font-sans font-spectral text-xs font-[300] w-full px-4 sm:w-[70%] mx-auto py-4 mt-24">
+    <footer className="container font-sans  font-spectral text-xs font-[300] w-full px-4 sm:w-[70%] mx-auto py-4 mt-24">
       <div className="grid grid-cols-2 md:grid-cols-4 sm:gap-4 gap-8">
-        <nav className="flex flex-col gap-2">
+        <nav
+          className={`flex flex-col gap-2 ${isServicePage ? "text-white" : ""}`}
+        >
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -48,12 +52,18 @@ export const Footer = () => {
             </Link>
           ))}
         </nav>
-        <div className="flex flex-col gap-2">
+        <div
+          className={`flex flex-col gap-2 ${isServicePage ? "text-white" : ""}`}
+        >
           <p>{tAddress("copyright", { year: new Date().getFullYear() })}</p>
           <p>{tAddress("street")}</p>
           <p>{tAddress("zip")}</p>
         </div>
-        <nav className="flex flex-col gap-2 xl:items-end ">
+        <nav
+          className={`flex flex-col gap-2 xl:items-end ${
+            isServicePage ? "text-white" : ""
+          }`}
+        >
           {navItems2.map((item) => (
             <Link
               key={item.href}
@@ -65,13 +75,17 @@ export const Footer = () => {
           ))}
         </nav>
         <div className="flex xl:items-end items-start flex-col justify-start gap-2">
-          <p>{tFooter("languages")}</p>
+          <p className={`${isServicePage ? "text-white" : ""}`}>
+            {tFooter("languages")}
+          </p>
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => changeLocale(lang.code)}
               className={`flex items-center gap-1 px-2 py-1 rounded hover:bg-muted/40 transition cursor-pointer ${
-                currentLocale === lang.code ? "font-[400] text-black" : ""
+                currentLocale === lang.code
+                  ? "font-[400] text-black"
+                  : `${isServicePage ? "text-white" : ""}`
               }`}
             >
               <span>{lang.name}</span>
