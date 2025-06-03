@@ -23,14 +23,14 @@ export default {
     hero: {
       title: "AI that makes sense",
       description:
-        "We build open neuro-symbolic technologies to analyze large amounts of data, extract meanings \n\n and design the future with awareness",
+        "We build open neuro-symbolic technologies to analyze vast data landscapes, extract patterns of meaning and shape the future with clarity",
     },
     knowledge: {
       "1": {
         title: "Build",
         subtitle: "your knowledge base",
         description:
-          "TRANSFORM YOUR \nDATA ASSETS INTO\nA REPOSITORY OF YOUR KNOWLEDGE",
+          "TURN YOUR DATA ASSETS\n INTO A REPOSITORY OF\n YOUR KNOWLEDGE",
       },
       "2": {
         title: "Inform",
@@ -53,7 +53,7 @@ export default {
       solution: {
         title: "SERVICES AND SOLUTIONS",
         description:
-          "Thanks to an innovative platform, we create infrastructures that give shape and meaning to data throughout their lifecycle",
+          "Thanks to an innovative platform, we create infrastructures that giveThrough our innovative platform, we build infrastructures that structure, contextualize, and activate data across its entire lifecycle",
       },
       project: {
         title: "PROJECTS",
@@ -69,72 +69,72 @@ export default {
       "1": {
         firstParagraph: "Extract information and meanings from your documents",
         secondParagraph: "Get a map of your domain knowledge",
-        thirdParagraph: "Easily update your organization's memory",
+        thirdParagraph: "Easily update your organization's digital memory",
       },
       "2": {
         firstParagraph:
-          "Integrate your organization's knowledge into your work processes",
+          "Integrate your organization’s knowledge directly into operational workflows",
         secondParagraph:
-          "Get immediate and traceable answers: identify sources and AI reasoning processes",
-        thirdParagraph: "Identify tone, semantic nuances",
+          "Deliver immediate, traceable answers with transparent AI reasoning and source attribution",
+        thirdParagraph: "Detect tone, semantic nuances, and whatever hides between the lines",
       },
       "3": {
         firstParagraph:
-          "Develop AI agents that can assist you in natural language",
-        secondParagraph: "Produce analyses, summaries, maps and much more",
+          "Develop AI agents that assist you through natural language interactions",
+        secondParagraph: "Generate assessments, briefs, knowledge maps, and more—on demand",
         thirdParagraph:
-          "Use your organization's knowledge for your teams, your clients, your audience",
+          "Activate institutional knowledge for your teams, your clients, your audience ",
         linkToExample: "examples",
       },
     },
     "intro-highlight": {
-      title: "Your business is more than what it produces",
-      description: "it hides a treasure of knowledge",
-      subtitle: "Let's discover it together",
+      title: "Your organisation holds a wealth of knowledge",
+      description: "",
+      subtitle: "We help unlock its value",
       button: "Book a meeting",
     },
     highlight: {
       title: "*Neuro-symbolic Artificial Intelligence",
       description:
-        "Artificial intelligence has historically developed following two main approaches:",
+        "Artificial intelligence has developed through these two currents:",
       "1": {
         title: "1. Connectionism",
         description:
-          "(Neural networks) – Inspired by how the brain works, they learn from data based on their correlations, without explicitly stating their decision criteria.",
+          "(Neural networks) – Inspired by the functioning of the brain, they learn from data based on their correlations, without explicitly stating their decision-making criteria.",
       },
       "2": {
         title: "2. Reasoning",
         description:
-          "(Symbolic AI) – Uses formal logic, rules and explicit knowledge (ontology) to simulate rational reasoning processes.",
+          "(Symbolic AI) – Uses formal logic, rules, and explicit knowledge (ontology) to simulate processes of rational reasoning.",
       },
       "3": {
         name: "Neuro-symbolic AI",
-        text: "combines the best of both worlds, integrating machine learning with explicit knowledge representation. The main advantages include:",
+        text: "combines the best of both worlds, integrating machine learning with explicit knowledge representation.\n  Main advantages:",
       },
       "4": {
         title: "Transparency",
         description:
-          "AI decisions are explainable and verifiable, thanks to accessible logical structures.",
+          "Traceable and verifiable AI's outputs, thanks to accessible logical structures.",
       },
       "5": {
         title: "Logical Inferences",
         description:
-          "The system doesn't just recognize patterns, but applies logic to address new situations coherently.",
+          "The system not only recognizes patterns, it is coherent. It applies logic to address new situations.",
       },
       "6": {
         title: "Reliability",
         description:
-          "Reduces errors and so-called \"hallucinations\" typical of neural networks, offering more stable and correct answers.",
+          "Reduces errors and “hallucinations” (commonly experienced by neural networks) – provides more stable and accurate responses.",
       },
       "7": {
         title: "Adaptability",
         description:
-          "Integrates knowledge learned from data with that encoded in rules, updating more quickly.",
+          "Integrates knowledge learned from data with the encoded rules, enabling faster and smarter updated.",
       },
       "8": {
         title: "Flexibility",
         description:
-          "Rules can be updated or expanded without resorting to complex reprogramming, making human intervention more direct and intuitive.",
+          "The rules can be updated or expanded without resorting to complex programming, human intervention is more direct and intuitive.",
       },
     },
   },
