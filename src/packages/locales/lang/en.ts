@@ -140,16 +140,16 @@ export default {
   },
   "about-page": {
     "text-animate": {
-      "1": "We build neuro-symbolic AI for managing large volumes of structured and unstructured data, rich in semantic nuances related to tone and context of use.",
-      "2": "We have cultivated careers in technology, healthcare, research, and culture sectors.",
-      "3": "Together we have more than 50 years of experience in artificial intelligence research and development.",
+      "1": "We design neuro-symbolic AI systems to manage high volumes of diverse data and understand semantic nuance, tone and domain specific knowledge.",
+      "2": "We have worked in tech, healthcare, research, and culture. ",
+      "3": "Together, we bring over 50 years of experience in AI research and development.",
     },
     highlight: {
-      title: "We provide tools for the conscious and effective use of AI",
+      title: "We build tools for a responsible use of AI that drives real value.",
       "1": 'The name "Isagog" recalls the ancient Greek term Isagoge, which means "introduction": a preliminary guide, a conceptual map designed to navigate complex territories.',
-      "2": "In the treatise Isagoge, the philosopher Porphyry (Tyre, 233 AD – Rome, c. 305 AD) offers systematic access to Aristotelian thought through a diagram: the famous Tree of Porphyry. This hierarchical and branching representation of abstract and concrete concepts has profoundly marked the history of Western thought, becoming a model for organizing knowledge — from medieval philosophy to modern information science.",
-      "3": 'Today, that ancient "tree of thought" lives on in Knowledge Graphs: structures that represent relationships between concepts and entities, abstract or concrete, in a formalized and navigable way. This is a semantic infrastructure that allows organizing, connecting, and contextualizing information, making it accessible, interpretable, and verifiable.',
-      "4": "The integration between generative models (Language Models) and Knowledge Graphs represents one of the most advanced frontiers of research and development in artificial intelligence today. This is exactly the field in which ISAGOG operates: we leverage the expressive and computational power of language models to efficiently build formal knowledge structures — thus making transparent and verifiable what remains opaque in neural models. Our solutions are effective because they combine the flexibility of machine learning with the precision and interpretability of symbolic representation.",
+      "2": "In the treatise Isagoge, the philosopher Porphyry (Tyrus, 233 AD – Rome, circa 305 AD) offers a systematic access to Aristotelian thought through a drawing: the famous Tree of Porphyry. This hierarchical and branching representation of abstract and concrete concepts has profoundly marked the history of Western thought, becoming a model for organizing knowledge — from medieval philosophy to modern information science.",
+      "3": 'Today, that ancient "knowledge tree" lives on in Knowledge Graphs: structures that represent relationships between concepts and entities, whether abstract or concrete, in a formalized and accessible way. This is a semantic infrastructure that allows for organizing, connecting, and contextualizing information, making it accessible, interpretable, and verifiable. ',
+      "4": "The integration between generative models (Language Models) and Knowledge Graphs represents one of the most interesting developments in AI. This is precisely the area in which ISAGOG operates: we leverage the expressive and computational power of language models to efficiently build formal knowledge structures — thus making transparent and verifiable what remains opaque in neural networks. Our neuro-symbolic solutions are effective because they combine the flexibility of machine learning with the precision and interpretability of symbolic representation.",
       link: "Learn more",
     },
     team: {
@@ -172,38 +172,38 @@ export default {
     "faqs-list": {
       "1": {
         title: "Independence",
-        a: "We develop artificial intelligence with critical thinking and complete autonomy, creating open, transparent, and reliable solutions.",
-        b: "We are part of a network of AI innovators, united by the belief that collaboration is the true engine of progress.",
+        a: "We develop artificial intelligence with a critical spirit and in complete autonomy. We create open, transparent, and reliable solutions.",
+        b: "We are part of a network of innovators in AI who believe collaboration is the true engine of progress.",
       },
       "2": {
         title: "Responsibility",
         a: "AI is ethical when it is responsibly integrated into society.",
-        b: "We build solutions that respect those who use them and protect those who are impacted by them.",
+        b: "We create solutions that respect those who use them and protect those who are impacted by them.",
       },
       "3": {
         title: "Impact",
-        a: "We dialogue with innovators in the AI field to anticipate future challenges.",
-        b: "We design and implement conscious, sustainable models and solutions of real value for those who adopt them.",
+        a: "We nurture exchange within the AI community, to anticipate the challenges of the future together.",
+        b: "We design and implement sustainable solutions that bring real value to those who use them.",
       },
       "4": {
         title: "Transparency",
-        a: "Machines don't distinguish between truth and falsehood. For this reason, we develop conceptual models with clients that allow verification of what machines reason about.",
+        a: "Machines cant tell truth from lie. Together with our clients we develop conceptual models that allow us to verify AI's applied reasoning. .",
       },
       "5": {
         title: "Security",
-        a: "We use open and independently manageable technologies to generate value without ever compromising confidentiality.",
+        a: "We use open, easily adaptable technologies to generate value without compromising privacy.",
       },
       "6": {
         title: "Experience",
-        a: "Together we count more than 50 years of research and development in the field of Artificial Intelligence.",
+        a: "Together, we bring over 50 years of experience in AI research and development.",
       },
     },
   },
   "contact-page": {
-    label: "We will be happy to answer your questions",
+    label: "Get in touch ",
   },
   "work-with-us-page": {
-    label: "If you wish to work with us, send us an email at",
+    label: "If you want to find out about our career opportunities, please write to ",
   },
   "service-page": {
     "image-with-description": {
