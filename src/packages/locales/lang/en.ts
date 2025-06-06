@@ -53,7 +53,7 @@ export default {
       solution: {
         title: "SERVICES AND SOLUTIONS",
         description:
-          "Thanks to an innovative platform, we create infrastructures that giveThrough our innovative platform, we build infrastructures that structure, contextualize, and activate data across its entire lifecycle",
+          "Through our innovative platform, we build infrastructures that structure, contextualize, and activate data across its entire lifecycle",
       },
       project: {
         title: "PROJECTS",
