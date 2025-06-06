@@ -1,13 +1,24 @@
 [
   {
     "title": "Il Manifesto",
-    "description": "Un patrimonio di testi e dati che oggi è diventato esplorabile grazie alla intelligenza artificiale",
+    "description": "A wealth of historical newspaper articles are now more accessible than ever thanks to artificial intelligence",
     "secondTitle": "MEMA: Memoria Manifesta",
-    "value": "800.000 articoli",
+    "value": "800.000 articles",
     "sector": "media",
-    "valueName": "archivio storico",
-    "name": "settore",
+    "valueName": "archive size",
+    "name": "sector",
     "image": "/images/project-images/ilManifesto.avif",
-    "slug": "project-1"
+    "slug": "manifesto-case-study"
+  },
+  {
+    "title": "Teleperformance",
+    "description": "A copilot to help customer service agents, integrating AI in support conversations",
+    "secondTitle": "Voice First",
+    "value": "450.000 people",
+    "sector": "customer service",
+    "valueName": "company size",
+    "name": "sector",
+    "image": "/images/project-images/teleperformance.png",
+    "slug": "teleperformance-case-study"
   }
 ]
