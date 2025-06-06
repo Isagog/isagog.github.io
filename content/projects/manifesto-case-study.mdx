@@ -1,0 +1,40 @@
+# Projects
+
+## MeMa: Memoria Manifesta
+
+### Client Requests
+
+The historical archive of *il manifesto* is officially recognized by the Italian Ministry of Culture as a cultural heritage asset. To bring this legacy into the digital age, *il manifesto* is developing a new AI-powered strategy — and has chosen Isagog as its research and development partner. Together, we're building a platform that transforms decades of journalistic history into a living, searchable resource for the future.
+
+### Challenges
+
+MEMA was created to design a community AI based on the principles of openness, transparency, collaboration, and non-extraction. The mission: to establish productive relationships between the archive, the editorial staff, various user communities, and society at large.
+
+![Screenshot del progetto MEMA](/images/project-images/mema.avif)
+
+### Transforming Editorial Work
+
+The historical archive is a valuable resource for the newspaper’s editorial team. However, querying it often requires the assistance of an archivist. Today, MeMa offers a tool that simplifies archive consultation, making the work easier for the team and improving the overall quality of the editorial product.
+
+### Enriching the Reading Experience
+
+The semantic search feature will soon be available to the wider reading community. In the meantime, MeMa is already surfacing connections between current articles and pieces from the historical archive. These appear as MeMa Recommendations in the online edition, offering readers a historical lens on today's news and enriching the overall reading experience.
+
+### Experimenting with Evolving Technologies
+
+Knowledge and language technologies are constantly evolving. MeMa's knowledge base offers a valuable opportunity to experiment with new methodologies and tools. Results are shared with the scientific community.
+
+* Paper at the Italian Conference on Computational Linguistics.
+* In Venice among the roots and the future of Artificial Intelligence.
+
+### System Architecture
+
+![Schema architettura MeMa](/images/project-images/mema-architecture.avif)
+
+### Development
+
+Each morning, a data-loading process updates the Knowledge Graph (KG) with new content. This process integrates multiple sources, analyzes the text using an NLP service to extract relevant information, and generates RDF data aligned with the MeMa ontology to enrich the KG. The Knowledge Graph is a graph database based on the RDF (Resource Description Framework) model, equipped with inference capabilities and built on the following technologies: Apache Jena, OWL Pellet reasoner, Lucene search engine.
+
+In parallel, a Natural Language Processing (NLP) service provides an abstraction layer that supports various analytical functions critical to the system’s operations, including: Entity recognition, Topic identification, Semantic similarity analysis, Additional NLP tasks powered by open-source transformer models.
+
+A separate service manages query handling and updates to the KG. It supports both similarity searches and SPARQL queries to retrieve relevant entities. This service leverages indexed attributes to boost query performance and speed up retrieval, while also using NLP techniques to interpret user input and rank results accordingly.
