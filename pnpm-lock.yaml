@@ -51,11 +51,11 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3
       hono:
-        specifier: ^4.7.0
-        version: 4.7.8
+        specifier: ^4.10.2
+        version: 4.10.2
       jstack:
         specifier: ^1.1.1
-        version: 1.1.1(hono@4.7.8)(react@19.1.0)(zod@3.24.3)
+        version: 1.1.1(hono@4.10.2)(react@19.1.0)(zod@3.24.3)
       lucide-react:
         specifier: ^0.503.0
         version: 0.503.0(react@19.1.0)
@@ -2802,8 +2802,8 @@ packages:
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
 
-  hono@4.7.8:
-    resolution: {integrity: sha512-PCibtFdxa7/Ldud9yddl1G81GjYaeMYYTq4ywSaNsYbB1Lug4mwtOMJf2WXykL0pntYwmpRJeOI3NmoDgD+Jxw==}
+  hono@4.10.2:
+    resolution: {integrity: sha512-p6fyzl+mQo6uhESLxbF5WlBOAJMDh36PljwlKtP5V1v09NxlqGru3ShK+4wKhSuhuYf8qxMmrivHOa/M7q0sMg==}
     engines: {node: '>=16.9.0'}
 
   ieee754@1.2.1:
@@ -4107,6 +4107,7 @@ packages:
   wrangler@4.14.0:
     resolution: {integrity: sha512-WhypgOBEYuUMo/ZFw8MgZ0wtyE7EmDanytjD8Me+OMm62raKU9V9DZTlF1UVLkNfilfQNlRbMnFRdzSBji/MEA==}
     engines: {node: '>=18.0.0'}
+    deprecated: Workers with configured tail consumers would sometimes prevent wrangler dev from running. Downgrade to 4.13.2 to workaround this issue
     hasBin: true
     peerDependencies:
       '@cloudflare/workers-types': ^4.20250428.0
@@ -7038,7 +7039,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
-  hono@4.7.8: {}
+  hono@4.10.2: {}
 
   ieee754@1.2.1: {}
 
@@ -7243,16 +7244,16 @@ snapshots:
 
   json5@2.2.3: {}
 
-  jstack-shared@0.0.4(hono@4.7.8)(react@19.1.0)(zod@3.24.3):
+  jstack-shared@0.0.4(hono@4.10.2)(react@19.1.0)(zod@3.24.3):
     dependencies:
-      hono: 4.7.8
+      hono: 4.10.2
       react: 19.1.0
       zod: 3.24.3
 
-  jstack@1.1.1(hono@4.7.8)(react@19.1.0)(zod@3.24.3):
+  jstack@1.1.1(hono@4.10.2)(react@19.1.0)(zod@3.24.3):
     dependencies:
-      hono: 4.7.8
-      jstack-shared: 0.0.4(hono@4.7.8)(react@19.1.0)(zod@3.24.3)
+      hono: 4.10.2
+      jstack-shared: 0.0.4(hono@4.10.2)(react@19.1.0)(zod@3.24.3)
       react: 19.1.0
       zod: 3.24.3
 
