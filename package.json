@@ -24,7 +24,7 @@
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.9.2",
     "gray-matter": "^4.0.3",
-    "hono": "^4.10.3",
+    "hono": "^4.12.4",
     "jstack": "^1.1.1",
     "lucide-react": "^0.503.0",
     "markdown-to-jsx": "^7.7.6",
