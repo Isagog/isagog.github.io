@@ -31,12 +31,64 @@ jobs:
       - name: Build static export
         run: pnpm build
 
-      # Produces ./out — a fully static bundle. Upload it as an artifact;
-      # wire a deploy step here for your target host (Cloudflare Pages, S3,
-      # GitHub Pages, Nginx/Apache, etc.).
+      - name: Generate timestamp
+        id: ts
+        run: echo "value=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
+
+      # Archive — keep a downloadable copy of every build
       - name: Upload static site
         uses: actions/upload-artifact@v4
         with:
-          name: static-site
+          name: isagog-site-${{ steps.ts.outputs.value }}
           path: out
           retention-days: 7
+
+      # Pages artifact — consumed by the deploy job below
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  # GitHub Pages deploy — master only
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # ---------------------------------------------------------------------------
+  # Future: SSH/rsync deploy to your own host instead of (or alongside) Pages.
+  # Store the private key in repo secrets as SSH_PRIVATE_KEY, plus host/user/path.
+  #
+  # deploy-ssh:
+  #   needs: build
+  #   if: github.ref == 'refs/heads/master'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Download static site
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: isagog-site-${{ needs.build.outputs.archive_name }}
+  #         path: out
+  #
+  #     - name: Setup SSH key
+  #       run: |
+  #         mkdir -p ~/.ssh
+  #         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+  #         chmod 600 ~/.ssh/deploy_key
+  #         ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+  #
+  #     - name: Rsync to server
+  #       run: |
+  #         rsync -avz --delete -e "ssh -i ~/.ssh/deploy_key" \
+  #           out/ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH }}"
+  # ---------------------------------------------------------------------------
