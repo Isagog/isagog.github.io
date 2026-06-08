@@ -2,10 +2,10 @@
 
 import { Skeleton } from "@/app/_components/ui/skeleton";
 import { fetchArticles } from "@/packages/action/articles/article.action";
+import { LocaleLink as Link } from "@/app/_components/custom/locale-link";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 
 export const BlogCard = () => {
   const { data: articles, isLoading } = useQuery({

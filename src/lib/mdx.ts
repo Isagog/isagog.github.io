@@ -2,6 +2,15 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
+export const getSlugs = (type: "articles" | "projects"): string[] => {
+  const contentDirectory = path.join(process.cwd(), "content", type);
+
+  return fs
+    .readdirSync(contentDirectory)
+    .filter((file) => file.endsWith(".mdx"))
+    .map((file) => file.replace(/\.mdx$/, ""));
+};
+
 export const getMdxBySlug = async (
   slug: string,
   type: "articles" | "projects"

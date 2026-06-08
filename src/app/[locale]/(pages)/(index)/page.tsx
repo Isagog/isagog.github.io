@@ -1,5 +1,5 @@
-import { getScopedI18n } from "@/packages/locales/server";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/app/_components/custom/locale-link";
+import { getScopedI18n, setStaticParamsLocale } from "@/packages/locales/server";
 import {
   AnimateImage,
   Hero,
@@ -8,7 +8,14 @@ import {
   NavWithDescriptionSection,
 } from "./components";
 
-const HomePage = async () => {
+const HomePage = async ({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) => {
+  const { locale } = await params;
+  setStaticParamsLocale(locale);
+
   const t = await getScopedI18n("home-page.knowledge");
   const tNav = await getScopedI18n("home-page.navigation");
   const tTextSection = await getScopedI18n("home-page.text-section");

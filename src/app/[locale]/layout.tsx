@@ -2,6 +2,7 @@ import { Footer, Header } from "@/app/_components/custom";
 import { BodyWrapper } from "@/app/_components/custom/body-wrapper";
 import { Providers } from "@/app/_components/providers";
 import { I18nProviderClient } from "@/packages/locales/client";
+import { getStaticParams } from "@/packages/locales/server";
 import type { Metadata } from "next";
 import { Montserrat, Spectral } from "next/font/google";
 import type { ReactNode } from "react";
@@ -44,6 +45,10 @@ export const metadata: Metadata = {
     },
   },
 };
+
+export function generateStaticParams() {
+  return getStaticParams();
+}
 
 const montserrat = Montserrat({
   subsets: ["latin"],

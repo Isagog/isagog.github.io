@@ -1,12 +1,13 @@
 "use client";
 
+import { stripLocale } from "@/lib/locale-href";
 import {
   useChangeLocale,
   useCurrentLocale,
   useScopedI18n,
 } from "@/packages/locales/client";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LocaleLink as Link } from "./locale-link";
 
 const languages: {
   code: "en" | "it";
@@ -19,7 +20,7 @@ const languages: {
 export const Footer = () => {
   const tFooter = useScopedI18n("footer");
   const tAddress = useScopedI18n("footer.address");
-  const pathname = usePathname();
+  const pathname = stripLocale(usePathname());
   const currentLocale = useCurrentLocale();
   const changeLocale = useChangeLocale();
 

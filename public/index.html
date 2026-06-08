@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ISAGOG</title>
+    <link rel="icon" href="/favicon.ico" />
+    <!-- Client-side locale redirect: replaces the old Accept-Language middleware. -->
+    <script>
+      (function () {
+        var supported = ["it", "en"];
+        var fallback = "it";
+        var lang = (navigator.language || navigator.userLanguage || fallback)
+          .slice(0, 2)
+          .toLowerCase();
+        var locale = supported.indexOf(lang) !== -1 ? lang : fallback;
+        window.location.replace("/" + locale + "/");
+      })();
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=/it/" />
+    </noscript>
+  </head>
+  <body>
+    <p>Redirecting to <a href="/it/">ISAGOG</a>…</p>
+  </body>
+</html>
