@@ -1,5 +1,6 @@
 "use client";
 
+import { stripLocale } from "@/lib/locale-href";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
@@ -16,7 +17,7 @@ export const BodyWrapper = ({
   const [isProjectPage, setIsProjectPage] = useState(false);
 
   useEffect(() => {
-    setIsProjectPage(pathname.startsWith("/project"));
+    setIsProjectPage(stripLocale(pathname).startsWith("/project"));
   }, [pathname]);
 
   return (

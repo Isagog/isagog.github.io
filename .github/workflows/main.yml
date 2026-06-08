@@ -1,34 +1,42 @@
-name: CI/CD Pipeline
+name: Build Static Site
 on:
   push:
     branches: [master, develop]
   workflow_dispatch:
-    inputs:
-      env:
-        type: choice
-        description: "Environment to deploy to"
-        required: true
-        default: "dev"
-        options:
-          - dev
-          - staging
-          - prod
 
 jobs:
-  lint-and-format:
-    runs-on: self-hosted
+  build:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-  build:
-    needs: lint-and-format
-    uses: ./.github/workflows/build.yml
-    with:
-      env: ${{ github.ref == 'refs/heads/master' && 'prod' || (github.ref == 'refs/heads/develop' && 'dev') || 'dev' }}
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
-  deploy:
-    needs: build
-    uses: ./.github/workflows/deploy.yml
-    with:
-      env: ${{ github.ref == 'refs/heads/master' && 'prod' || (github.ref == 'refs/heads/develop' && 'dev') || 'dev' }}
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Build static export
+        run: pnpm build
+
+      # Produces ./out — a fully static bundle. Upload it as an artifact;
+      # wire a deploy step here for your target host (Cloudflare Pages, S3,
+      # GitHub Pages, Nginx/Apache, etc.).
+      - name: Upload static site
+        uses: actions/upload-artifact@v4
+        with:
+          name: static-site
+          path: out
+          retention-days: 7

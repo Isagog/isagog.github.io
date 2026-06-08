@@ -1,4 +1,4 @@
-import { getScopedI18n } from "@/packages/locales/server";
+import { getScopedI18n, setStaticParamsLocale } from "@/packages/locales/server";
 import Image from "next/image";
 import {
   Highlight,
@@ -7,7 +7,14 @@ import {
   TextAnimate,
 } from "./components";
 
-const AboutPage = async () => {
+const AboutPage = async ({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) => {
+  const { locale } = await params;
+  setStaticParamsLocale(locale);
+
   const t = await getScopedI18n("about-page");
   return (
     <div className="mx-5 sm:mx-auto sm:max-w-3/4 max-w-full flex flex-col sm:gap-16 gap-8 justify-center items-center ">

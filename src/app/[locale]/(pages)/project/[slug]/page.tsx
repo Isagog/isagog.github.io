@@ -1,6 +1,12 @@
 import { MarkdownRenderer } from "@/app/_components/custom/markdown-render";
-import { getMdxBySlug } from "@/lib/mdx";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/app/_components/custom/locale-link";
+import { getMdxBySlug, getSlugs } from "@/lib/mdx";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return getSlugs("projects").map((slug) => ({ slug }));
+}
 
 const ProjectPostPage = async ({
   params,

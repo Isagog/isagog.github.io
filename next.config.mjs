@@ -4,15 +4,13 @@ import createMDX from "@next/mdx";
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "website.isagog.com",
-        pathname: "/**",
-      },
-    ],
+    // Static export has no image optimizer; emit plain <img> tags.
+    unoptimized: true,
   },
-  output: "standalone",
+  // Fully static HTML/JS export into ./out — no server runtime required.
+  output: "export",
+  // Emit each route as <route>/index.html for maximum static-host portability.
+  trailingSlash: true,
 };
 
 const withMDX = createMDX({

@@ -1,7 +1,7 @@
 "use client";
 
+import { LocaleLink as Link } from "@/app/_components/custom/locale-link";
 import { useScopedI18n } from "@/packages/locales/client";
-import Link from "next/link";
 
 export const Highlight = () => {
   const t = useScopedI18n("about-page.highlight");

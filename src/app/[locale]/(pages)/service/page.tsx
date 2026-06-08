@@ -1,11 +1,18 @@
 import { Button } from "@/app/_components/ui/button";
-import { getScopedI18n } from "@/packages/locales/server";
+import { getScopedI18n, setStaticParamsLocale } from "@/packages/locales/server";
 import Link from "next/link";
 import { ImageWithDescription } from "./components/image-with-description";
 import { ImageWithTitle } from "./components/image-with-title";
 import { TextCarousel } from "./components/text-carousel";
 
-const ServicePage = async () => {
+const ServicePage = async ({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) => {
+  const { locale } = await params;
+  setStaticParamsLocale(locale);
+
   const tImageWithDescription = await getScopedI18n(
     "service-page.image-with-description"
   );

@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
+import { LocaleLink as Link } from "@/app/_components/custom/locale-link";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },

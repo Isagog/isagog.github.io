@@ -6,19 +6,20 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/app/_components/ui/dropdown-menu";
+import { stripLocale } from "@/lib/locale-href";
 import { cn } from "@/lib/utils";
 import { useScopedI18n } from "@/packages/locales/client";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { LocaleLink as Link } from "./locale-link";
 
 const whitePages = ["/project", "/blog/"];
 
 export const Header = () => {
   const t = useScopedI18n("header");
-  const pathname = usePathname();
+  const pathname = stripLocale(usePathname());
   const [open, setOpen] = useState(false);
 
   const isWhitePage = whitePages.some(

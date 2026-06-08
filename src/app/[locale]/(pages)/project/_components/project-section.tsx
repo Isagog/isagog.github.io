@@ -3,9 +3,9 @@
 import { Button } from "@/app/_components/ui/button";
 import { Skeleton } from "@/app/_components/ui/skeleton";
 import { fetchProjects } from "@/packages/action/projects/project.action";
+import { LocaleLink as Link } from "@/app/_components/custom/locale-link";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import Link from "next/link";
 
 export const ProjectSection = () => {
   const { data: projects, isLoading } = useQuery({

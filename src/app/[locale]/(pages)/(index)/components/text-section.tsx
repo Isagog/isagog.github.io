@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
+import { LocaleLink as Link } from "@/app/_components/custom/locale-link";
 
 export const TextSection = ({
   firstParagraph,
