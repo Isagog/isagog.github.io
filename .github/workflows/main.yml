@@ -52,7 +52,7 @@ jobs:
   # GitHub Pages deploy — master only
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/master'
+    # if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     permissions:
       pages: write
