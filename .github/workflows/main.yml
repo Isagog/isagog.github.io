@@ -1,7 +1,7 @@
 name: Build Static Site
 on:
   push:
-    branches: [master, develop]
+    branches: [develop]
   workflow_dispatch:
 
 jobs:
@@ -50,20 +50,22 @@ jobs:
           path: out
 
   # GitHub Pages deploy — master only
-  deploy:
-    needs: build
-    # if: github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+  # TODO: Deploy under another subpath like isagog.github.io for staging 
+  #
+  # deploy:
+  #   needs: build
+  #   # if: github.ref == 'refs/heads/master'
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     pages: write
+  #     id-token: write
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
 
   # ---------------------------------------------------------------------------
   # Future: SSH/rsync deploy to your own host instead of (or alongside) Pages.
