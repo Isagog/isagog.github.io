@@ -1,0 +1,50 @@
+# Projects
+
+## MAXXIperTUTTI
+
+### Client Requests
+
+MAXXI — the National Museum of 21st Century Arts in Rome — is one of Italy's leading institutions for contemporary art and architecture. As part of Italy's National Recovery and Resilience Plan (PNRR, Mission 1 – removing physical and cognitive barriers in museums, libraries and archives), MAXXI commissioned Isagog to design and build a conversational AI for visitors, covering access, orientation, personalization, engagement and participation — for every visitor, including people with cognitive disabilities, deafness, or visual impairments.
+
+### Challenges
+
+A museum like MAXXI needs an AI that can answer very different questions — from "when does the bookshop close?" to "which young Italian artists have been exhibited here?" — while staying anchored to real, verifiable information rather than invented answers. And it has to do so for very different visitors, each expecting something different from the same question.
+
+The hardest part: without profiling users — for privacy and ease of use — the system still had to adapt its language and content to each visitor's needs, whenever asked.
+
+![Visitors in the MAXXI museum atrium, crossed by its suspended black staircases](/images/project-images/maxxi-museum-interior.jpg)
+
+### One AI, Six Specialized Agents
+
+Isagog built a neuro-symbolic architecture: a curated Knowledge Graph — built on a dedicated ontology of around 70 classes, mapped to the international museum standard CIDOC-CRM and to Italy's cultural heritage catalogue (CIS/ArCo) — powers a system of specialized AI agents, each an expert in one task, coordinated by a central Orchestrator:
+
+* **Navigator** — wayfinding: guides visitors between museum rooms using names and spatial relationships (never coordinates or "left/right", which depend on the visitor's point of view), reading and paraphrasing real, documented routes.
+* **Educator** — content: answers questions about artworks, artists, exhibitions and themes, always grounded in the museum's Knowledge Graph — with Wikipedia used only as a declared fallback, never as a primary source.
+* **Concierge** — services: opening hours, tickets, current events, amenities, in real time.
+* **Facilitator** — language accessibility: on request, rephrases any answer in Easy-to-Read language (short sentences, common words, one idea per sentence) or in descriptive/visual language, using tactile and physical references instead of visual ones.
+* **Opinionist** — listening: structurally collects visitor opinions and feedback, giving the museum a continuous listening channel.
+
+![The Orchestrator coordinates five specialized agents: Navigator, Educator, Concierge, Facilitator and Opinionist](/images/project-images/maxxi-agents-overview.svg)
+
+The museum also received two platforms to manage the system independently, without depending on Isagog for every update:
+
+* **MAXXI Ingest** — to upload catalogues and exhibition materials: the AI extracts artworks, authors and descriptions automatically, but a human curator always validates the result before it enters the system.
+* **MAXXI Interact** — to configure the agents, monitor conversations in real time, and review collected feedback.
+
+### Tested With the People Who Would Really Use It
+
+Before launch, the system was validated with three representative working groups — people with cognitive disabilities and neurodivergence, deaf people, and people with visual impairments. Not a generic test, but a direct comparison with the people who would actually experience the museum this way.
+
+This process let Isagog distinguish, systematically and transparently, what genuinely needed fixing from what was simply expected system behavior — for example: without an explicit statement from the user, an AI cannot guess whether the person writing to it needs a tactile map or a Sign Language video.
+
+![Three working groups validated the system before launch: people with cognitive disabilities and neurodivergence, deaf people, and people with visual impairments](/images/project-images/maxxi-working-groups.svg)
+
+### System Architecture
+
+![MAXXI platform diagram: documents are captured into a Knowledge Graph and semantic base, which power the Orchestrator and the specialized agents answering visitors](/images/project-images/maxxi-platform-diagram.png)
+
+### Development
+
+MAXXI's assistant runs on open, on-premise-capable language models: the museum keeps its independence from major — largely non-European — AI providers, and remains directly responsible for visitor data. No sensitive data is retained, even when a visitor shares it voluntarily. Compliance is native, not bolted on afterwards: GDPR, the AI Act, and the PNRR's "do no significant harm" principle were verified at every testing stage. Smaller, optimized models also mean a lighter environmental footprint.
+
+The system is now in production with 6 specialized agents and one Orchestrator, running on the MAXXI Ontology v0.1 (~70 classes), interoperable with international museum standards. Content is already live on real exhibitions (including *The Large Glass* and *Roma nel mondo*), with APIs published to the OpenAPI standard.

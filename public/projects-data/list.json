@@ -20,5 +20,16 @@
     "name": "sector",
     "image": "/images/project-images/teleperformance.png",
     "slug": "teleperformance-case-study"
+  },
+  {
+    "title": "MAXXI",
+    "description": "A multi-agent conversational AI that helps every museum visitor find their way, explore the collection, and feel welcome — including visitors with cognitive, hearing, or visual disabilities",
+    "secondTitle": "MAXXIperTUTTI",
+    "value": "~70 classes",
+    "sector": "culture",
+    "valueName": "ontology size",
+    "name": "sector",
+    "image": "/images/placeholder.png",
+    "slug": "maxxi-case-study"
   }
 ]
