@@ -1,0 +1,50 @@
+# Progetti
+
+## MAXXIperTUTTI
+
+### Richiesta del Cliente
+
+Il MAXXI — Museo Nazionale delle Arti del XXI secolo di Roma — è una delle istituzioni italiane di riferimento per l'arte e l'architettura contemporanea. Nell'ambito del Piano Nazionale di Ripresa e Resilienza (PNRR, Missione 1 – rimozione delle barriere fisiche e cognitive in musei, biblioteche e archivi), il MAXXI ha incaricato Isagog di progettare e realizzare un'AI conversazionale per i visitatori, che copra accesso, orientamento, personalizzazione, coinvolgimento e partecipazione — per ogni visitatore, comprese le persone con disabilità cognitive, sordità o disabilità visive.
+
+### Sfide
+
+Un museo come il MAXXI ha bisogno di un'AI capace di rispondere a domande molto diverse tra loro — da "a che ora chiude il bookshop?" a "quali giovani artisti italiani sono stati esposti qui?" — restando sempre ancorata a informazioni reali e verificabili, senza inventare risposte. E deve farlo per visitatori molto diversi, ognuno con aspettative diverse rispetto alla stessa domanda.
+
+La parte più difficile: senza profilare gli utenti — per privacy e semplicità d'uso — il sistema doveva comunque adattare linguaggio e contenuti alle esigenze di ogni visitatore, ogni volta che veniva interpellato.
+
+![Visitatori nell'atrio del museo MAXXI, attraversato dalle sue scale sospese nere](/images/project-images/maxxi-museum-interior.jpg)
+
+### Una sola AI, sei agenti specializzati
+
+Isagog ha costruito un'architettura neuro-simbolica: un Knowledge Graph curato — basato su un'ontologia dedicata di circa 70 classi, mappata sullo standard museale internazionale CIDOC-CRM e sul catalogo dei beni culturali italiani (CIS/ArCo) — alimenta un sistema di agenti AI specializzati, ciascuno esperto in un compito, coordinati da un Orchestratore centrale:
+
+* **Navigator** — orientamento: guida i visitatori tra le sale del museo usando nomi e relazioni spaziali (mai coordinate o "sinistra/destra", che dipendono dal punto di vista del visitatore), leggendo e parafrasando percorsi reali e documentati.
+* **Educator** — contenuti: risponde a domande su opere, artisti, mostre e temi, sempre ancorato al Knowledge Graph del museo — con Wikipedia usata solo come fallback dichiarato, mai come fonte primaria.
+* **Concierge** — servizi: orari di apertura, biglietti, eventi in corso, servizi disponibili, in tempo reale.
+* **Facilitator** — accessibilità linguistica: su richiesta, riformula qualsiasi risposta in linguaggio Facile da Leggere (frasi brevi, parole comuni, un'idea per frase) o in linguaggio descrittivo/visivo, usando riferimenti tattili e fisici al posto di quelli visivi.
+* **Opinionist** — ascolto: raccoglie in modo strutturato opinioni e feedback dei visitatori, offrendo al museo un canale di ascolto continuo.
+
+![L'Orchestratore coordina cinque agenti specializzati: Navigator, Educator, Concierge, Facilitator e Opinionist](/images/project-images/maxxi-agents-overview.svg)
+
+Il museo ha inoltre ricevuto due piattaforme per gestire il sistema in autonomia, senza dipendere da Isagog per ogni aggiornamento:
+
+* **MAXXI Ingest** — per caricare cataloghi e materiali sulle mostre: l'AI estrae automaticamente opere, autori e descrizioni, ma un curatore umano convalida sempre il risultato prima che entri nel sistema.
+* **MAXXI Interact** — per configurare gli agenti, monitorare le conversazioni in tempo reale e rivedere il feedback raccolto.
+
+### Testato con chi lo avrebbe davvero utilizzato
+
+Prima del lancio, il sistema è stato validato con tre gruppi di lavoro rappresentativi — persone con disabilità cognitive e neurodivergenza, persone sorde e persone con disabilità visive. Non un test generico, ma un confronto diretto con chi avrebbe realmente vissuto il museo in questo modo.
+
+Questo processo ha permesso a Isagog di distinguere, in modo sistematico e trasparente, cosa andava davvero corretto da cosa era semplicemente un comportamento atteso del sistema — per esempio: senza un'indicazione esplicita da parte dell'utente, un'AI non può indovinare se la persona che le scrive ha bisogno di una mappa tattile o di un video in Lingua dei Segni.
+
+![Tre gruppi di lavoro hanno validato il sistema prima del lancio: persone con disabilità cognitive e neurodivergenza, persone sorde e persone con disabilità visive](/images/project-images/maxxi-working-groups.svg)
+
+### Architettura del sistema
+
+![Diagramma della piattaforma MAXXI: i documenti vengono acquisiti in un Knowledge Graph e in una base semantica, che alimentano l'Orchestratore e gli agenti specializzati che rispondono ai visitatori](/images/project-images/maxxi-platform-diagram.png)
+
+### Sviluppo
+
+L'assistente del MAXXI funziona su modelli linguistici aperti, utilizzabili anche on-premise: il museo mantiene così la propria indipendenza dai grandi fornitori di AI — perlopiù non europei — e resta direttamente responsabile dei dati dei visitatori. Nessun dato sensibile viene conservato, anche quando un visitatore lo condivide volontariamente. La conformità è nativa, non aggiunta a posteriori: GDPR, AI Act e il principio del PNRR "non arrecare danno significativo" sono stati verificati in ogni fase di test. Modelli più piccoli e ottimizzati significano anche un'impronta ambientale più leggera.
+
+Il sistema è oggi in produzione con 6 agenti specializzati e un Orchestratore, basato sull'Ontologia MAXXI v0.1 (~70 classi), interoperabile con gli standard museali internazionali. I contenuti sono già attivi su mostre reali (tra cui *Il Grande Vetro* e *Roma nel mondo*), con API pubblicate secondo lo standard OpenAPI.

@@ -4,18 +4,22 @@ import { getMdxBySlug, getSlugs } from "@/lib/mdx";
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return getSlugs("projects").map((slug) => ({ slug }));
+export function generateStaticParams({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  return getSlugs("projects", params.locale).map((slug) => ({ slug }));
 }
 
 const ProjectPostPage = async ({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }) => {
-  const { slug } = await params;
+  const { slug, locale } = await params;
 
-  const post = await getMdxBySlug(slug, "projects");
+  const post = await getMdxBySlug(slug, "projects", locale);
 
   if (!post) {
     return (
