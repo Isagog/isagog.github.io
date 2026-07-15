@@ -26,10 +26,12 @@ export const Header = () => {
   const isWhitePage = whitePages.some(
     (page) => pathname.startsWith(page) && pathname !== "/blog"
   );
-  const isServicePage = pathname.startsWith("/service");
+  const isServicePage =
+    pathname.startsWith("/service") || pathname.startsWith("/platform");
 
   const navItems = [
     { href: "/about", label: t("about") },
+    { href: "/platform", label: t("platform") },
     { href: "/service", label: t("solution") },
     { href: "/project", label: t("project") },
     { href: "/blog", label: t("blog") },

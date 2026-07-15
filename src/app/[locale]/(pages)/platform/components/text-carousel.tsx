@@ -6,13 +6,17 @@ import { useState } from "react";
 
 export const TextCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const t = useScopedI18n("service-page.text-carousel");
+  const t = useScopedI18n("platform-page.text-carousel");
 
   const slides = [
     {
       title: t("1.title"),
       subtitle: t("1.subtitle"),
-      points: [`${t("1.points.1")}`, `${t("1.points.2")}`],
+      points: [
+        `${t("1.points.1")}`,
+        `${t("1.points.2")}`,
+        `${t("1.points.3")}`,
+      ],
     },
     {
       title: t("2.title"),
@@ -30,6 +34,7 @@ export const TextCarousel = () => {
         `${t("3.points.1")}`,
         `${t("3.points.2")}`,
         `${t("3.points.3")}`,
+        `${t("3.points.4")}`,
       ],
     },
   ];

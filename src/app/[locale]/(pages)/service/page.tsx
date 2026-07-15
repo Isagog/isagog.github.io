@@ -2,8 +2,6 @@ import { Button } from "@/app/_components/ui/button";
 import { getScopedI18n, setStaticParamsLocale } from "@/packages/locales/server";
 import Link from "next/link";
 import { ImageWithDescription } from "./components/image-with-description";
-import { ImageWithTitle } from "./components/image-with-title";
-import { TextCarousel } from "./components/text-carousel";
 
 const ServicePage = async ({
   params,
@@ -13,14 +11,20 @@ const ServicePage = async ({
   const { locale } = await params;
   setStaticParamsLocale(locale);
 
+  const tIntro = await getScopedI18n("service-page.intro");
   const tImageWithDescription = await getScopedI18n(
     "service-page.image-with-description"
   );
-  const tImageWithTitle = await getScopedI18n("service-page.image-with-title");
   const tWhyUs = await getScopedI18n("service-page.why-us");
 
   return (
     <div className="flex items-center flex-col gap-8 justify-center">
+      <section className="flex flex-col items-center text-center gap-8 mt-24 sm:mx-[10%]">
+        <h1 className="text-3xl font-sans font-[400]">{tIntro("title")}</h1>
+        <p className="text-2xl font-serif font-[300]">
+          {tIntro("description")}
+        </p>
+      </section>
       <ImageWithDescription
         title={tImageWithDescription("1.title")}
         firstParagraph={tImageWithDescription("1.firstParagraph")}
@@ -54,6 +58,14 @@ const ServicePage = async ({
         imageUrl="/images/service-images/mogul.avif"
         imgClassName="h-64 object-contain"
       />
+      <ImageWithDescription
+        title={tImageWithDescription("5.title")}
+        firstParagraph={tImageWithDescription("5.firstParagraph")}
+        secondParagraph={tImageWithDescription("5.secondParagraph")}
+        thirdParagraph={tImageWithDescription("5.thirdParagraph")}
+        imageUrl="/images/trees.avif"
+        imgClassName="w-1/2 h-80 object-contain"
+      />
       <section className="flex flex-col items-center mx-[10%] space-y-16  justify-center h-[450px]">
         <h2 className="text-2xl font-sans font-[400]">{tWhyUs("title")}</h2>
         <p className="text-center font-[400] text-2xl">
@@ -68,15 +80,6 @@ const ServicePage = async ({
           </Button>
         </Link>
       </section>
-      <ImageWithTitle
-        title="Platform Architecture"
-        imageUrl="/images/service-images/mermaid-graph.svg"
-      />
-      <ImageWithTitle
-        title={tImageWithTitle("2.title")}
-        imageUrl="/images/service-images/mermaid-diagrame.avif"
-      />
-      <TextCarousel />
     </div>
   );
 };

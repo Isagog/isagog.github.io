@@ -24,9 +24,11 @@ export const Footer = () => {
   const currentLocale = useCurrentLocale();
   const changeLocale = useChangeLocale();
 
-  const isServicePage = pathname.startsWith("/service");
+  const isServicePage =
+    pathname.startsWith("/service") || pathname.startsWith("/platform");
 
   const navItems = [
+    { title: tFooter("platform"), href: "/platform" },
     { title: tFooter("solutions"), href: "/service" },
     { title: tFooter("projects"), href: "/project" },
     { title: tFooter("insights"), href: "/blog" },
