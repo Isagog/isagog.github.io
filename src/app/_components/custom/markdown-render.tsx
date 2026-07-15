@@ -36,15 +36,13 @@ export const MarkdownRenderer = ({
           },
           img: {
             component: ({ ...props }) => (
-              <div className="flex justify-center my-6">
-                <Image
-                  {...props}
-                  className={`${imageClassName} w-auto h-auto`}
-                  alt="article-image"
-                  width={500}
-                  height={500}
-                />
-              </div>
+              <Image
+                {...props}
+                className={`${imageClassName} block mx-auto my-6 w-auto h-auto`}
+                alt="article-image"
+                width={500}
+                height={500}
+              />
             ),
           },
           code: {
