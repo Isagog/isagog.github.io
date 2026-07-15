@@ -4,13 +4,16 @@ import { Button } from "@/app/_components/ui/button";
 import { Skeleton } from "@/app/_components/ui/skeleton";
 import { fetchProjects } from "@/packages/action/projects/project.action";
 import { LocaleLink as Link } from "@/app/_components/custom/locale-link";
+import { useCurrentLocale, useScopedI18n } from "@/packages/locales/client";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 
 export const ProjectSection = () => {
+  const locale = useCurrentLocale();
+  const t = useScopedI18n("project-page");
   const { data: projects, isLoading } = useQuery({
-    queryKey: ["projects"],
-    queryFn: fetchProjects,
+    queryKey: ["projects", locale],
+    queryFn: () => fetchProjects(locale),
   });
 
   return (
@@ -68,7 +71,9 @@ export const ProjectSection = () => {
                     {project.description}
                   </p>
                   <Link href={`/project/${project.slug}`}>
-                    <Button className="cursor-pointer">Scopri di più</Button>
+                    <Button className="cursor-pointer">
+                      {t("discoverMore")}
+                    </Button>
                   </Link>
                 </div>
               </div>

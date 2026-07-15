@@ -199,6 +199,9 @@ export default {
       },
     },
   },
+  "project-page": {
+    discoverMore: "Discover more",
+  },
   "contact-page": {
     label: "Get in touch ",
   },

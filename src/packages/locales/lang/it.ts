@@ -200,6 +200,9 @@ export default {
       },
     },
   },
+  "project-page": {
+    discoverMore: "Scopri di più",
+  },
   "contact-page": {
     label: "Saremo felici di rispondere alle tue domande ",
   },

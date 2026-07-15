@@ -2,8 +2,14 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
-export const getSlugs = (type: "articles" | "projects"): string[] => {
-  const contentDirectory = path.join(process.cwd(), "content", type);
+export const getSlugs = (
+  type: "articles" | "projects",
+  locale?: string
+): string[] => {
+  const contentDirectory =
+    type === "projects"
+      ? path.join(process.cwd(), "content", type, locale ?? "en")
+      : path.join(process.cwd(), "content", type);
 
   return fs
     .readdirSync(contentDirectory)
@@ -13,15 +19,13 @@ export const getSlugs = (type: "articles" | "projects"): string[] => {
 
 export const getMdxBySlug = async (
   slug: string,
-  type: "articles" | "projects"
+  type: "articles" | "projects",
+  locale?: string
 ) => {
-  let contentDirectory;
-
-  if (type === "articles") {
-    contentDirectory = path.join(process.cwd(), "content/articles");
-  } else {
-    contentDirectory = path.join(process.cwd(), "content/projects");
-  }
+  const contentDirectory =
+    type === "articles"
+      ? path.join(process.cwd(), "content/articles")
+      : path.join(process.cwd(), "content/projects", locale ?? "en");
 
   const filePath = path.join(contentDirectory, `${slug}.mdx`);
 

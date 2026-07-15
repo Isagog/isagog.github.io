@@ -1,0 +1,35 @@
+[
+  {
+    "title": "MAXXI",
+    "description": "Un'AI conversazionale multi-agente che aiuta ogni visitatore del museo a orientarsi, esplorare la collezione e sentirsi accolto — comprese le persone con disabilità cognitive, uditive o visive",
+    "secondTitle": "MAXXIperTUTTI",
+    "value": "~70 classi",
+    "sector": "cultura",
+    "valueName": "dimensione ontologia",
+    "name": "settore",
+    "image": "/images/project-images/maxxi-museum-interior.jpg",
+    "slug": "maxxi-case-study"
+  },
+  {
+    "title": "Il Manifesto",
+    "description": "Un patrimonio di articoli storici del giornale è oggi più accessibile che mai grazie all'intelligenza artificiale",
+    "secondTitle": "MEMA: Memoria Manifesta",
+    "value": "800.000 articoli",
+    "sector": "media",
+    "valueName": "dimensione archivio",
+    "name": "settore",
+    "image": "/images/project-images/ilManifesto.avif",
+    "slug": "manifesto-case-study"
+  },
+  {
+    "title": "Teleperformance",
+    "description": "Un copilota per assistere gli operatori del servizio clienti, integrando l'AI nelle conversazioni di supporto",
+    "secondTitle": "Voice First",
+    "value": "450.000 persone",
+    "sector": "servizio clienti",
+    "valueName": "dimensione azienda",
+    "name": "settore",
+    "image": "/images/project-images/teleperformance.png",
+    "slug": "teleperformance-case-study"
+  }
+]

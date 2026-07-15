@@ -13,6 +13,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { LanguageSelector } from "./language-selector";
 import { LocaleLink as Link } from "./locale-link";
 
 const whitePages = ["/project", "/blog/"];
@@ -72,10 +73,21 @@ export const Header = () => {
               </Link>
             );
           })}
+          <LanguageSelector
+            className={isServicePage ? "text-white" : "text-primary"}
+          />
         </nav>
         <div className="flex lg:hidden items-center gap-2">
+          <LanguageSelector
+            className={isServicePage ? "text-white" : "text-primary"}
+          />
           <DropdownMenu open={open} onOpenChange={setOpen}>
-            <DropdownMenuTrigger className="cursor-pointer h-8 w-8 flex items-center justify-center rounded-full transition-colors">
+            <DropdownMenuTrigger
+              className={cn(
+                "cursor-pointer h-8 w-8 flex items-center justify-center rounded-full transition-colors",
+                isServicePage && "text-white"
+              )}
+            >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </DropdownMenuTrigger>
             <DropdownMenuContent
