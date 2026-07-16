@@ -1,15 +1,15 @@
 export default {
   header: {
-    about: "About Us",
-    solution: "Solutions",
-    platform: "Platform",
+    about: "Mission",
+    solution: "Use cases",
+    platform: "The Platform",
     project: "Projects",
     blog: "Insights",
     contact: "Contact",
   },
   footer: {
-    solutions: "Solutions",
-    platform: "Platform",
+    solutions: "Use cases",
+    platform: "The Platform",
     projects: "Projects",
     insights: "Insights",
     contact: "Contact Us",
@@ -48,12 +48,12 @@ export default {
     },
     navigation: {
       about: {
-        title: "ABOUT US",
+        title: "MISSION",
         description:
           "A team of experts in intelligent systems and their social impact",
       },
       solution: {
-        title: "SERVICES AND SOLUTIONS",
+        title: "USE CASES",
         description:
           "Through our innovative platform, we build infrastructures that structure, contextualize, and activate data across its entire lifecycle",
       },

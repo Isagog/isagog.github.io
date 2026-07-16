@@ -16,7 +16,7 @@ export const TextAnimate = ({
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: false, amount: 0.3 }}
-        className="text-center text-3xl font-serif text-[#a8fa87]"
+        className="text-center text-3xl font-serif text-terracotta"
       >
         {value}
       </motion.span>
@@ -26,7 +26,7 @@ export const TextAnimate = ({
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.3 }}
-          className="text-center text-3xl font-serif text-[#a8fa87]"
+          className="text-center text-3xl font-serif text-terracotta"
         >
           {subValue}
         </motion.span>

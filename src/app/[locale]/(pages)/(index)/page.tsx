@@ -76,7 +76,7 @@ const HomePage = async ({
         />
       </div>
       <div
-        className="relative w-full bg-[#3a5e32] flex flex-col justify-center items-center  bg-cover bg-center text-center text-[#a8fa87] h-[498px] mt-12"
+        className="relative w-full bg-forest flex flex-col justify-center items-center  bg-cover bg-center text-center text-terracotta h-[498px] mt-12"
         style={{
           backgroundImage: "url('/images/tree.webp')",
           backgroundBlendMode: "multiply",
@@ -91,11 +91,11 @@ const HomePage = async ({
           <p className="uppercase tracking-wide text-[22px] font-sans font-[400]">
             {tIntroHighlight("subtitle")}
           </p>
-          <div className="border-y border-[#a8fa87]">
+          <div className="border-y border-terracotta">
             <Link
               href="https://cal.com/isagog"
               target="_blank"
-              className="inline-block py-2 uppercase text-[15px] rounded-none text-[#a8fa87] hover:bg-transparent cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105"
+              className="inline-block py-2 uppercase text-[15px] rounded-none text-terracotta hover:bg-transparent cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105"
             >
               {tIntroHighlight("button")}
             </Link>

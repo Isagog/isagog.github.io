@@ -1,3 +1,5 @@
+import { ImagePlaceholder } from "@/app/_components/custom/image-placeholder";
+import { SectionTitle } from "@/app/_components/custom/section-title";
 import Image from "next/image";
 
 export const ImageWithDescription = ({
@@ -14,7 +16,7 @@ export const ImageWithDescription = ({
   firstParagraph: string;
   secondParagraph: string;
   thirdParagraph?: string;
-  imageUrl: string;
+  imageUrl?: string;
   imagePosition?: "left" | "right";
   imgClassName?: string;
   className?: string;
@@ -25,17 +27,25 @@ export const ImageWithDescription = ({
         imagePosition === "right" ? "md:flex-row-reverse" : ""
       }`}
     >
-      <Image
-        src={imageUrl}
-        alt="placeholder"
-        width={500}
-        height={500}
-        className={imgClassName}
-      />
+      {imageUrl ? (
+        <Image
+          src={imageUrl}
+          alt="placeholder"
+          width={500}
+          height={500}
+          className={imgClassName}
+        />
+      ) : (
+        <ImagePlaceholder shape="square" className={imgClassName ?? "w-1/2 h-80"} />
+      )}
       <div className="space-y-8 md:w-96  text-center md:text-left mx-4 sm:mx-0">
-        <h2 className="text-3xl md:text-nowrap font-serif font-semibold">
+        <SectionTitle
+          as="h2"
+          accent
+          className="text-3xl md:text-nowrap font-semibold"
+        >
           {title}
-        </h2>
+        </SectionTitle>
         <p className="font-sans text-[18px] font-[300]">{firstParagraph}</p>
         <p className="font-sans text-[18px] font-[300]">{secondParagraph}</p>
         {thirdParagraph && (

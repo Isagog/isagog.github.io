@@ -1,3 +1,4 @@
+import { SectionTitle } from "@/app/_components/custom/section-title";
 import { getScopedI18n, setStaticParamsLocale } from "@/packages/locales/server";
 import { ImageWithTitle } from "./components/image-with-title";
 import { TextCarousel } from "./components/text-carousel";
@@ -18,7 +19,9 @@ const PlatformPage = async ({
   return (
     <div className="flex items-center flex-col gap-8 justify-center">
       <section className="flex flex-col items-center text-center gap-8 mt-24 sm:mx-[10%]">
-        <h1 className="text-3xl font-sans font-[400]">{tHero("title")}</h1>
+        <SectionTitle as="h1" className="text-3xl font-[400]">
+          {tHero("title")}
+        </SectionTitle>
         <p className="text-2xl font-serif font-[300]">
           {tHero("description")}
         </p>

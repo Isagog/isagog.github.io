@@ -1,15 +1,15 @@
 export default {
   header: {
-    about: "Chi siamo",
-    solution: "Soluzioni",
-    platform: "Piattaforma",
+    about: "Missione",
+    solution: "Casi d'uso",
+    platform: "La Piattaforma",
     project: "Progetti",
     blog: "Approfondimenti",
     contact: "Contatti",
   },
   footer: {
-    solutions: "Soluzioni",
-    platform: "Piattaforma",
+    solutions: "Casi d'uso",
+    platform: "La Piattaforma",
     projects: "Progetti",
     insights: "Approfondimenti",
     contact: "Contataci",
@@ -23,7 +23,7 @@ export default {
   },
   "home-page": {
     hero: {
-      title: "AI that makes sense",
+      title: "IA che ha senso",
       description:
         "Costruiamo tecnologie aperte che uniscono apprendimento e ragionamento, per analizzare grandi quantità di dati, estrarne significati \n\n e progettare con consapevolezza il futuro",
     },
@@ -48,12 +48,12 @@ export default {
     },
     navigation: {
       about: {
-        title: "CHI SIAMO",
+        title: "MISSIONE",
         description:
           "Un team di esperti di sistemi intelligenti e del loro impatto sociale ",
       },
       solution: {
-        title: "SERVIZI E SOLUZIONI",
+        title: "CASI D'USO",
         description:
           "Grazie a una piattaforma innovativa, realizziamo infrastrutture che danno forma e senso ai dati, lungo tutto il loro ciclo di vita",
       },

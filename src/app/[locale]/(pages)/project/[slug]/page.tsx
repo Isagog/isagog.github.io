@@ -25,18 +25,14 @@ const ProjectPostPage = async ({
     return (
       <div className="text-center min-h-[70vh] flex items-center flex-col justify-center ">
         <h1 className="text-2xl font-bold">Project not found</h1>
-        <Link href="/project" className="text-[#86efac]" prefetch>
+        <Link href="/project" className="text-terracotta" prefetch>
           Go back to projects
         </Link>
       </div>
     );
   }
 
-  return (
-    <div className="mx-2 sm:mx-[10%]">
-      <MarkdownRenderer content={post.content} />
-    </div>
-  );
+  return <MarkdownRenderer content={post.content} />;
 };
 
 export default ProjectPostPage;

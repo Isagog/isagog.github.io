@@ -21,7 +21,9 @@ export const ImageWithTitle = ({
       >
         {title}
       </motion.h1>
-      <Image src={imageUrl} alt={title} width={1000} height={1000} />
+      <div className="w-full bg-forest rounded-lg p-8 sm:p-12 flex items-center justify-center">
+        <Image src={imageUrl} alt={title} width={1000} height={1000} />
+      </div>
     </div>
   );
 };

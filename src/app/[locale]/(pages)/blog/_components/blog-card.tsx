@@ -18,7 +18,7 @@ export const BlogCard = () => {
       {articles?.map((article) => (
         <div
           key={article.slug}
-          className="flex flex-col sm:flex-row bg-green-700 rounded-lg overflow-hidden w-full max-w-3xl mx-auto shadow-md"
+          className="flex flex-col sm:flex-row bg-card rounded-lg overflow-hidden w-full max-w-3xl mx-auto shadow-md"
         >
           <div className="flex-shrink-0">
             <Image
@@ -39,7 +39,7 @@ export const BlogCard = () => {
               ) : (
                 <Link
                   href={`/blog/${article.slug}`}
-                  className="text-green-200 text-xl sm:text-2xl font-serif font-spectral"
+                  className="text-terracotta text-xl sm:text-2xl font-serif"
                 >
                   {article.title}
                 </Link>
