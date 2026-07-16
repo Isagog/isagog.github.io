@@ -19,7 +19,7 @@ const PlatformPage = async ({
   return (
     <div className="flex items-center flex-col gap-8 justify-center">
       <section className="flex flex-col items-center text-center gap-8 mt-24 sm:mx-[10%]">
-        <SectionTitle as="h1" className="text-3xl font-[400]">
+        <SectionTitle as="h1" accent className="text-3xl font-[400]">
           {tHero("title")}
         </SectionTitle>
         <p className="text-2xl font-serif font-[300]">
