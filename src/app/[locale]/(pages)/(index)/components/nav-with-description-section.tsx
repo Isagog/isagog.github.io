@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
-import { ImagePlaceholder } from "@/app/_components/custom/image-placeholder";
 import { LocaleLink as Link } from "@/app/_components/custom/locale-link";
 
 const fadeUp = {
@@ -18,10 +18,12 @@ export const NavWithDescriptionSection = ({
   title,
   description,
   href,
+  imageUrl,
 }: {
   title: string;
   description: string;
   href: string;
+  imageUrl: string;
 }) => {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -40,9 +42,12 @@ export const NavWithDescriptionSection = ({
           isHovering && "opacity-60 transition-opacity"
         }`}
       >
-        <ImagePlaceholder
-          shape="square"
-          className="w-20 h-20 sm:w-24 sm:h-24 shrink-0"
+        <Image
+          src={imageUrl}
+          alt=""
+          width={96}
+          height={96}
+          className="w-20 h-20 sm:w-24 sm:h-24 object-contain object-bottom shrink-0"
         />
         <div className="flex flex-col gap-2">
           <h1 className={`mt-10 text-2xl font-sans font-[400] text-terracotta`}>

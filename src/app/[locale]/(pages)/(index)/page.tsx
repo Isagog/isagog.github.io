@@ -58,21 +58,25 @@ const HomePage = async ({
           title={tNav("about.title")}
           description={tNav("about.description")}
           href="/about"
+          imageUrl="/images/about-images/tree-bonsai.png"
         />
         <NavWithDescriptionSection
           title={tNav("solution.title")}
           description={tNav("solution.description")}
           href="/service"
+          imageUrl="/images/about-images/tree-canopy.png"
         />
         <NavWithDescriptionSection
           title={tNav("project.title")}
           description={tNav("project.description")}
           href="/project"
+          imageUrl="/images/about-images/tree-cypress.png"
         />
         <NavWithDescriptionSection
           title={tNav("blog.title")}
           description={tNav("blog.description")}
           href="/blog"
+          imageUrl="/images/about-images/tree-palm.png"
         />
       </div>
       <div

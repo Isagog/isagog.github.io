@@ -33,8 +33,8 @@ const ServicePage = async ({
         firstParagraph={tImageWithDescription("1.firstParagraph")}
         secondParagraph={tImageWithDescription("1.secondParagraph")}
         thirdParagraph={tImageWithDescription("1.thirdParagraph")}
-        imageUrl="/images/service-images/quercia-comune.png"
-        imgClassName="w-auto h-80 object-contain"
+        imageUrl="/images/about-images/tree-bonsai.png"
+        imgClassName="w-auto h-64 object-contain"
         className="mt-16"
       />
       <ImageWithDescription
@@ -42,16 +42,16 @@ const ServicePage = async ({
         firstParagraph={tImageWithDescription("2.firstParagraph")}
         secondParagraph={tImageWithDescription("2.secondParagraph")}
         imagePosition="right"
-        imageUrl="/images/service-images/faggio.png"
-        imgClassName="w-auto h-80 object-contain"
+        imageUrl="/images/about-images/tree-canopy.png"
+        imgClassName="w-auto h-64 object-contain"
       />
       <ImageWithDescription
         title={tImageWithDescription("3.title")}
         firstParagraph={tImageWithDescription("3.firstParagraph")}
         secondParagraph={tImageWithDescription("3.secondParagraph")}
         thirdParagraph={tImageWithDescription("3.thirdParagraph")}
-        imageUrl="/images/service-images/pino-silvestre.png"
-        imgClassName="w-auto h-80 object-contain"
+        imageUrl="/images/about-images/tree-cypress.png"
+        imgClassName="w-auto h-64 object-contain"
       />
       <ImageWithDescription
         title={tImageWithDescription("4.title")}
@@ -59,16 +59,16 @@ const ServicePage = async ({
         secondParagraph={tImageWithDescription("4.secondParagraph")}
         thirdParagraph={tImageWithDescription("4.thirdParagraph")}
         imagePosition="right"
-        imageUrl="/images/service-images/castagno.png"
-        imgClassName="w-auto h-80 object-contain"
+        imageUrl="/images/about-images/tree-palm.png"
+        imgClassName="w-auto h-64 object-contain"
       />
       <ImageWithDescription
         title={tImageWithDescription("5.title")}
         firstParagraph={tImageWithDescription("5.firstParagraph")}
         secondParagraph={tImageWithDescription("5.secondParagraph")}
         thirdParagraph={tImageWithDescription("5.thirdParagraph")}
-        imageUrl="/images/service-images/pioppo-tremulo.png"
-        imgClassName="w-auto h-80 object-contain"
+        imageUrl="/images/about-images/tree-pine.png"
+        imgClassName="w-auto h-64 object-contain"
       />
       <section className="flex flex-col items-center mx-[10%] space-y-16  justify-center h-[450px]">
         <SectionTitle as="h2" accent className="font-[400]">
