@@ -54,7 +54,7 @@ export const ServicesSection = () => {
         {faqsList.map((item, idx) => (
           <li key={idx} className="sm:space-y-3">
             <Image
-              src={treeIcons[idx]}
+              src={treeIcons[idx % treeIcons.length]!}
               alt=""
               width={64}
               height={64}
