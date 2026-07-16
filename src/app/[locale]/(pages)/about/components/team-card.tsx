@@ -1,5 +1,6 @@
 "use client";
 
+import { SectionTitle } from "@/app/_components/custom/section-title";
 import { useScopedI18n } from "@/packages/locales/client";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -56,8 +57,10 @@ export const TeamCard = () => {
               />
             </div>
             <div>
-              <h3 className="text-xl font-serif pt-4">{member.name}</h3>
-              <p className="text-[#a8fa87] font-serif mt-1 text-sm">
+              <SectionTitle as="h3" className="pt-4">
+                {member.name}
+              </SectionTitle>
+              <p className="text-terracotta font-serif mt-1 text-sm">
                 {member.title}
               </p>
               <p className="mt-4 font-sans whitespace-pre-line">

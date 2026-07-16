@@ -1,10 +1,5 @@
-"use client";
-
-import { stripLocale } from "@/lib/locale-href";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
-import { useEffect, useState } from "react";
 
 export const BodyWrapper = ({
   children,
@@ -13,21 +8,8 @@ export const BodyWrapper = ({
   children: ReactNode;
   className?: string;
 }) => {
-  const pathname = usePathname();
-  const [isProjectPage, setIsProjectPage] = useState(false);
-
-  useEffect(() => {
-    setIsProjectPage(stripLocale(pathname).startsWith("/project"));
-  }, [pathname]);
-
   return (
-    <body
-      className={cn(
-        className,
-        "antialiased pt-22",
-        isProjectPage ? "bg-white" : "bg-background"
-      )}
-    >
+    <body className={cn(className, "antialiased pt-22 bg-background")}>
       {children}
     </body>
   );

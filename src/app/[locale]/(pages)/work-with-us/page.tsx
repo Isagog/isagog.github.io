@@ -10,7 +10,7 @@ const WorkWithUsPage = () => {
       <h1 className="text-center font-sans font-spectral text-lg">
         {t("label")}
         {" "}
-        <Link href="mailto:hiring@isagog.com" className="text-[#86efac]">
+        <Link href="mailto:hiring@isagog.com" className="text-terracotta">
           hiring@isagog.com
         </Link>
       </h1>

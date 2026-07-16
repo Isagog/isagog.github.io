@@ -29,7 +29,7 @@ export const TextSection = ({
       <p>
         {thirdParagraph}{" "}
         {linkToExample && (
-          <Link href="/service" className="text-[#a8fa87]">
+          <Link href="/service" className="text-terracotta">
             {linkToExample}
           </Link>
         )}

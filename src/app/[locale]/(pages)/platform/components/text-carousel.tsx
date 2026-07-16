@@ -6,13 +6,17 @@ import { useState } from "react";
 
 export const TextCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const t = useScopedI18n("service-page.text-carousel");
+  const t = useScopedI18n("platform-page.text-carousel");
 
   const slides = [
     {
       title: t("1.title"),
       subtitle: t("1.subtitle"),
-      points: [`${t("1.points.1")}`, `${t("1.points.2")}`],
+      points: [
+        `${t("1.points.1")}`,
+        `${t("1.points.2")}`,
+        `${t("1.points.3")}`,
+      ],
     },
     {
       title: t("2.title"),
@@ -30,6 +34,7 @@ export const TextCarousel = () => {
         `${t("3.points.1")}`,
         `${t("3.points.2")}`,
         `${t("3.points.3")}`,
+        `${t("3.points.4")}`,
       ],
     },
   ];
@@ -48,7 +53,7 @@ export const TextCarousel = () => {
           >
             <div className="md:space-y-6">
               <div>
-                <h2 className="text-[#A8FA87] text-xl font-sans font-[500] text-start">
+                <h2 className="text-terracotta text-xl font-sans font-[500] text-start">
                   {slide.title}
                 </h2>
                 <h3 className="text-2xl text-start font-serif md:mt-2">
@@ -76,8 +81,8 @@ export const TextCarousel = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors cursor-pointer hover:bg-green-400 ${
-                currentSlide === index ? "bg-white" : "bg-green-900"
+              className={`w-3 h-3 rounded-full transition-colors cursor-pointer hover:bg-forest/60 ${
+                currentSlide === index ? "bg-forest" : "bg-forest/25"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />

@@ -1,5 +1,6 @@
 "use client";
 
+import { SectionTitle } from "@/app/_components/custom/section-title";
 import { useScopedI18n } from "@/packages/locales/client";
 import { motion } from "framer-motion";
 
@@ -23,9 +24,12 @@ export const Highlight = () => {
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}
     >
-      <h1 className="md:text-2xl text-xl text-center text-[25px] font-[600] font-serif mb-4">
+      <SectionTitle
+        as="h1"
+        className="md:text-2xl text-xl text-center text-[25px] font-[600] mb-4"
+      >
         {tHighlight("title")}
-      </h1>
+      </SectionTitle>
 
       <p className="font-[500] text-[21px] text-start mb-8">
         {tHighlight("description")}

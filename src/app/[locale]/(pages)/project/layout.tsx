@@ -1,16 +1,9 @@
-"use client";
-
-import { useEffect } from "react";
-
 const ProjectLayout = ({ children }: { children: React.ReactNode }) => {
-  useEffect(() => {
-    document.body.classList.add("bg-white");
-    return () => {
-      document.body.classList.remove("bg-white");
-    };
-  }, []);
-
-  return <div>{children}</div>;
+  return (
+    <div className="mx-5 sm:mx-auto sm:max-w-3/4 max-w-full flex flex-col gap-8 sm:gap-16">
+      {children}
+    </div>
+  );
 };
 
 export default ProjectLayout;

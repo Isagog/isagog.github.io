@@ -1,13 +1,15 @@
 export default {
   header: {
-    about: "About Us",
-    solution: "Solutions",
+    about: "Mission",
+    solution: "Use cases",
+    platform: "The Platform",
     project: "Projects",
     blog: "Insights",
     contact: "Contact",
   },
   footer: {
-    solutions: "Solutions",
+    solutions: "Use cases",
+    platform: "The Platform",
     projects: "Projects",
     insights: "Insights",
     contact: "Contact Us",
@@ -23,7 +25,7 @@ export default {
     hero: {
       title: "AI that makes sense",
       description:
-        "We build open neuro-symbolic technologies to analyze vast data landscapes, extract patterns of meaning and shape the future with clarity",
+        "We build open technologies that unite learning and reasoning, to analyze vast data landscapes, extract patterns of meaning and shape the future with clarity",
     },
     knowledge: {
       "1": {
@@ -46,12 +48,12 @@ export default {
     },
     navigation: {
       about: {
-        title: "ABOUT US",
+        title: "MISSION",
         description:
           "A team of experts in intelligent systems and their social impact",
       },
       solution: {
-        title: "SERVICES AND SOLUTIONS",
+        title: "USE CASES",
         description:
           "Through our innovative platform, we build infrastructures that structure, contextualize, and activate data across its entire lifecycle",
       },
@@ -94,7 +96,7 @@ export default {
       button: "Book a meeting",
     },
     highlight: {
-      title: "*Neuro-symbolic Artificial Intelligence",
+      title: "*An artificial intelligence that unites learning and reasoning",
       description:
         "Artificial intelligence has developed through these two currents:",
       "1": {
@@ -140,7 +142,7 @@ export default {
   },
   "about-page": {
     "text-animate": {
-      "1": "We design neuro-symbolic AI systems to manage high volumes of diverse data and understand semantic nuance, tone and domain specific knowledge.",
+      "1": "We design AI systems that combine language models with structured knowledge, to manage high volumes of diverse data and understand semantic nuance, tone and domain-specific knowledge.",
       "2": "We have worked in tech, healthcare, research, and culture. ",
       "3": "Together, we bring over 50 years of experience in AI research and development.",
     },
@@ -149,7 +151,7 @@ export default {
       "1": 'The name "Isagog" recalls the ancient Greek term Isagoge, which means "introduction": a preliminary guide, a conceptual map designed to navigate complex territories.',
       "2": "In the treatise Isagoge, the philosopher Porphyry (Tyrus, 233 AD – Rome, circa 305 AD) offers a systematic access to Aristotelian thought through a drawing: the famous Tree of Porphyry. This hierarchical and branching representation of abstract and concrete concepts has profoundly marked the history of Western thought, becoming a model for organizing knowledge — from medieval philosophy to modern information science.",
       "3": 'Today, that ancient "knowledge tree" lives on in Knowledge Graphs: structures that represent relationships between concepts and entities, whether abstract or concrete, in a formalized and accessible way. This is a semantic infrastructure that allows for organizing, connecting, and contextualizing information, making it accessible, interpretable, and verifiable. ',
-      "4": "The integration between generative models (Language Models) and Knowledge Graphs represents one of the most interesting developments in AI. This is precisely the area in which ISAGOG operates: we leverage the expressive and computational power of language models to efficiently build formal knowledge structures — thus making transparent and verifiable what remains opaque in neural networks. Our neuro-symbolic solutions are effective because they combine the flexibility of machine learning with the precision and interpretability of symbolic representation.",
+      "4": "The integration between generative models (Language Models) and Knowledge Graphs represents one of the most interesting developments in AI. This is precisely the area in which ISAGOG operates: we leverage the expressive and computational power of language models to efficiently build formal knowledge structures — thus making transparent and verifiable what remains opaque in neural networks. Our solutions are effective because they combine the flexibility of machine learning with the precision and interpretability of symbolic representation.",
       link: "Learn more",
     },
     team: {
@@ -209,78 +211,102 @@ export default {
     label: "If you want to find out about our career opportunities, please write to ",
   },
   "service-page": {
+    intro: {
+      title: "One platform, many solutions",
+      description:
+        "The Isagog platform enables solutions wherever there are documents, data and knowledge to put to work. Some scenarios:",
+    },
     "image-with-description": {
       "1": {
-        title: "Access your knowledge",
-        firstParagraph: "Structure your data in an intelligent archive.",
+        title: "Archives and documentation",
+        firstParagraph:
+          "Turn archives and document collections into navigable knowledge.",
         secondParagraph:
-          "Get a dynamic map of your data and your domain knowledge.",
+          "Extract entities, facts and relations; connect documents to each other.",
         thirdParagraph:
-          "Find new meanings and connections in large volumes of data.",
+          "Find what you need with questions in natural language.",
       },
       "2": {
-        title: "Produce content",
+        title: "Media and publishing",
         firstParagraph:
-          "Automate summaries or reports that comply with your company's standards.",
+          "Generate summaries, digests and reports that match your editorial style.",
         secondParagraph:
-          "Generate new narratives and new ways to tell your company's story.",
+          "Tell your content in new formats, for new audiences.",
       },
       "3": {
-        title: "Customize your offer",
-        firstParagraph: "Imagine new customizations for each user.",
+        title: "Cultural heritage",
+        firstParagraph:
+          "Guide visitors with agents that know the works, the spaces and the routes.",
         secondParagraph:
-          "Communicate in natural language with your audience.",
-        thirdParagraph: "Build a targeted offer.",
+          "Make collections accessible to everyone, in multiple languages and modes.",
+        thirdParagraph:
+          "Ground every answer in curated catalogues and sources.",
       },
       "4": {
-        title: "Build your community",
-        firstParagraph: "Interact with your users through AI agents.",
+        title: "Public administration",
+        firstParagraph:
+          "Make rules, procedures and records accessible with verifiable answers.",
         secondParagraph:
-          "Engage users through rich industry knowledge and fluid AI interactions.",
+          "Meet transparency and compliance requirements (EU AI Act, GDPR).",
+        thirdParagraph: "Keep your data inside your perimeter.",
+      },
+      "5": {
+        title: "Customer support",
+        firstParagraph:
+          "Assist your customers with agents that know your products and services.",
+        secondParagraph:
+          "Give immediate answers, grounded in your documentation, with cited sources.",
         thirdParagraph: "Monitor satisfaction and emerging requests.",
       },
     },
     "why-us": {
       title: "Why Isagog?",
       description:
-        "Our solutions are based on an open neuro-symbolic AI platform that combines creativity and logic to offer more \nreliable and intelligent results.",
+        "Our solutions are based on an open AI platform that combines creativity and logic to offer more \nreliable and intelligent results.",
       linkLabel: "Book a demo",
+    },
+  },
+  "platform-page": {
+    hero: {
+      title: "The Isagog platform",
+      description:
+        "Generative AI writes well, but doesn't know what's true. The Isagog platform anchors language models to a knowledge graph built from your documents: every answer is grounded in facts, verifiable, and runs where you decide.",
     },
     "image-with-title": {
       "1": {
-        title: "Neuro-symbolic platform architecture",
+        title: "The platform architecture",
       },
       "2": {
-        title: "Extraction pipeline",
+        title: "From documents to knowledge: the extraction pipeline",
       },
     },
     "text-carousel": {
       "1": {
-        title: "What we do",
-        subtitle:
-          "We simplify access to information. We transform text archives into clear and immediately usable intelligence",
+        title: "Knowledge Augmented Generation",
+        subtitle: "Beyond RAG: answers grounded in facts, not just text",
         points: {
-          "1": "We retrieve and organize information intelligently.",
-          "2": "We make your company's digital memory accessible in real-time.",
+          "1": "Analytic agents read your documents and turn them into a knowledge graph: entities, facts, relations.",
+          "2": "The graph works together with vector search: the precision of reasoning plus the breadth of retrieval.",
+          "3": "Answers are generated by the language model, but anchored to and verified against the facts in the graph.",
         },
       },
       "2": {
-        title: "How we do it",
-        subtitle:
-          "We build a knowledge base with custom neuro-symbolic reasoning",
+        title: "Custom agents, no code",
+        subtitle: "Define and orchestrate your agents in no-code mode",
         points: {
-          "1": "Our platform integrates LLMs (neural networks) with symbolic reasoning systems.",
-          "2": "We design fluid interactions with AI, capable of understanding natural language.",
-          "3": "We design for each project the domain knowledge and logical rules, thanks to which we eliminate hallucinations and ambiguities.",
+          "1": "Agents that analyze documents and populate the knowledge, agents that search, agents that converse.",
+          "2": "You compose and coordinate them from the interface, without writing a line of code.",
+          "3": "Each project has its own agents, its own tools, its own workspace.",
         },
       },
       "3": {
-        title: "What result you get",
-        subtitle: "Improve the quality of your work",
+        title: "You stay in control",
+        subtitle: "Transparency, sovereignty and compliance by design",
         points: {
-          "1": "You save your time.",
-          "2": "You get immediate and verifiable answers. In the format you prefer.",
-          "3": "You offer your users an engaging experience: provide them with targeted information and deepen your knowledge of their interests.",
+          "1": "Transparency: every answer is verifiable — you can inspect the sources, steps and tools the AI used.",
+          "2": "Data sovereignty: the platform runs on your infrastructure, even with small, open models.",
+          "3": "Compliance (EU AI Act, GDPR): role-based access, strong authentication, isolated data for every workspace.",
+          "4": "Cost control: choose your models, set usage limits, no vendor lock-in.",
         },
       },
     },

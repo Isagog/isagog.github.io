@@ -1,6 +1,16 @@
 "use client";
 
 import { useScopedI18n } from "@/packages/locales/client";
+import Image from "next/image";
+
+const treeIcons = [
+  "/images/about-images/tree-bonsai.png",
+  "/images/about-images/tree-canopy.png",
+  "/images/about-images/tree-cypress.png",
+  "/images/about-images/tree-palm.png",
+  "/images/about-images/tree-pine.png",
+  "/images/about-images/tree-bushy.png",
+];
 
 export const ServicesSection = () => {
   const t = useScopedI18n("about-page.faqs-list");
@@ -43,7 +53,14 @@ export const ServicesSection = () => {
       <ul className="space-y-8 sm:gap-12 gap-16 grid-cols-2 sm:grid sm:space-y-0 lg:grid-cols-3">
         {faqsList.map((item, idx) => (
           <li key={idx} className="sm:space-y-3">
-            <summary className="flex items-center justify-between font-serif text-3xl text-[#a8fa87]">
+            <Image
+              src={treeIcons[idx]}
+              alt=""
+              width={64}
+              height={64}
+              className="w-12 h-12 object-contain object-bottom mb-3"
+            />
+            <summary className="flex items-center justify-between font-serif text-3xl text-terracotta">
               {item.q}
             </summary>
             <p

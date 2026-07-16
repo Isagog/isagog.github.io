@@ -1,9 +1,11 @@
 "use client";
 
+import { SectionTitle } from "@/app/_components/custom/section-title";
+import { LocaleLink as Link } from "@/app/_components/custom/locale-link";
 import { Button } from "@/app/_components/ui/button";
+import { Card } from "@/app/_components/ui/card";
 import { Skeleton } from "@/app/_components/ui/skeleton";
 import { fetchProjects } from "@/packages/action/projects/project.action";
-import { LocaleLink as Link } from "@/app/_components/custom/locale-link";
 import { useCurrentLocale, useScopedI18n } from "@/packages/locales/client";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
@@ -20,9 +22,9 @@ export const ProjectSection = () => {
     <div className="flex flex-col gap-4 min-h-[75vh]">
       {isLoading
         ? Array.from({ length: 2 }).map((_, idx) => (
-            <div
+            <Card
               key={idx}
-              className="flex flex-col md:flex-row items-center w-[80%] mx-auto justify-between gap-8 mb-16"
+              className="flex-col md:flex-row items-center w-[80%] mx-auto justify-between gap-8 mb-16 p-6"
             >
               <Skeleton className="w-full md:w-60 h-72 md:h-96" />
               <div className="flex flex-col gap-4 w-full md:w-1/2">
@@ -41,12 +43,12 @@ export const ProjectSection = () => {
                   <Skeleton className="h-10 w-32" />
                 </div>
               </div>
-            </div>
+            </Card>
           ))
         : projects?.map((project) => (
-            <div
+            <Card
               key={project.slug}
-              className="flex flex-col md:flex-row items-center w-[80%] mx-auto justify-between gap-8 mb-16"
+              className="flex-col md:flex-row items-center w-[80%] mx-auto justify-between gap-8 mb-16 p-6"
             >
               <Image
                 src={project.image}
@@ -56,20 +58,20 @@ export const ProjectSection = () => {
                 className="w-full md:w-60 h-72 md:h-96 object-cover"
               />
               <div className="flex flex-col gap-4 w-full md:w-1/2">
-                <h1 className="text-2xl font-serif">{project.title}</h1>
-                <div className="flex justify-between font-sans font-spectral text-sm">
+                <SectionTitle as="h1" accent>
+                  {project.title}
+                </SectionTitle>
+                <div className="flex justify-between font-sans text-sm text-sage">
                   <span>{project.valueName}</span>
                   <span>{project.value}</span>
                 </div>
-                <div className="flex justify-between font-sans font-spectral text-sm">
+                <div className="flex justify-between font-sans text-sm text-sage">
                   <span>{project.name}</span>
                   <span>{project.sector}</span>
                 </div>
                 <div className="flex flex-col gap-4">
-                  <h2 className="text-2xl font-serif">{project.secondTitle}</h2>
-                  <p className="text-sm font-sans font-spectral">
-                    {project.description}
-                  </p>
+                  <SectionTitle as="h2">{project.secondTitle}</SectionTitle>
+                  <p className="text-sm font-sans">{project.description}</p>
                   <Link href={`/project/${project.slug}`}>
                     <Button className="cursor-pointer">
                       {t("discoverMore")}
@@ -77,7 +79,7 @@ export const ProjectSection = () => {
                   </Link>
                 </div>
               </div>
-            </div>
+            </Card>
           ))}
     </div>
   );

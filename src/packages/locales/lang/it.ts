@@ -1,13 +1,15 @@
 export default {
   header: {
-    about: "Chi siamo",
-    solution: "Soluzioni",
+    about: "Missione",
+    solution: "Casi d'uso",
+    platform: "La Piattaforma",
     project: "Progetti",
     blog: "Approfondimenti",
     contact: "Contatti",
   },
   footer: {
-    solutions: "Soluzioni",
+    solutions: "Casi d'uso",
+    platform: "La Piattaforma",
     projects: "Progetti",
     insights: "Approfondimenti",
     contact: "Contataci",
@@ -21,9 +23,9 @@ export default {
   },
   "home-page": {
     hero: {
-      title: "AI that makes sense",
+      title: "IA che ha senso",
       description:
-        "Costruiamo tecnologie neuro-simboliche aperte per analizzare grandi quantità di dati, estrarne significati \n\n e progettare con consapevolezza il futuro",
+        "Costruiamo tecnologie aperte che uniscono apprendimento e ragionamento, per analizzare grandi quantità di dati, estrarne significati \n\n e progettare con consapevolezza il futuro",
     },
     knowledge: {
       "1": {
@@ -46,12 +48,12 @@ export default {
     },
     navigation: {
       about: {
-        title: "CHI SIAMO",
+        title: "MISSIONE",
         description:
           "Un team di esperti di sistemi intelligenti e del loro impatto sociale ",
       },
       solution: {
-        title: "SERVIZI E SOLUZIONI",
+        title: "CASI D'USO",
         description:
           "Grazie a una piattaforma innovativa, realizziamo infrastrutture che danno forma e senso ai dati, lungo tutto il loro ciclo di vita",
       },
@@ -95,7 +97,7 @@ export default {
       button: "Prenota un incontro",
     },
     highlight: {
-      title: "*Intelligenza Artificiale neuro-simbolica",
+      title: "*Un'intelligenza artificiale che unisce apprendimento e ragionamento",
       description:
         "L'intelligenza artificiale si e storicamente sviluppata seguendo  due  approcci principali:",
       "1": {
@@ -141,7 +143,7 @@ export default {
   },
   "about-page": {
     "text-animate": {
-      "1": "Costruiamo AI neuro-simbolica per la gestione di grandi volumi di dati strutturati e non strutturati, ricchi di sfumature semantiche legate al tono e al contesto d’uso.",
+      "1": "Costruiamo AI che unisce modelli linguistici e conoscenza strutturata, per gestire grandi volumi di dati ricchi di sfumature semantiche legate al tono e al contesto d’uso.",
       "2": "Abbiamo coltivato carriere nei settori della tecnologia, della sanità, della ricerca e della cultura.",
       "3": "Insieme abbiamo più di 50 anni di esperienza nella ricerca e nello sviluppo dell'intelligenza artificiale.",
     },
@@ -210,78 +212,101 @@ export default {
     label: "Se desideri lavorare con noi, inviaci una mail a",
   },
   "service-page": {
+    intro: {
+      title: "Una piattaforma, molte soluzioni",
+      description:
+        "La piattaforma Isagog abilita soluzioni ovunque ci siano documenti, dati e conoscenza da valorizzare. Alcuni scenari:",
+    },
     "image-with-description": {
       "1": {
-        title: "Accedi alla tua conoscenza",
-        firstParagraph: "Struttura i tuoi dati in un archivio intelligente.",
+        title: "Archivi e documentazione",
+        firstParagraph:
+          "Trasforma archivi e fondi documentali in conoscenza navigabile.",
         secondParagraph:
-          "Ottieni una mappa dinamica dei tuoi dati e della tua conoscenza di settore.",
+          "Estrai entità, fatti e relazioni; collega i documenti tra loro.",
         thirdParagraph:
-          "Trova nuovi significati e connessioni in grandi volumi di dati.",
+          "Ritrova ciò che serve con domande in linguaggio naturale.",
       },
       "2": {
-        title: "Produci contenuti",
+        title: "Media ed editoria",
         firstParagraph:
-          "Automatizza sintesi o report conformi agli standard della tua azienda.",
+          "Genera sintesi, rassegne e report conformi al tuo stile editoriale.",
         secondParagraph:
-          "Genera nuove narrazioni e nuovi modi per raccontare la tua impresa. ",
+          "Racconta i tuoi contenuti in nuovi formati, per nuovi pubblici.",
       },
       "3": {
-        title: "Personalizza la tua offerta",
-        firstParagraph: "Immagina nuove personalizzazioni per ogni utente.",
+        title: "Beni culturali",
+        firstParagraph:
+          "Guida i visitatori con agenti che conoscono opere, spazi e percorsi.",
         secondParagraph:
-          "Comunica in linguaggio naturale con il tuo pubblico. ",
-        thirdParagraph: "Costruisci un'offerta mirata.",
+          "Rendi le collezioni accessibili a tutti, in più lingue e modalità.",
+        thirdParagraph: "Fonda ogni risposta su cataloghi e fonti curate.",
       },
       "4": {
-        title: "Costruisci la tua comunità",
-        firstParagraph: "Interagisci con i tuoi utenti tramite agenti AI.",
+        title: "Pubbliche amministrazioni",
+        firstParagraph:
+          "Rendi accessibili norme, procedure e atti con risposte verificabili.",
         secondParagraph:
-          "Coinvolgi gli utenti grazie ad una ricca conoscenza di settore e fluide interazioni con l'AI. ",
+          "Rispetta i requisiti di trasparenza e conformità (EU AI Act, GDPR).",
+        thirdParagraph: "Mantieni i dati dentro il tuo perimetro.",
+      },
+      "5": {
+        title: "Customer support",
+        firstParagraph:
+          "Assisti i tuoi clienti con agenti che conoscono prodotti e servizi.",
+        secondParagraph:
+          "Offri risposte immediate, fondate sulla tua documentazione, con fonti citate.",
         thirdParagraph: "Monitora soddisfazione e richieste emergenti.",
       },
     },
     "why-us": {
       title: "Perché Isagog?",
       description:
-        "Le nostre soluzioni si basano su una piattaforma aperta di AI neuro-simbolica, che unisce creatività e logica per offrire risultati più \naffidabili e intelligenti.",
+        "Le nostre soluzioni si basano su una piattaforma AI aperta, che unisce creatività e logica per offrire risultati più \naffidabili e intelligenti.",
       linkLabel: "Prenota una demo",
+    },
+  },
+  "platform-page": {
+    hero: {
+      title: "La piattaforma Isagog",
+      description:
+        "L'AI generativa scrive bene, ma non sa cosa è vero. La piattaforma Isagog ancora i modelli linguistici a un grafo di conoscenza costruito dai tuoi documenti: ogni risposta è fondata sui fatti, verificabile, e gira dove decidi tu.",
     },
     "image-with-title": {
       "1": {
-        title: "Architettura della piattaforma neuro-simbolica",
+        title: "L'architettura della piattaforma",
       },
       "2": {
-        title: "Pipeline di estrazione",
+        title: "Dai documenti alla conoscenza: la pipeline di estrazione",
       },
     },
     "text-carousel": {
       "1": {
-        title: "Cosa facciamo",
-        subtitle:
-          "Semplifichiamo l’accesso alle informazioni Trasformiamo archivi testuali in intelligenza chiara e immediatamente fruibile",
+        title: "Knowledge Augmented Generation",
+        subtitle: "Oltre la RAG: risposte fondate su fatti, non solo su testi",
         points: {
-          "1": "Recuperiamo e organizziamo informazioni in modo intelligente.",
-          "2": "Rendiamo consultabile in tempo reale la memoria digitale della tua azienda.",
+          "1": "Gli agenti analitici leggono i tuoi documenti e li trasformano in un grafo di conoscenza: entità, fatti, relazioni.",
+          "2": "Il grafo lavora insieme alla ricerca vettoriale: la precisione del ragionamento più l'ampiezza della ricerca.",
+          "3": "Le risposte sono generate dal modello linguistico, ma ancorate e verificate sui fatti del grafo.",
         },
       },
       "2": {
-        title: "Come lo facciamo",
-        subtitle:
-          "Costruiamo una base di conoscenza con ragionamento neuro-simbolico su misura ",
+        title: "Agenti su misura, senza codice",
+        subtitle: "Definisci e orchestri i tuoi agenti in modalità no-code",
         points: {
-          "1": "La nostra piattaforma integra LLM (reti neurali) con sistemi di ragionamento simbolico.",
-          "2": "Progettiamo interazioni fluide con l’AI, capace di comprendere il linguaggio naturale.",
-          "3": "Disegniamo per ogni progetto la conoscenza di settore e le regole logiche, grazie alle quali eliminare allucinazioni e ambiguità.",
+          "1": "Agenti che analizzano i documenti e popolano la conoscenza, agenti che cercano, agenti che dialogano.",
+          "2": "Li componi e li coordini dall'interfaccia, senza scrivere una riga di codice.",
+          "3": "Ogni progetto ha i suoi agenti, i suoi strumenti, il suo spazio di lavoro.",
         },
       },
       "3": {
-        title: "Che risultato ottieni",
-        subtitle: "Migliora la qualità del tuo lavoro",
+        title: "Il controllo resta a te",
+        subtitle: "Trasparenza, sovranità e conformità fin dalla progettazione",
         points: {
-          "1": "Risparmi il tuo tempo.",
-          "2": "Ottieni risposte immediate e verificabili. Nel formato che preferisci.",
-          "3": "Offri AI tuoi utenti un’esperienza coinvolgente: metti a loro disposizione informazioni mirate e approfondisci la conoscenza dei loro interessi.",
+          "1": "Trasparenza: ogni risposta è verificabile — puoi ispezionare fonti, passaggi e strumenti usati dall'AI.",
+          "2": "Sovranità dei dati: la piattaforma gira sulla tua infrastruttura, anche con modelli piccoli e aperti.",
+          "3": "Conformità (EU AI Act, GDPR): accessi basati sui ruoli, autenticazione forte, dati isolati per ogni spazio di lavoro.",
+          "4": "Costi sotto controllo: scegli i modelli, fissa i limiti d'uso, nessun vincolo con un fornitore.",
         },
       },
     },

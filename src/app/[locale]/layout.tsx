@@ -4,7 +4,7 @@ import { Providers } from "@/app/_components/providers";
 import { I18nProviderClient } from "@/packages/locales/client";
 import { getStaticParams } from "@/packages/locales/server";
 import type { Metadata } from "next";
-import { Montserrat, Spectral } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import type { ReactNode } from "react";
 import "../globals.css";
 
@@ -50,17 +50,17 @@ export function generateStaticParams() {
   return getStaticParams();
 }
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-montserrat",
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const spectral = Spectral({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-spectral",
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-fraunces",
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -76,7 +76,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale ?? "it"}
-      className={`${montserrat.variable} ${spectral.variable} font-serif`}
+      className={`${inter.variable} ${fraunces.variable} font-serif`}
     >
       <I18nProviderClient locale={locale}>
         <Providers>
