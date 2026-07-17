@@ -21,7 +21,7 @@ export const TeamCard = () => {
     },
     {
       avatar: "/images/team-images/Robert.avif",
-      name: "Rober J. Alexander",
+      name: "Robert J. Alexander",
       title: t("2.title"),
       desc: t("2.desc"),
     },
@@ -34,8 +34,20 @@ export const TeamCard = () => {
     {
       avatar: "/images/team-images/Lucas.avif",
       name: "Luca De Biase",
-      title: "",
+      title: t("4.title"),
       desc: t("4.desc"),
+    },
+    {
+      avatar: "/images/team-images/Maria.jpg",
+      name: "Maria Boscarato",
+      title: t("5.title"),
+      desc: t("5.desc"),
+    },
+    {
+      avatar: "/images/team-images/Piero.jpg",
+      name: "Piero Donini",
+      title: t("6.title"),
+      desc: t("6.desc"),
     },
   ];
   return (
