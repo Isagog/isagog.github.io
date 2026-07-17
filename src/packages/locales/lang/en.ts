@@ -1,5 +1,6 @@
 export default {
   header: {
+    home: "Home",
     about: "Mission",
     solution: "Use cases",
     platform: "The Platform",
@@ -8,6 +9,7 @@ export default {
     contact: "Contact",
   },
   footer: {
+    home: "Home",
     solutions: "Use cases",
     platform: "The Platform",
     projects: "Projects",

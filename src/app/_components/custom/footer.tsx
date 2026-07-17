@@ -25,6 +25,7 @@ export const Footer = () => {
   const changeLocale = useChangeLocale();
 
   const navItems = [
+    { title: tFooter("home"), href: "/" },
     { title: tFooter("platform"), href: "/platform" },
     { title: tFooter("solutions"), href: "/service" },
     { title: tFooter("projects"), href: "/project" },

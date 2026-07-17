@@ -1,5 +1,6 @@
 export default {
   header: {
+    home: "Home",
     about: "Missione",
     solution: "Casi d'uso",
     platform: "La Piattaforma",
@@ -8,6 +9,7 @@ export default {
     contact: "Contatti",
   },
   footer: {
+    home: "Home",
     solutions: "Casi d'uso",
     platform: "La Piattaforma",
     projects: "Progetti",
