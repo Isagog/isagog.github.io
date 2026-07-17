@@ -168,7 +168,16 @@ export default {
         desc: "Automation Engineer, \nHCLSoftware \nData Scientist \nBSc Mathematics & Philosophy",
       },
       "4": {
-        desc: "Journalist and writer \nProf. of Future History, \nLUISS \nProf. Knowledge \nManagement, La \nScuola Superiore \nSant'Anna and Stanford \nUniversity",
+        title: "Journalist and writer",
+        desc: "Prof. of Future History, \nLUISS \nProf. Knowledge \nManagement, La \nScuola Superiore \nSant'Anna and Stanford \nUniversity",
+      },
+      "5": {
+        title: "Marketing strategist",
+        desc: "Mainframe Brand Manager IBM, \nFounder of Paperness and Creative Thinking for Business",
+      },
+      "6": {
+        title: "Intelligent Systems Architect",
+        desc: "BSc Computer Engineering",
       },
     },
     "faqs-list": {
