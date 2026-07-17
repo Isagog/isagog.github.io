@@ -22,6 +22,7 @@ export const Header = () => {
   const [open, setOpen] = useState(false);
 
   const navItems = [
+    { href: "/", label: t("home") },
     { href: "/about", label: t("about") },
     { href: "/platform", label: t("platform") },
     { href: "/service", label: t("solution") },
