@@ -32,22 +32,16 @@ export const TeamCard = () => {
       desc: t("3.desc"),
     },
     {
-      avatar: "/images/team-images/Lucas.avif",
-      name: "Luca De Biase",
+      avatar: "/images/team-images/Maria.jpg",
+      name: "Maria Boscarato",
       title: t("4.title"),
       desc: t("4.desc"),
     },
     {
-      avatar: "/images/team-images/Maria.jpg",
-      name: "Maria Boscarato",
-      title: t("5.title"),
-      desc: t("5.desc"),
-    },
-    {
       avatar: "/images/team-images/Piero.jpg",
       name: "Piero Donini",
-      title: t("6.title"),
-      desc: t("6.desc"),
+      title: t("5.title"),
+      desc: t("5.desc"),
     },
   ];
   return (

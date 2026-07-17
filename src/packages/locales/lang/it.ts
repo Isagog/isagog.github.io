@@ -171,14 +171,10 @@ export default {
         desc: "Automation Engineer, \nHCLSoftware \nData Scientist \nBSc Mathematics & Philosophy",
       },
       "4": {
-        title: "Giornalista e scrittore",
-        desc: "Prof. di Storia del \nFuturo, LUISS \nProf. Management \ndella Conoscenza, La \nScuola Superiore \nSant'Anna e Stanford \nUniversity",
-      },
-      "5": {
         title: "Marketing strategist",
         desc: "Mainframe Brand Manager IBM, \nFondatrice di Paperness e Creative Thinking for Business",
       },
-      "6": {
+      "5": {
         title: "Intelligent Systems Architect",
         desc: "Laurea in Ingegneria Informatica",
       },
