@@ -40,12 +40,12 @@ export const TextCarousel = () => {
   ];
 
   return (
-    <div className="relative w-[100%] xl:h-[450px] md:h-[70vh] h-[100vh] bg-transparent  flex items-center justify-center overflow-hidden">
-      <div className="relative h-full sm:w-2/3 w-full mx-5 flex items-center justify-center ">
+    <div className="relative w-[100%] bg-transparent  flex items-center justify-center overflow-hidden">
+      <div className="relative sm:w-2/3 w-full mx-5 grid">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute top-8 sm:top-0 left-0 w-full h-full transition-opacity duration-500 ease-in-out sm:p-8 ${
+            className={`[grid-area:1/1] w-full pt-8 sm:p-8 transition-opacity duration-500 ease-in-out ${
               currentSlide === index
                 ? "opacity-100"
                 : "opacity-0 pointer-events-none"

@@ -30,7 +30,7 @@ const PlatformPage = async ({
             ? "Esplora la piattaforma Isagog"
             : "Explore the Isagog platform"
         }
-        className="sm:block hidden w-full aspect-[1280/860] border-0 mt-28"
+        className="sm:block hidden w-full aspect-[1280/842] border-0"
       />
     </div>
   );
