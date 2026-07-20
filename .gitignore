@@ -43,6 +43,7 @@ out/
 .rts2_cache_es/
 .rts2_cache_umd/
 .temp
+temp
 **/.vitepress/cache
 .docusaurus
 .serverless/
