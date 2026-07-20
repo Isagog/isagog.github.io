@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>Isagog — Esplora la piattaforma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ============ isagog.com design system ============
+     palette: paper #f7f8f6 · forest #1f321a · sage #5f9353 · mist #c9dec4 · terracotta #ce4e27
+     type: Fraunces (serif, headings) · Inter (sans, body, +.02em) · radius 0 */
+  :root{
+    --paper:#f7f8f6;--forest:#1f321a;--sage:#5f9353;--mist:#c9dec4;--terracotta:#ce4e27;
+    --sage-deep:#46703c;
+    /* semantic hues, darkened for AA on light ground */
+    --know:#3c6f2f;  --know-dim:#46703c;   /* knowledge / blueprint — sage    */
+    --reason:#33617c;--reason-dim:#436f88; /* reasoning / agents   — slate    */
+    --lang:#6a5390;  --lang-dim:#7a659e;   /* language             — violet   */
+    --trust:#b23e1b; --trust-dim:#ce4e27;  /* memory               — terracotta */
+    --bg:var(--mist);--ink:var(--forest);
+    --ink-soft:#48593f;--ink-faint:#67785e;
+    --line:rgba(31,50,26,.16);--line-soft:rgba(31,50,26,.09);
+    --panel:var(--paper);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:"Inter",sans-serif;letter-spacing:.02em;-webkit-font-smoothing:antialiased;
+    display:flex;flex-direction:column;overflow:hidden}
+
+  /* field texture — quiet, on-brand */
+  .grid-lines{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(rgba(31,50,26,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(31,50,26,.06) 1px,transparent 1px);
+    background-size:64px 64px;mask-image:radial-gradient(120% 100% at 50% 30%,#000 30%,transparent 82%)}
+
+  /* ============ header ============ */
+  header{position:relative;z-index:3;display:flex;align-items:center;gap:clamp(12px,2vw,30px);
+    padding:14px clamp(20px,4vw,56px) 12px;flex-wrap:wrap}
+  .brandline{display:flex;flex-direction:column;gap:4px;min-width:230px}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage-deep)}
+  .eyebrow .mv{color:var(--ink-faint)}
+  h1{font-family:"Fraunces",serif;font-weight:400;font-size:clamp(19px,2.1vw,27px);letter-spacing:.01em;line-height:1.15;color:var(--forest)}
+  h1 em{font-style:italic;color:var(--terracotta)}
+
+  /* ============ stage ============ */
+  .stagewrap{position:relative;z-index:1;flex:1;overflow:auto;display:flex}
+  .spacer{margin:0 auto;position:relative}
+  .stage{position:absolute;left:0;top:0;width:1280px;height:824px;transform-origin:0 0}
+  svg.wires{position:absolute;inset:0;width:1280px;height:824px;overflow:visible}
+  .wire{fill:none;stroke-width:1.6;stroke-opacity:.4;transition:stroke-opacity .4s,stroke-width .4s}
+  .wire.g{stroke-dasharray:2 7;stroke-opacity:.5}
+  #spark circle{filter:drop-shadow(0 0 3px currentColor)}
+
+  /* nodes — paper cards, sharp corners */
+  .node{position:absolute;border:1px solid var(--line);background:var(--panel);
+    padding:12px 14px;cursor:pointer;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s,opacity .5s;
+    box-shadow:0 1px 2px rgba(31,50,26,.05),0 14px 34px -22px rgba(31,50,26,.35)}
+  .node::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--ac,var(--sage)),transparent)}
+  .node:hover{transform:translateY(-2px);border-color:var(--sage);box-shadow:0 2px 4px rgba(31,50,26,.06),0 20px 44px -22px rgba(31,50,26,.45)}
+  .node.dim,.ag.dim{opacity:.38}
+  .node .role{font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ac,var(--know));display:flex;align-items:center;gap:6px}
+  .node .role .info{margin-left:auto;color:var(--ink-faint);border:1px solid var(--line);border-radius:50%;
+    width:14px;height:14px;display:grid;place-items:center;font-size:9px;letter-spacing:0}
+  .node h3{font-family:"Fraunces",serif;font-weight:500;font-size:17px;margin:3px 0 2px;letter-spacing:.01em}
+  .node .sub{font-family:"Fraunces",serif;font-style:italic;font-size:10.5px;color:var(--ink-soft);line-height:1.3;letter-spacing:0}
+  .mono{font-family:"JetBrains Mono",monospace}
+
+  /* docs */
+  .docstack{display:flex;gap:7px;margin-top:10px}
+  .doc{width:44px;height:56px;border:1px solid var(--line);background:#fff;position:relative;padding:7px 6px}
+  .doc i{display:block;height:2px;background:var(--ink-faint);margin-bottom:4px;opacity:.55}
+  .doc i:nth-child(2){width:70%}.doc i:nth-child(3){width:85%}.doc i:nth-child(4){width:55%}
+  .doc .ft{position:absolute;bottom:4px;left:6px;font-family:"JetBrains Mono",monospace;font-size:6.5px;color:var(--sage-deep);letter-spacing:.08em}
+  .doc:nth-child(2){transform:translateY(6px)}.doc:nth-child(3){transform:translateY(12px)}
+  .docs-cap{font-family:"JetBrains Mono",monospace;font-size:8px;color:var(--ink-faint);letter-spacing:.1em;margin-top:16px}
+
+  /* reader / extractor */
+  .snippet{margin-top:9px;font-size:11px;line-height:2.15;color:var(--ink-soft);border:1px solid var(--line-soft);
+    padding:8px 10px;background:#eef3ec;letter-spacing:0}
+  .ent{position:relative;padding:1px 3px;transition:.4s;white-space:nowrap}
+  .ent .tag{position:absolute;left:50%;top:-13px;transform:translateX(-50%) scale(.6);opacity:0;transition:.4s;
+    font-family:"JetBrains Mono",monospace;font-size:7px;letter-spacing:.08em;padding:0 5px;white-space:nowrap}
+  .ent.hl{color:var(--ink)}
+  .ent.hl .tag{opacity:1;transform:translateX(-50%) scale(1)}
+  .ent.e-art.hl{background:rgba(95,147,83,.18);box-shadow:0 0 0 1px var(--sage)}
+  .ent.e-art .tag{background:var(--sage-deep);color:var(--paper)}
+  .ent.e-exh.hl{background:rgba(51,97,124,.14);box-shadow:0 0 0 1px var(--reason)}
+  .ent.e-exh .tag{background:var(--reason);color:var(--paper)}
+  .ent.e-spc.hl{background:rgba(106,83,144,.13);box-shadow:0 0 0 1px var(--lang)}
+  .ent.e-spc .tag{background:var(--lang);color:var(--paper)}
+  .reader-cap{font-family:"JetBrains Mono",monospace;font-size:8px;color:var(--ink-faint);letter-spacing:.1em;margin-top:8px}
+
+  /* kb */
+  .kbsplit{display:grid;grid-template-columns:1fr;gap:6px;margin-top:8px}
+  .kbrow{border:1px solid var(--line-soft);padding:6px 9px;background:#eef3ec}
+  .kbrow .lb{font-family:"JetBrains Mono",monospace;font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
+  #minigraph text{font-family:"JetBrains Mono",monospace;font-size:8px;fill:var(--ink-soft)}
+  #minigraph .gn{fill:rgba(95,147,83,.22);stroke:var(--know);stroke-width:1}
+  #minigraph .ge{stroke:var(--sage-deep);stroke-width:1;stroke-dasharray:3 3}
+  .kbcount{position:absolute;top:34px;right:13px;font-family:"JetBrains Mono",monospace;font-size:9px;color:var(--ink-faint)}
+  .kbcount b{color:var(--know);font-weight:600}
+
+  /* semantic — small embedding/ranking graphic */
+  #vecdb{overflow:visible}
+  #vecdb .ve{stroke:var(--sage-deep);stroke-width:1;stroke-dasharray:3 3}
+  #vecdb .vn{fill:rgba(95,147,83,.22);stroke:var(--know);stroke-width:1}
+  #vecdb .vn-bg{fill:rgba(95,147,83,.35);stroke:none}
+  #vecdb text{font-family:"JetBrains Mono",monospace;font-size:7.5px;fill:var(--ink-soft)}
+  #vecdb .vs{fill:var(--reason);font-weight:600}
+  /* structured data — database volumes */
+  #dbvols .dbody{fill:rgba(95,147,83,.14);stroke:var(--know);stroke-width:1}
+  #dbvols .dtop{fill:rgba(95,147,83,.32);stroke:var(--know);stroke-width:1}
+  #dbvols .dring{fill:none;stroke:var(--know);stroke-width:.8;stroke-opacity:.45}
+  #dbvols text{font-family:"JetBrains Mono",monospace;font-size:7px;fill:var(--ink-faint);letter-spacing:.04em}
+
+  /* memory */
+  .memrow{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:9px;padding:5.5px 0;border-top:1px solid var(--line-soft)}
+  .memrow:first-of-type{border-top:none;margin-top:6px}
+  .memrow .cat{color:var(--ink-faint)}.memrow .val{color:var(--ink);margin-left:auto}
+  .membadge{font-size:7px;font-weight:600;padding:1px 5px;letter-spacing:.06em}
+  .mb-perm{background:rgba(206,78,39,.16);color:var(--trust)}
+  .mb-long{background:rgba(95,147,83,.2);color:var(--know)}
+  .mb-sess{background:rgba(51,97,124,.14);color:var(--reason)}
+  .memrow .cc{width:24px;height:3px;background:rgba(31,50,26,.12);overflow:hidden}.memrow .cc>i{display:block;height:100%}
+  #memnew{display:none;animation:rowin .8s cubic-bezier(.2,.7,.3,1)}
+  #memnew.show{display:flex}
+  @keyframes rowin{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+
+  /* llm cloud */
+  .n-llm{border-style:dashed}
+  .llmline{font-family:"JetBrains Mono",monospace;font-size:8.5px;color:var(--ink-faint);margin-top:7px;letter-spacing:.06em;line-height:1.7}
+  .llmline b{color:var(--lang);font-weight:500}
+
+  /* orchestrator */
+  .intents{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+  .intent{font-family:"JetBrains Mono",monospace;font-size:7px;letter-spacing:.02em;padding:2px 4px;border:1px solid rgba(51,97,124,.4);color:var(--reason);transition:.3s}
+
+  /* agents grid */
+  .agents{position:absolute;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .ag{border:1px solid var(--line);background:var(--panel);padding:9px 10px;cursor:pointer;
+    position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;
+    box-shadow:0 1px 2px rgba(31,50,26,.05),0 10px 26px -18px rgba(31,50,26,.3)}
+  .ag::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--ac),transparent)}
+  .ag:hover{transform:translateY(-2px);border-color:var(--ac)}
+  .ag .role{font-size:7.5px}
+  .ag h4{font-family:"Fraunces",serif;font-weight:500;font-size:14.5px;margin:2px 0 1px}
+  .ag .knows{font-family:"JetBrains Mono",monospace;font-size:7.5px;color:var(--ink-faint);letter-spacing:.04em;line-height:1.5}
+  .ag .knows b{color:var(--ink-soft);font-weight:500}
+
+  /* user */
+  .avatar{display:flex;align-items:center;gap:9px}
+  .avatar .face{width:34px;height:34px;border-radius:50%;border:1px solid rgba(106,83,144,.5);background:rgba(106,83,144,.12);display:grid;place-items:center}
+  .avatar .face svg{width:18px;height:18px;stroke:var(--lang);fill:none;stroke-width:1.5}
+  .bubble{padding:8px 11px;font-size:11px;line-height:1.5;margin-top:9px;display:none;animation:rowin .5s cubic-bezier(.2,.7,.3,1);letter-spacing:0}
+  .bubble.show{display:block}
+  .bq{background:rgba(106,83,144,.1);border:1px solid rgba(106,83,144,.4);color:var(--ink);font-family:"Fraunces",serif;font-style:italic;font-size:12px}
+  .br{background:#eef3ec;border:1px solid var(--line);color:var(--ink-soft);max-height:196px;overflow:auto}
+  .br b{color:var(--ink);font-weight:600}
+  .pills{display:none;gap:5px;margin-top:7px;flex-wrap:wrap}
+  .pills.show{display:flex}
+  .pill{font-family:"JetBrains Mono",monospace;font-size:8px;letter-spacing:.08em;padding:3px 9px;border:1px solid rgba(106,83,144,.45);color:var(--lang);cursor:pointer;transition:.25s;background:transparent}
+  .pill.on{background:var(--lang);color:var(--paper);box-shadow:0 0 10px -3px var(--lang)}
+
+  /* blueprint — same card treatment as every other node; only the pulse marks it as central */
+  .n-bp.pulseglow{animation:bpglow 1.6s ease}
+  @keyframes bpglow{0%,100%{box-shadow:0 1px 2px rgba(31,50,26,.05),0 14px 34px -22px rgba(31,50,26,.35)}
+    45%{box-shadow:0 0 0 2px var(--sage),0 0 54px -8px var(--sage)}}
+  .bp-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .bp-head .nm{font-family:"Fraunces",serif;font-weight:500;font-size:21px;color:var(--ink)}
+  .bp-head .tech{font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+  .bp-head .desc{font-family:"Fraunces",serif;font-style:italic;font-size:11.5px;color:var(--ink-soft);margin-left:auto;letter-spacing:0}
+  .bp-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+  .ochip{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:0;padding:2.5px 8px;border:1px solid rgba(95,147,83,.45);color:var(--ink-soft);background:var(--paper)}
+  .ochip.rel{border-style:dashed;font-style:italic}
+  .bp-effects{display:flex;gap:10px;margin-top:9px;font-family:"JetBrains Mono",monospace;font-size:7.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint);flex-wrap:wrap}
+  .bp-effects span b{color:var(--know);font-weight:500}
+
+  /* stage captions — regions, not phases */
+  .zone-cap{position:absolute;font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint);display:flex;align-items:center;gap:10px}
+  .zone-cap::after{content:"";height:1px;width:var(--zc-w,60px);background:linear-gradient(90deg,var(--line),transparent)}
+  .zone-cap--span{font-size:14px;font-weight:600;color:var(--sage-deep);width:var(--zc-tw,300px)}
+  .zone-cap--span::after{flex:1 1 auto;width:auto;background:linear-gradient(90deg,var(--ink-faint) 0%,var(--ink-faint) 88%,transparent 100%)}
+  .zone-cap--noline{white-space:nowrap}
+  .zone-cap--noline::after{display:none}
+  .agents-cap{position:absolute;font-family:"JetBrains Mono",monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+
+  /* ============ drawer ============ */
+  .shade{position:fixed;inset:0;z-index:8;background:rgba(31,50,26,.35);opacity:0;pointer-events:none;transition:opacity .35s}
+  .shade.open{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;bottom:0;z-index:10000;width:min(500px,94vw);transform:translateX(103%);
+    transition:transform .42s cubic-bezier(.2,.7,.3,1);background:var(--paper);
+    border-left:1px solid var(--line);box-shadow:-30px 0 80px -30px rgba(31,50,26,.6);display:flex;flex-direction:column}
+  .drawer.open{transform:none}
+  .dr-head{padding:22px 28px 14px;border-bottom:1px solid var(--line-soft)}
+  .dr-kick{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--dc,var(--know))}
+  .dr-head h2{font-family:"Fraunces",serif;font-weight:400;font-size:27px;margin-top:5px;letter-spacing:.01em}
+  .dr-close{position:absolute;top:18px;right:20px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-faint);
+    border:1px solid var(--line);background:transparent;padding:6px 11px;cursor:pointer;transition:.25s}
+  .dr-close:hover{color:var(--ink);border-color:var(--forest)}
+  .dr-body{padding:20px 28px 34px;overflow:auto;flex:1}
+  .dr-body p{font-size:13.5px;line-height:1.62;color:var(--ink-soft);margin-bottom:14px}
+  .dr-body p b{color:var(--ink);font-weight:600}
+  .dr-body p em{font-family:"Fraunces",serif;color:var(--ink);letter-spacing:0}
+  .dr-body h4{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dc,var(--know));margin:20px 0 10px;display:flex;align-items:center;gap:10px}
+  .dr-body h4::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line),transparent)}
+  .exbox{border:1px solid var(--line-soft);background:#eef3ec;padding:12px 15px;margin-bottom:14px}
+  .exbox .lb{font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:7px}
+  .exbox .code{font-family:"JetBrains Mono",monospace;font-size:11.5px;line-height:1.8;color:var(--ink-soft)}
+  .exbox .code .s{color:var(--know)}.exbox .code .p{color:var(--ink-faint)}.exbox .code .o{color:var(--ink)}
+  .exbox .quote{font-family:"Fraunces",serif;font-style:italic;font-size:14px;color:var(--ink);line-height:1.5;letter-spacing:0}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px}
+  .cmp .side{border:1px solid;padding:11px 13px}
+  .cmp .side .lb{font-family:"JetBrains Mono",monospace;font-size:8px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+  .cmp .side ul{list-style:none;font-family:"JetBrains Mono",monospace;font-size:10.5px;line-height:2;color:var(--ink-soft)}
+  .cmp .no{border-color:rgba(178,62,27,.4)}.cmp .no .lb{color:var(--trust)}.cmp .no .miss{color:#c08a76;text-decoration:line-through}
+  .cmp .yes{border-color:var(--sage)}.cmp .yes .lb{color:var(--know)}.cmp .yes b{color:var(--know);font-weight:600}
+  .fx{display:flex;flex-direction:column;gap:9px;margin-bottom:14px}
+  .fx .f{border:1px solid var(--line-soft);border-left:2px solid var(--fc,var(--sage));padding:10px 13px;background:var(--paper)}
+  .fx .f h5{font-family:"Fraunces",serif;font-weight:500;font-size:14.5px;color:var(--ink)}
+  .fx .f p{font-size:12px;margin:4px 0 0}
+  .tierstb{width:100%;border-collapse:collapse;font-family:"JetBrains Mono",monospace;font-size:10px;margin-bottom:14px}
+  .tierstb td{padding:6px 8px;border-top:1px solid var(--line-soft);color:var(--ink-soft)}
+  .tierstb tr:first-child td{border-top:none}
+  .tierstb .tn{font-weight:600}
+  .dr-next{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;color:var(--ink-faint);margin-top:18px}
+  .dr-next b{color:var(--terracotta);cursor:pointer;font-weight:500}
+
+  @media (prefers-reduced-motion:reduce){
+    #spark{display:none}
+  }
+  @media (max-width:820px){
+    header{gap:10px}
+  }
+</style>
+<style>
+/* IT/EN language switch */
+.lang-switch{position:fixed;top:14px;right:14px;z-index:9999;display:flex;gap:2px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;line-height:1;
+  background:var(--paper);border:1px solid var(--line);padding:3px}
+.lang-switch a{padding:4px 9px;text-decoration:none;color:var(--ink-faint);transition:color .2s,background .2s}
+.lang-switch a:hover{color:var(--ink)}
+.lang-switch a.on{color:var(--paper);background:var(--forest);cursor:default}
+header{padding-right:110px}
+@media print{.lang-switch{display:none}}
+</style>
+</head>
+<body>
+
+<div class="grid-lines"></div>
+
+<header>
+  <div class="brandline">
+    <div class="eyebrow"><span class="mv">Isagog&nbsp;·&nbsp;</span>La piattaforma</div>
+    <h1><em>ESTRAI</em> la tua conoscenza. Poi <em>INTERROGALA</em>.</h1>
+  </div>
+</header>
+
+<div class="stagewrap" id="stagewrap">
+  <div class="spacer" id="spacer">
+  <div class="stage" id="stage">
+
+    <svg class="wires" viewBox="0 0 1280 824" aria-hidden="true">
+      <!-- capture side -->
+      <path class="wire" id="w_a1" stroke="var(--know)" style="color:var(--know)" d="M216,222 C239,222 239,222 262,222"/>
+      <path class="wire" id="w_a3" stroke="var(--know)" style="color:var(--know)" d="M457,160 C480,140 486,115 510,110"/>
+      <path class="wire" id="w_a2" stroke="var(--know)" style="color:var(--know)" d="M457,206 C484,214 484,238 510,248"/>
+      <!-- guidance from the blueprint -->
+      <path class="wire g" id="w_g_ext" stroke="var(--know)" style="color:var(--know)" d="M356,650 C356,520 356,400 358,324"/>
+      <path class="wire g" id="w_g_kb"  stroke="var(--know)" style="color:var(--know)" d="M462,650 C458,520 452,400 510,340"/>
+      <path class="wire g" id="w_g_data" stroke="var(--know)" style="color:var(--know)" d="M500,650 C498,580 496,500 510,453"/>
+      <path class="wire g" id="w_g_mem" stroke="var(--know)" style="color:var(--know)" d="M637,650 C637,647 637,644 637,640"/>
+      <path class="wire g" id="w_g_ag"  stroke="var(--know)" style="color:var(--know)" d="M906,650 C906,630 906,600 906,560"/>
+      <!-- shared context bus: three knowledge cards → rail → orchestrator & agents -->
+      <path class="wire" id="w_r_sem"  stroke="var(--know)" style="color:var(--know)" d="M765,130 L778,130"/>
+      <path class="wire" id="w_r_kb"   stroke="var(--know)" style="color:var(--know)" d="M765,301 L778,301"/>
+      <path class="wire" id="w_r_data" stroke="var(--know)" style="color:var(--know)" d="M765,453 L778,453"/>
+      <path class="wire" id="w_r_mem"  stroke="var(--know)" style="color:var(--know)" d="M765,581 L778,581"/>
+      <path class="wire" id="w_rail"   stroke="var(--know)" style="color:var(--know)" d="M778,130 L778,581"/>
+      <path class="wire" id="w_t_orch" stroke="var(--know)" style="color:var(--know)" d="M778,222 L806,222"/>
+      <path class="wire" id="w_t_ag"   stroke="var(--know)" style="color:var(--know)" d="M778,366 L792,366"/>
+      <path class="wire" id="w_t_ag2"  stroke="var(--know)" style="color:var(--know)" d="M778,523 L792,523"/>
+      <!-- conversation side -->
+      <path class="wire" id="w_b_q"     stroke="var(--lang)"   style="color:var(--lang)"   d="M1072,250 C1040,236 1038,226 1006,220"/>
+      <path class="wire" id="w_b_route" stroke="var(--reason)" style="color:var(--reason)" d="M899,268 C899,276 899,284 899,292"/>
+      <path class="wire" id="w_b_out"   stroke="var(--reason)" style="color:var(--reason)" d="M919,292 C919,284 919,276 919,268"/>
+      <path class="wire g" id="w_b_llm" stroke="var(--lang)"   style="color:var(--lang)"   d="M911,164 C911,168 911,172 911,176"/>
+      <path class="wire" id="w_b_reply" stroke="var(--lang)"   style="color:var(--lang)"   d="M1016,255 C1044,258 1050,290 1072,300"/>
+      <g id="spark"></g>
+    </svg>
+
+    <div class="zone-cap zone-cap--span" id="cap-a" style="left:40px;top:26px;--zc-tw:417px">Estrazione</div>
+    <div class="zone-cap zone-cap--span zone-cap--noline" id="cap-c" style="left:510px;top:26px;--zc-tw:255px">Conoscenza condivisa</div>
+    <div class="zone-cap zone-cap--span" id="cap-b" style="left:806px;top:26px;--zc-tw:442px">Interazione</div>
+
+    <!-- documents -->
+    <div class="node" id="n_docs" data-info="docs" style="left:36px;top:140px;width:180px;height:172px;--ac:var(--know)">
+      <div class="role">fonti <span class="info">i</span></div>
+      <h3>Il tuo materiale</h3>
+      <div class="docstack"><div class="doc"><i></i><i></i><i></i><i></i><span class="ft">PDF</span></div>
+        <div class="doc"><i></i><i></i><i></i><i></i><span class="ft">DOC</span></div>
+        <div class="doc"><i></i><i></i><i></i><i></i><span class="ft">TXT</span></div></div>
+      <div class="docs-cap">archivi · cataloghi · report</div>
+    </div>
+
+    <!-- reader -->
+    <div class="node" id="n_ext" data-info="reader" style="left:262px;top:130px;width:195px;height:192px;--ac:var(--know)">
+      <div class="role">estrazione <span class="info">i</span></div>
+      <h3>Estrattore</h3>
+      <div class="sub">trova entità e relazioni — guidato dalla mappa</div>
+      <div class="snippet">…la retrospettiva di <span class="ent e-art" id="e1"><span class="tag">Artist</span>Andrea Pazienza</span> <span class="ent e-exh" id="e2"><span class="tag">Exhibition</span>“Total Comics”</span> apre nella <span class="ent e-spc" id="e3"><span class="tag">Space</span>Galleria&nbsp;5</span>…</div>
+      <div class="reader-cap">proponi → tu confermi → scrivi</div>
+    </div>
+
+    <!-- semantic similarity -->
+    <div class="node" id="n_sem" data-info="semantic" style="left:510px;top:52px;width:255px;height:156px;--ac:var(--know)">
+      <div class="role">database vettoriale <span class="info">i</span></div>
+      <h3>Similarità semantica</h3>
+      <div class="sub">trova ciò che è simile nel significato, anche con parole diverse</div>
+      <svg id="vecdb" width="220" height="60" viewBox="0 0 220 60" style="display:block;margin-top:8px">
+        <circle class="vn vn-bg" cx="14" cy="8" r="2.5"/>
+        <circle class="vn vn-bg" cx="198" cy="50" r="2.5"/>
+        <circle class="vn vn-bg" cx="100" cy="6" r="2.5"/>
+        <circle class="vn vn-bg" cx="58" cy="52" r="2.5"/>
+        <line class="ve" x1="28" y1="26" x2="76" y2="16"/>
+        <circle class="vn" cx="28" cy="26" r="4"/><text x="4" y="42">orario</text>
+        <circle class="vn" cx="76" cy="16" r="4"/><text x="84" y="12">apertura</text>
+        <text class="vs" x="40" y="16">0.88</text>
+        <line class="ve" x1="128" y1="44" x2="176" y2="32"/>
+        <circle class="vn" cx="128" cy="44" r="4"/><text x="100" y="58">percorso</text>
+        <circle class="vn" cx="176" cy="32" r="4"/><text x="176" y="22">itinerario</text>
+        <text class="vs" x="140" y="36">0.92</text>
+      </svg>
+    </div>
+
+    <!-- knowledge base -->
+    <div class="node" id="n_kb" data-info="kb" style="left:510px;top:218px;width:255px;height:166px;--ac:var(--know)">
+      <div class="role">fatti esatti · verificabili <span class="info">i</span></div>
+      <span class="kbcount"><b id="factcount">128</b> fatti</span>
+      <h3>Grafo di Conoscenza</h3>
+      <div class="kbsplit">
+        <div class="kbrow"><div class="lb">grafo · ogni fatto ha nome e fonte</div>
+          <svg id="minigraph" width="220" height="72" viewBox="0 0 220 72">
+            <line class="ge" x1="34" y1="42" x2="106" y2="24"/>
+            <line class="ge" x1="106" y1="24" x2="182" y2="50"/>
+            <circle class="gn" cx="34" cy="42" r="7"/>
+            <circle class="gn" cx="106" cy="24" r="7"/>
+            <circle class="gn" cx="182" cy="50" r="7"/>
+            <text x="10" y="60">Pazienza</text>
+            <text x="82" y="13">Total Comics</text>
+            <text x="160" y="68">Galleria 5</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- structured data -->
+    <div class="node" id="n_data" data-info="data" style="left:510px;top:394px;width:255px;height:118px;--ac:var(--know)">
+      <div class="role">database <span class="info">i</span></div>
+      <h3>Dati strutturati</h3>
+      <svg id="dbvols" width="227" height="48" viewBox="0 0 227 48" style="display:block;margin-top:7px">
+        <path class="dbody" d="M16,6 v26 a22,6 0 0 0 44,0 v-26"/>
+        <ellipse class="dtop" cx="38" cy="6" rx="22" ry="6"/>
+        <path class="dring" d="M16,15 a22,6 0 0 0 44,0"/>
+        <path class="dbody" d="M91,12 v20 a22,6 0 0 0 44,0 v-20"/>
+        <ellipse class="dtop" cx="113" cy="12" rx="22" ry="6"/>
+        <path class="dring" d="M91,21 a22,6 0 0 0 44,0"/>
+        <path class="dbody" d="M166,18 v14 a22,6 0 0 0 44,0 v-14"/>
+        <ellipse class="dtop" cx="188" cy="18" rx="22" ry="6"/>
+        <path class="dring" d="M166,27 a22,6 0 0 0 44,0"/>
+        <text x="38" y="46" text-anchor="middle">SQL</text>
+        <text x="113" y="46" text-anchor="middle">CSV</text>
+        <text x="188" y="46" text-anchor="middle">API</text>
+      </svg>
+    </div>
+
+    <!-- memory -->
+    <div class="node" id="n_mem" data-info="memory" style="left:510px;top:522px;width:255px;height:118px;--ac:var(--trust)">
+      <div class="role" style="--ac:var(--trust)">cosa ricorda di te <span class="info">i</span></div>
+      <h3>Memoria adattativa</h3>
+      <div class="memrow"><span class="cat">ArtInterest·</span><span style="color:var(--know)">Medium</span><span class="val">fumetti</span><span class="membadge mb-long">long</span><span class="cc"><i style="width:74%;background:var(--sage)"></i></span></div>
+      <div class="memrow"><span class="cat">Position·</span><span style="color:var(--reason)">Area</span><span class="val">Ingresso</span><span class="membadge mb-sess">sess</span><span class="cc"><i style="width:52%;background:var(--reason)"></i></span></div>
+      <div class="memrow" id="memnew"><span class="cat">SpecialNeed·</span><span style="color:var(--trust)">Mobility</span><span class="val">sedia a rotelle</span><span class="membadge mb-perm">perm</span><span class="cc"><i style="width:100%;background:var(--terracotta)"></i></span></div>
+    </div>
+
+    <!-- model's own knowledge -->
+    <div class="node n-llm" id="n_llm" data-info="llm" style="left:806px;top:52px;width:210px;height:112px;--ac:var(--lang)">
+      <div class="role">il nucleo generativo <span class="info">i</span></div>
+      <h3 style="font-size:15px">Capacità linguistiche del modello</h3>
+      <div class="llmline"><b>fluidità</b> · tono · cultura generale</div>
+    </div>
+
+    <!-- orchestrator -->
+    <div class="node" id="n_orch" data-info="orch" style="left:806px;top:176px;width:210px;height:92px;--ac:var(--reason)">
+      <div class="role">il direttore d'orchestra <span class="info">i</span></div>
+      <h3 style="font-size:15px">Orchestratore</h3>
+      <div class="intents"><span class="intent" id="int-ask">chiedi</span><span class="intent" id="int-dir">dirigi</span><span class="intent" id="int-req">richiedi</span><span class="intent" id="int-rea">reagisci</span></div>
+    </div>
+
+    <!-- agents -->
+    <div class="agents-cap" style="left:806px;top:278px">agenti specialisti</div>
+    <div class="agents" style="left:792px;top:292px;width:229px;height:304px">
+      <div class="ag" id="ag_edu" data-info="ag-edu" style="--ac:var(--know)">
+        <div class="role">inquire</div><h4>Educator</h4>
+        <div class="knows">conosce <b>la collezione</b><br>legge la memoria del gusto</div>
+      </div>
+      <div class="ag" id="ag_nav" data-info="ag-nav" style="--ac:var(--reason)">
+        <div class="role">direction</div><h4>Navigator</h4>
+        <div class="knows">conosce <b>l'edificio</b><br>topology.yaml · senza gradini</div>
+      </div>
+      <div class="ag" id="ag_con" data-info="ag-con" style="--ac:var(--trust)">
+        <div class="role">services</div><h4>Concierge</h4>
+        <div class="knows">conosce <b>orari e servizi</b><br>vede il visitatore per intero</div>
+      </div>
+      <div class="ag" id="ag_fac" data-info="ag-fac" style="--ac:var(--lang)">
+        <div class="role">audience</div><h4>Facilitator</h4>
+        <div class="knows">modula <b>il linguaggio</b><br>semplice · giovani · esperti</div>
+      </div>
+    </div>
+
+    <!-- user -->
+    <div class="node" id="n_user" data-info="user" style="left:1072px;top:176px;width:176px;height:464px;--ac:var(--lang)">
+      <div class="role">il tuo pubblico <span class="info">i</span></div>
+      <div class="avatar" style="margin-top:6px">
+        <span class="face"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></span>
+        <div><h3 style="font-size:15px;margin:0">Un visitatore</h3><div class="sub">o un cliente, un lettore, un collega, un cittadino, un paziente…</div></div>
+      </div>
+      <div class="bubble bq" id="bq"></div>
+      <div class="bubble br" id="br"></div>
+      <div class="pills" id="pills">
+        <button class="pill on" onclick="setRegister('std',this)">standard</button>
+        <button class="pill" onclick="setRegister('easy',this)">linguaggio semplice</button>
+      </div>
+    </div>
+
+    <!-- blueprint -->
+    <div class="node n-bp" id="n_bp" data-info="blueprint" style="left:262px;top:650px;width:759px;height:154px;--ac:var(--sage)">
+      <div class="bp-head">
+        <span class="nm">La Mappa della Conoscenza</span>
+        <span class="tech">tecnicamente: l'ontologia · standard W3C</span>
+        <span class="desc">la mappa di ciò che conta nel tuo mondo — ogni parte qui sopra ne è istruita</span>
+      </div>
+      <div class="bp-chips">
+        <span class="ochip">Artist</span><span class="ochip">Artwork</span><span class="ochip">Exhibition</span><span class="ochip">Space</span><span class="ochip">Event</span><span class="ochip">SpecialNeed</span><span class="ochip">ArtInterest</span>
+        <span class="ochip rel">displays</span><span class="ochip rel">locatedIn</span><span class="ochip rel">createdBy</span><span class="ochip rel">…</span>
+      </div>
+      <div class="bp-effects">
+        <span>↑ dice al Lettore <b>cosa cercare</b></span>
+        <span>↑ dà a ogni fatto <b>il suo posto nel grafo</b></span>
+        <span>↑ dichiara <b>cosa può essere ricordato</b></span>
+        <span>↑ la <b>lingua condivisa</b> di ogni agente</span>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+<div class="shade" id="shade" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer">
+  <div class="dr-head"><div class="dr-kick" id="dr-kick"></div><h2 id="dr-title"></h2>
+    <button class="dr-close" onclick="closeDrawer()">esc ✕</button></div>
+  <div class="dr-body" id="dr-body"></div>
+</aside>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+/* ================= layout scaling ================= */
+const W=1280,H=824;
+function fit(){
+  const wrap=$('#stagewrap');
+  let s=Math.min(wrap.clientWidth/W,wrap.clientHeight/H);
+  s=Math.max(s,.42);
+  $('#spacer').style.width=(W*s)+'px';$('#spacer').style.height=(H*s)+'px';
+  $('#stage').style.transform=`scale(${s})`;
+}
+addEventListener('resize',fit);
+new ResizeObserver(fit).observe(document.getElementById('stagewrap'));
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+addEventListener('load',fit);
+
+/* ================= particles — every flow always alive ================= */
+const FLOWS=[
+  {id:'w_a1',   c:'var(--know)',n:2,v:.5},
+  {id:'w_a2',   c:'var(--know)',n:2,v:.5},
+  {id:'w_a3',   c:'var(--know)',n:2,v:.5},
+  {id:'w_g_ext',c:'var(--know)',n:2,v:.22,r:1.8},
+  {id:'w_g_kb', c:'var(--know)',n:2,v:.22,r:1.8},
+  {id:'w_g_data',c:'var(--know)',n:2,v:.22,r:1.8},
+  {id:'w_g_mem',c:'var(--know)',n:1,v:.3,r:1.8},
+  {id:'w_g_ag', c:'var(--know)',n:1,v:.3,r:1.8},
+  {id:'w_rail',   c:'var(--know)',n:3,v:.3},
+  {id:'w_b_q',    c:'var(--lang)',n:2,v:.55},
+  {id:'w_b_route',c:'var(--reason)',n:1,v:.6},
+  {id:'w_b_out',  c:'var(--reason)',n:1,v:.6},
+  {id:'w_b_llm',  c:'var(--lang)',n:1,v:.3,r:1.8},
+  {id:'w_b_reply',c:'var(--lang)',n:2,v:.55},
+];
+const sparkG=$('#spark');
+FLOWS.forEach(f=>{
+  f.path=document.getElementById(f.id);f.len=f.path.getTotalLength();f.dots=[];
+  for(let i=0;i<f.n;i++){
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('r',f.r||2.6);c.style.fill=f.c;c.style.color=f.c;
+    sparkG.appendChild(c);
+    f.dots.push({el:c,t:i/f.n});
+  }
+});
+let last=performance.now();
+function tick(now){
+  const dt=Math.min((now-last)/1000,.05);last=now;
+  for(const f of FLOWS){
+    for(const d of f.dots){
+      d.t=(d.t+f.v*dt)%1;
+      const p=f.path.getPointAtLength(d.t*f.len);
+      d.el.setAttribute('cx',p.x);d.el.setAttribute('cy',p.y);
+      d.el.setAttribute('opacity',(.25+.75*Math.sin(Math.PI*d.t)).toFixed(2));
+    }
+  }
+  requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+
+/* ================= drawer / info ================= */
+const INFO={
+  blueprint:{c:'var(--know)',k:'la fondazione — tecnicamente: l\'ontologia',t:'La Mappa della Conoscenza',h:`
+    <p>Ogni organizzazione ha una mappa nascosta: i <b>tipi di cose che le importano</b> — artisti e opere, oppure clienti e contratti — e <b>come si relazionano</b>. La Mappa della Conoscenza rende esplicita quella mappa. È l'unica fondazione su cui poggia tutto ciò che le sta sopra.</p>
+    <div class="exbox"><div class="lb">tu scrivi, in linguaggio naturale</div>
+      <div class="quote">“Una Mostra è un Evento che espone una o più Opere.”</div></div>
+    <div class="exbox"><div class="lb">la piattaforma propone la versione formale — tu confermi</div>
+      <div class="code"><span class="s">:Exhibition</span> <span class="p">è un tipo di</span> <span class="o">:Event</span><br><span class="s">:Exhibition</span> <span class="p">displays</span> <span class="o">:Artwork</span> <span class="p">(almeno una)</span></div></div>
+    <h4>Una mappa, tre effetti profondi</h4>
+    <div class="fx">
+      <div class="f" style="--fc:var(--know)"><h5>Plasma l'estrazione</h5><p>Il Lettore smette di etichettare generiche “persone e luoghi” e comincia a riconoscere i <b>tuoi</b> tipi di cose — Artist, Exhibition, Space — e le relazioni tra loro.</p></div>
+      <div class="f" style="--fc:var(--know)"><h5>Plasma il grafo</h5><p>Ogni fatto entra tipizzato e connesso come il tuo dominio si aspetta, così le risposte risalgono a fatti espliciti — non a una parafrasi.</p></div>
+      <div class="f" style="--fc:var(--trust)"><h5>Plasma la memoria</h5><p>Il sistema può ricordare solo ciò che la mappa dichiara ricordabile. Nessuna memoria inventata, e revisione precisa: ogni memoria ha un indirizzo esatto.</p></div>
+    </div>
+    <p>Sotto il cofano è costruita su <b>standard W3C</b> aperti (RDF · OWL), a partire dalla mappa di alto livello di Isagog — così modelli le tue specificità, non le basi. La modellazione formale richiedeva mesi a specialisti rari; descriverla in linguaggio naturale abbatte quel costo.</p>`},
+  docs:{c:'var(--know)',k:'dove si nasconde il valore',t:'Il tuo materiale non strutturato',h:`
+    <p>Archivi, cataloghi, contratti, report, verbali di riunioni, wiki — gran parte della conoscenza organizzativa vive come <b>prosa su cui nessun sistema può agire</b>.</p>
+    <p>La piattaforma legge queste fonti; restano esattamente dove sono. Ogni fatto estratto conserva un <b>riferimento alla sua origine</b>, così ogni risposta è verificabile fino alla pagina da cui proviene.</p>
+    <div class="dr-next">avanti → clicca <b onclick="openInfo('reader')">Il Lettore</b></div>`},
+  reader:{c:'var(--know)',k:'estrazione · lettura guidata',t:'Il Lettore — dalla prosa ai fatti',h:`
+    <p>Un modello linguistico legge le tue fonti come le scorrerebbe un esperto di dominio. Ma la parte cruciale è <em>cosa gli si dice di cercare</em>: la <b>Mappa della Conoscenza guida il riconoscimento</b>.</p>
+    <div class="cmp">
+      <div class="side no"><div class="lb">senza una mappa</div>
+        <ul><li>Andrea Pazienza → PERSONA</li><li>Galleria 5 → LUOGO</li><li class="miss">“retrospettiva” → persa</li><li class="miss">relazioni → perse</li></ul></div>
+      <div class="side yes"><div class="lb">con la tua mappa</div>
+        <ul><li>Andrea Pazienza → <b>Artist</b></li><li>Galleria 5 → <b>Space</b></li><li>“Total Comics” → <b>Exhibition</b></li><li>+ <b>displays · locatedIn</b></li></ul></div>
+    </div>
+    <p>Nulla entra nella base di conoscenza senza revisione: ogni fatto è <b>proponi → conferma → scrivi</b>, con una persona nel processo e la provenienza conservata.</p>`},
+  semantic:{c:'var(--know)',k:'database vettoriale · oltre le parole esatte',t:'Similarità semantica',h:`
+    <p>Non tutto il richiamo può basarsi su corrispondenze esatte. Ogni fatto viene anche convertito in un <b>vettore di significato</b>, così una domanda formulata diversamente trova comunque i fatti giusti.</p>
+    <div class="exbox"><div class="lb">stessa idea, parole diverse</div>
+      <div class="code">“orario” <span class="p">≈</span> “apertura” <span class="o">0.88</span><br>“percorso” <span class="p">≈</span> “itinerario” <span class="o">0.92</span></div></div>
+    <p>Vive accanto al <b>grafo</b> del Grafo di Conoscenza, alimentato dallo stesso Lettore: due modi di ricordare lo stesso fatto, uno esatto e uno sfumato.</p>
+    <div class="dr-next">avanti → clicca <b onclick="openInfo('kb')">Grafo di Conoscenza</b> — il suo gemello per i fatti esatti</div>`},
+  kb:{c:'var(--know)',k:'fatti esatti · verificabili',t:'Il Grafo di Conoscenza',h:`
+    <p>Un <b>grafo di conoscenza</b> (RDF, standard W3C aperti). Ogni fatto entra tipizzato dalla mappa, connesso agli altri, e <b>ha un nome</b>: si può citare, correggere, ritrattare — e conserva il riferimento alla fonte da cui proviene.</p>
+    <div class="exbox"><div class="lb">un fatto, come è memorizzato</div>
+      <div class="code"><span class="s">:Andrea_Pazienza</span> <span class="p">creates</span> <span class="o">:Total_Comics</span> ;<br><span class="s">:Total_Comics</span> <span class="p">locatedIn</span> <span class="o">:Gallery_5</span> .</div></div>
+    <p><b>Vivo, non congelato.</b> I fatti si correggono, si aggiungono o si ritrattano sul posto — senza riaddestramento, senza attese da un fornitore di modelli. E poiché i fatti hanno un nome, ogni risposta <b>risale alle sue fonti</b>.</p>
+    <div class="dr-next">avanti → clicca <b onclick="openInfo('semantic')">Similarità semantica</b> — il suo gemello per il significato</div>`},
+  data:{c:'var(--know)',k:'database · sistemi che hai già',t:'I dati strutturati',h:`
+    <p>Non tutta la conoscenza è prosa. Gestionali, cataloghi, fogli di calcolo e basi dati contengono già <b>fatti puliti e aggiornati</b>: la piattaforma li collega alla Mappa della Conoscenza invece di farteli ricopiare a mano.</p>
+    <div class="exbox"><div class="lb">una colonna diventa una relazione</div>
+      <div class="code"><span class="s">opere.autore_id</span> <span class="p">&rarr;</span> <span class="o">:Artwork createdBy :Artist</span></div></div>
+    <p>Le tabelle <b>restano dove sono</b> e continuano a cambiare: il collegamento è vivo, così una correzione nel gestionale si riflette nelle risposte senza riestrarre nulla.</p>
+    <p>Da qui in poi un fatto strutturato vale quanto un fatto estratto da un documento: entra nello <b>stesso contesto condiviso</b> e ogni agente lo legge dallo stesso bus.</p>`},
+  memory:{c:'var(--trust)',k:'la conversazione che dura',t:'La Memoria, plasmata dalla Mappa',h:`
+    <p>Mentre la Base di Conoscenza contiene ciò che l'organizzazione sa, la <b>Memoria contiene ciò che il sistema impara su ciascuna persona</b> — dalla conversazione stessa. Ogni turno significativo diventa una memoria tipizzata, agganciata a un concetto della mappa e ancorata alle <b>parole stesse</b> della persona.</p>
+    <div class="exbox"><div class="lb">una memoria, anatomizzata</div>
+      <div class="code"><span class="s">SpecialNeed·Mobility</span> = <span class="o">“sedia a rotelle”</span><br><span class="p">livello: permanent · evidenza: l'enunciato esatto · peso: vivo</span></div></div>
+    <h4>Si comporta come una mente</h4>
+    <table class="tierstb">
+      <tr><td class="tn" style="color:var(--trust)">permanent</td><td>chi sei</td><td>mai dimenticato</td></tr>
+      <tr><td class="tn" style="color:var(--know)">long-term</td><td>gusti, abitudini</td><td>sbiadisce in ~230 turni</td></tr>
+      <tr><td class="tn" style="color:var(--reason)">session</td><td>il piano di oggi</td><td>sbiadisce in ~14 turni</td></tr>
+      <tr><td class="tn" style="color:var(--lang)">ephemeral</td><td>dettaglio di passaggio</td><td>via in pochi turni</td></tr>
+    </table>
+    <p>Menziona di nuovo qualcosa e si <b>rafforza</b>; lasciala cadere e sbiadisce. Di' <em>“anzi, mezz'ora”</em> ed esattamente una memoria viene <b>sovrascritta sul posto</b>; di' <em>“dimenticalo”</em> e viene cancellata — una revisione chirurgica che un normale registro di chat non può fare.</p>
+    <h4>Dove la mappa conta di più</h4>
+    <p>La mappa è una <b>barriera che la memoria non può oltrepassare</b>: il sistema può ricordare solo ciò che il dominio ha dichiarato ricordabile. È la cura strutturale alle memorie inventate — ed è il motivo per cui ogni agente può abbonarsi <b>solo alla sua fetta</b> (il Navigator a posizione e bisogni, l'Educator al gusto).</p>`},
+  orch:{c:'var(--reason)',k:'il direttore d\'orchestra',t:'L\'Orchestratore',h:`
+    <p>Ogni turno di conversazione è un atto: <b>chiedere, dirigere, richiedere, reagire</b>. L'orchestratore legge quale sia e instrada il turno allo specialista adatto, poi ricompone la risposta.</p>
+    <p>Gira su un <b>piccolo modello aperto</b> (mistral-small-24B nell'installazione di riferimento) — deterministico, economico e sostituibile. L'intelligenza vive nella conoscenza e nell'orchestrazione, non in un unico gigantesco modello proprietario.</p>`},
+  llm:{c:'var(--lang)',k:'il nucleo generativo',t:'Le capacità linguistiche del modello',h:`
+    <p>Il modello linguistico contribuisce con ciò in cui è davvero il migliore: <b>lingua fluente, tono e cultura generale</b> — il tessuto che rende una risposta umana.</p>
+    <p>I tuoi <b>fatti di dominio vengono dalla Base di Conoscenza</b>, mai dalle congetture del modello. Questa divisione del lavoro è ciò che rende le risposte insieme naturali <em>e</em> fondate — e significa che qui può stare qualsiasi modello, aperto o di frontiera, <b>sostituibile senza ricostruire</b> nient'altro.</p>
+    <div class="dr-next">avanti → clicca l'<b onclick="openInfo('orch')">Orchestratore</b></div>`},
+  user:{c:'var(--lang)',k:'l\'altra metà del dialogo',t:'Il tuo pubblico',h:`
+    <p>Un visitatore del museo, un giornalista in un archivio, un cliente, un collega. Ogni turno viene <b>risposto e ricordato</b>: identità e bisogni si dichiarano una volta e vengono rispettati a ogni turno successivo — anche tra una visita e l'altra.</p>
+    <p>E la lingua si adatta a <b>chi sta chiedendo</b>: la stessa risposta fondata può arrivare come commento esperto, prosa semplice o linguaggio semplice.</p>`},
+  'ag-edu':{c:'var(--know)',k:'specialista · intento “chiedi”',t:'L\'Educator',h:`
+    <p>L'esperto di dominio dello sciame. Risponde a domande sulla <b>collezione</b> — opere, artisti, mostre — fondato rigorosamente sulla Base di Conoscenza.</p>
+    <p>Dalla memoria si abbona a <b>una sola famiglia: il gusto</b> (ArtInterest). Non vede mai logistica o posizioni — così il rumore dell'orientamento non annacqua mai il discorso sull'arte. Input mirati, risposte mirate.</p>`},
+  'ag-nav':{c:'var(--reason)',k:'specialista · intento “dirigi”',t:'Il Navigator',h:`
+    <p>Chi guida — e l'esempio più chiaro di un agente che porta con sé la <b>propria conoscenza specializzata</b>: un <span class="mono" style="color:var(--reason)">file di topologia</span> che descrive la sede — sale, corridoi, ascensori e quali collegamenti sono senza gradini.</p>
+    <div class="exbox"><div class="lb">topology.yaml · estratto</div>
+      <div class="code"><span class="s">Gallery_5</span>: {<span class="p">level</span>: 1, <span class="p">links</span>: [<span class="o">Lift_A</span>, <span class="o">Corridor_2</span>], <span class="p">step_free</span>: <span class="o">true</span>}</div></div>
+    <p>Combina quella mappa con la memoria — <b>dove sei</b> (Position) e <b>di cosa hai bisogno</b> (SpecialNeed) — per calcolare un percorso che rispetta la persona, non solo il tragitto più breve. Qualsiasi agente della piattaforma può portare risorse esperte così: listini, regolamenti, procedure.</p>`},
+  'ag-con':{c:'var(--trust)',k:'specialista · servizi',t:'Il Concierge',h:`
+    <p>L'accoglienza: orari, biglietti, servizi, formati di accessibilità. A differenza degli specialisti mirati, il Concierge si abbona a <b>ogni famiglia di memoria</b> — vede la persona per intero.</p>
+    <p>È questo che gli permette di <b>anticipare</b>: a un visitatore che una volta ha menzionato la lingua dei segni vengono offerti materiali in LIS prima ancora che li chieda. Ospitalità, per memoria.</p>`},
+  'ag-fac':{c:'var(--lang)',k:'post-processore · pubblico',t:'Il Facilitator',h:`
+    <p>Lo strato di accessibilità e pubblico. Prende qualsiasi risposta fondata e <b>ne cambia il registro linguistico</b>: linguaggio facile da leggere, visitatori giovani, esperti di dominio, altre lingue — <em>stessi fatti, parole giuste</em>.</p>
+    <p>È una capacità generale della piattaforma: la sostanza di una risposta e la <b>voce in cui viene consegnata</b> sono disaccoppiate, così un unico sistema serve ogni pubblico che hai.</p>`},
+};
+function openInfo(key){
+  const inf=INFO[key];if(!inf)return;
+  $('#drawer').style.setProperty('--dc',inf.c);
+  $('#dr-kick').textContent=inf.k;$('#dr-title').textContent=inf.t;$('#dr-body').innerHTML=inf.h;
+  $('#dr-body').scrollTop=0;
+  $('#drawer').classList.add('open');$('#shade').classList.add('open');
+}
+function closeDrawer(){$('#drawer').classList.remove('open');$('#shade').classList.remove('open')}
+$$('[data-info]').forEach(n=>n.addEventListener('click',e=>{openInfo(n.dataset.info)}));
+addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});
+
+/* boot */
+fit();
+</script>
+</body>
+</html>

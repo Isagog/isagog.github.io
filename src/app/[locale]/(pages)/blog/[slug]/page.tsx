@@ -20,7 +20,7 @@ const BlogPostPage = async ({
     return (
       <div className="text-center min-h-[70vh] flex items-center flex-col justify-center">
         <h1 className="text-2xl font-bold">Article not found</h1>
-        <Link href="/blog" className="text-terracotta" prefetch>
+        <Link href="/blog" className="text-terracotta">
           Go back to blog
         </Link>
       </div>

@@ -1,6 +1,5 @@
 import { SectionTitle } from "@/app/_components/custom/section-title";
 import { getScopedI18n, setStaticParamsLocale } from "@/packages/locales/server";
-import { ImageWithTitle } from "./components/image-with-title";
 import { TextCarousel } from "./components/text-carousel";
 
 const PlatformPage = async ({
@@ -12,9 +11,6 @@ const PlatformPage = async ({
   setStaticParamsLocale(locale);
 
   const tHero = await getScopedI18n("platform-page.hero");
-  const tImageWithTitle = await getScopedI18n(
-    "platform-page.image-with-title"
-  );
 
   return (
     <div className="flex items-center flex-col gap-8 justify-center">
@@ -26,15 +22,16 @@ const PlatformPage = async ({
           {tHero("description")}
         </p>
       </section>
+      <iframe
+        src={`/platform-explorer/${locale === "it" ? "it" : "en"}.html`}
+        title={
+          locale === "it"
+            ? "Esplora la piattaforma Isagog"
+            : "Explore the Isagog platform"
+        }
+        className="sm:block hidden w-full aspect-[1280/886] border-0"
+      />
       <TextCarousel />
-      <ImageWithTitle
-        title={tImageWithTitle("1.title")}
-        imageUrl="/images/service-images/mermaid-graph.svg"
-      />
-      <ImageWithTitle
-        title={tImageWithTitle("2.title")}
-        imageUrl="/images/service-images/mermaid-diagrame.avif"
-      />
     </div>
   );
 };

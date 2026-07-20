@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>Isagog — Explore the platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* ============ isagog.com design system ============
+     palette: paper #f7f8f6 · forest #1f321a · sage #5f9353 · mist #c9dec4 · terracotta #ce4e27
+     type: Fraunces (serif, headings) · Inter (sans, body, +.02em) · radius 0 */
+  :root{
+    --paper:#f7f8f6;--forest:#1f321a;--sage:#5f9353;--mist:#c9dec4;--terracotta:#ce4e27;
+    --sage-deep:#46703c;
+    /* semantic hues, darkened for AA on light ground */
+    --know:#3c6f2f;  --know-dim:#46703c;   /* knowledge / blueprint — sage    */
+    --reason:#33617c;--reason-dim:#436f88; /* reasoning / agents   — slate    */
+    --lang:#6a5390;  --lang-dim:#7a659e;   /* language             — violet   */
+    --trust:#b23e1b; --trust-dim:#ce4e27;  /* memory               — terracotta */
+    --bg:var(--mist);--ink:var(--forest);
+    --ink-soft:#48593f;--ink-faint:#67785e;
+    --line:rgba(31,50,26,.16);--line-soft:rgba(31,50,26,.09);
+    --panel:var(--paper);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:"Inter",sans-serif;letter-spacing:.02em;-webkit-font-smoothing:antialiased;
+    display:flex;flex-direction:column;overflow:hidden}
+
+  /* field texture — quiet, on-brand */
+  .grid-lines{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(rgba(31,50,26,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(31,50,26,.06) 1px,transparent 1px);
+    background-size:64px 64px;mask-image:radial-gradient(120% 100% at 50% 30%,#000 30%,transparent 82%)}
+
+  /* ============ header ============ */
+  header{position:relative;z-index:3;display:flex;align-items:center;gap:clamp(12px,2vw,30px);
+    padding:14px clamp(20px,4vw,56px) 12px;flex-wrap:wrap}
+  .brandline{display:flex;flex-direction:column;gap:4px;min-width:230px}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage-deep)}
+  .eyebrow .mv{color:var(--ink-faint)}
+  h1{font-family:"Fraunces",serif;font-weight:400;font-size:clamp(19px,2.1vw,27px);letter-spacing:.01em;line-height:1.15;color:var(--forest)}
+  h1 em{font-style:italic;color:var(--terracotta)}
+
+  /* ============ stage ============ */
+  .stagewrap{position:relative;z-index:1;flex:1;overflow:auto;display:flex}
+  .spacer{margin:0 auto;position:relative}
+  .stage{position:absolute;left:0;top:0;width:1280px;height:824px;transform-origin:0 0}
+  svg.wires{position:absolute;inset:0;width:1280px;height:824px;overflow:visible}
+  .wire{fill:none;stroke-width:1.6;stroke-opacity:.4;transition:stroke-opacity .4s,stroke-width .4s}
+  .wire.g{stroke-dasharray:2 7;stroke-opacity:.5}
+  #spark circle{filter:drop-shadow(0 0 3px currentColor)}
+
+  /* nodes — paper cards, sharp corners */
+  .node{position:absolute;border:1px solid var(--line);background:var(--panel);
+    padding:12px 14px;cursor:pointer;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s,opacity .5s;
+    box-shadow:0 1px 2px rgba(31,50,26,.05),0 14px 34px -22px rgba(31,50,26,.35)}
+  .node::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--ac,var(--sage)),transparent)}
+  .node:hover{transform:translateY(-2px);border-color:var(--sage);box-shadow:0 2px 4px rgba(31,50,26,.06),0 20px 44px -22px rgba(31,50,26,.45)}
+  .node.dim,.ag.dim{opacity:.38}
+  .node .role{font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ac,var(--know));display:flex;align-items:center;gap:6px}
+  .node .role .info{margin-left:auto;color:var(--ink-faint);border:1px solid var(--line);border-radius:50%;
+    width:14px;height:14px;display:grid;place-items:center;font-size:9px;letter-spacing:0}
+  .node h3{font-family:"Fraunces",serif;font-weight:500;font-size:17px;margin:3px 0 2px;letter-spacing:.01em}
+  .node .sub{font-family:"Fraunces",serif;font-style:italic;font-size:10.5px;color:var(--ink-soft);line-height:1.3;letter-spacing:0}
+  .mono{font-family:"JetBrains Mono",monospace}
+
+  /* docs */
+  .docstack{display:flex;gap:7px;margin-top:10px}
+  .doc{width:44px;height:56px;border:1px solid var(--line);background:#fff;position:relative;padding:7px 6px}
+  .doc i{display:block;height:2px;background:var(--ink-faint);margin-bottom:4px;opacity:.55}
+  .doc i:nth-child(2){width:70%}.doc i:nth-child(3){width:85%}.doc i:nth-child(4){width:55%}
+  .doc .ft{position:absolute;bottom:4px;left:6px;font-family:"JetBrains Mono",monospace;font-size:6.5px;color:var(--sage-deep);letter-spacing:.08em}
+  .doc:nth-child(2){transform:translateY(6px)}.doc:nth-child(3){transform:translateY(12px)}
+  .docs-cap{font-family:"JetBrains Mono",monospace;font-size:8px;color:var(--ink-faint);letter-spacing:.1em;margin-top:16px}
+
+  /* reader / extractor */
+  .snippet{margin-top:9px;font-size:11px;line-height:2.15;color:var(--ink-soft);border:1px solid var(--line-soft);
+    padding:8px 10px;background:#eef3ec;letter-spacing:0}
+  .ent{position:relative;padding:1px 3px;transition:.4s;white-space:nowrap}
+  .ent .tag{position:absolute;left:50%;top:-13px;transform:translateX(-50%) scale(.6);opacity:0;transition:.4s;
+    font-family:"JetBrains Mono",monospace;font-size:7px;letter-spacing:.08em;padding:0 5px;white-space:nowrap}
+  .ent.hl{color:var(--ink)}
+  .ent.hl .tag{opacity:1;transform:translateX(-50%) scale(1)}
+  .ent.e-art.hl{background:rgba(95,147,83,.18);box-shadow:0 0 0 1px var(--sage)}
+  .ent.e-art .tag{background:var(--sage-deep);color:var(--paper)}
+  .ent.e-exh.hl{background:rgba(51,97,124,.14);box-shadow:0 0 0 1px var(--reason)}
+  .ent.e-exh .tag{background:var(--reason);color:var(--paper)}
+  .ent.e-spc.hl{background:rgba(106,83,144,.13);box-shadow:0 0 0 1px var(--lang)}
+  .ent.e-spc .tag{background:var(--lang);color:var(--paper)}
+  .reader-cap{font-family:"JetBrains Mono",monospace;font-size:8px;color:var(--ink-faint);letter-spacing:.1em;margin-top:8px}
+
+  /* kb */
+  .kbsplit{display:grid;grid-template-columns:1fr;gap:6px;margin-top:8px}
+  .kbrow{border:1px solid var(--line-soft);padding:6px 9px;background:#eef3ec}
+  .kbrow .lb{font-family:"JetBrains Mono",monospace;font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
+  #minigraph text{font-family:"JetBrains Mono",monospace;font-size:8px;fill:var(--ink-soft)}
+  #minigraph .gn{fill:rgba(95,147,83,.22);stroke:var(--know);stroke-width:1}
+  #minigraph .ge{stroke:var(--sage-deep);stroke-width:1;stroke-dasharray:3 3}
+  .kbcount{position:absolute;top:34px;right:13px;font-family:"JetBrains Mono",monospace;font-size:9px;color:var(--ink-faint)}
+  .kbcount b{color:var(--know);font-weight:600}
+
+  /* semantic — small embedding/ranking graphic */
+  #vecdb{overflow:visible}
+  #vecdb .ve{stroke:var(--sage-deep);stroke-width:1;stroke-dasharray:3 3}
+  #vecdb .vn{fill:rgba(95,147,83,.22);stroke:var(--know);stroke-width:1}
+  #vecdb .vn-bg{fill:rgba(95,147,83,.35);stroke:none}
+  #vecdb text{font-family:"JetBrains Mono",monospace;font-size:7.5px;fill:var(--ink-soft)}
+  #vecdb .vs{fill:var(--reason);font-weight:600}
+  /* structured data — database volumes */
+  #dbvols .dbody{fill:rgba(95,147,83,.14);stroke:var(--know);stroke-width:1}
+  #dbvols .dtop{fill:rgba(95,147,83,.32);stroke:var(--know);stroke-width:1}
+  #dbvols .dring{fill:none;stroke:var(--know);stroke-width:.8;stroke-opacity:.45}
+  #dbvols text{font-family:"JetBrains Mono",monospace;font-size:7px;fill:var(--ink-faint);letter-spacing:.04em}
+
+  /* memory */
+  .memrow{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:9px;padding:5.5px 0;border-top:1px solid var(--line-soft)}
+  .memrow:first-of-type{border-top:none;margin-top:6px}
+  .memrow .cat{color:var(--ink-faint)}.memrow .val{color:var(--ink);margin-left:auto}
+  .membadge{font-size:7px;font-weight:600;padding:1px 5px;letter-spacing:.06em}
+  .mb-perm{background:rgba(206,78,39,.16);color:var(--trust)}
+  .mb-long{background:rgba(95,147,83,.2);color:var(--know)}
+  .mb-sess{background:rgba(51,97,124,.14);color:var(--reason)}
+  .memrow .cc{width:24px;height:3px;background:rgba(31,50,26,.12);overflow:hidden}.memrow .cc>i{display:block;height:100%}
+  #memnew{display:none;animation:rowin .8s cubic-bezier(.2,.7,.3,1)}
+  #memnew.show{display:flex}
+  @keyframes rowin{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+
+  /* llm cloud */
+  .n-llm{border-style:dashed}
+  .llmline{font-family:"JetBrains Mono",monospace;font-size:8.5px;color:var(--ink-faint);margin-top:7px;letter-spacing:.06em;line-height:1.7}
+  .llmline b{color:var(--lang);font-weight:500}
+
+  /* orchestrator */
+  .intents{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+  .intent{font-family:"JetBrains Mono",monospace;font-size:7px;letter-spacing:.02em;padding:2px 4px;border:1px solid rgba(51,97,124,.4);color:var(--reason);transition:.3s}
+
+  /* agents grid */
+  .agents{position:absolute;display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .ag{border:1px solid var(--line);background:var(--panel);padding:9px 10px;cursor:pointer;
+    position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;
+    box-shadow:0 1px 2px rgba(31,50,26,.05),0 10px 26px -18px rgba(31,50,26,.3)}
+  .ag::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--ac),transparent)}
+  .ag:hover{transform:translateY(-2px);border-color:var(--ac)}
+  .ag .role{font-size:7.5px}
+  .ag h4{font-family:"Fraunces",serif;font-weight:500;font-size:14.5px;margin:2px 0 1px}
+  .ag .knows{font-family:"JetBrains Mono",monospace;font-size:7.5px;color:var(--ink-faint);letter-spacing:.04em;line-height:1.5}
+  .ag .knows b{color:var(--ink-soft);font-weight:500}
+
+  /* user */
+  .avatar{display:flex;align-items:center;gap:9px}
+  .avatar .face{width:34px;height:34px;border-radius:50%;border:1px solid rgba(106,83,144,.5);background:rgba(106,83,144,.12);display:grid;place-items:center}
+  .avatar .face svg{width:18px;height:18px;stroke:var(--lang);fill:none;stroke-width:1.5}
+  .bubble{padding:8px 11px;font-size:11px;line-height:1.5;margin-top:9px;display:none;animation:rowin .5s cubic-bezier(.2,.7,.3,1);letter-spacing:0}
+  .bubble.show{display:block}
+  .bq{background:rgba(106,83,144,.1);border:1px solid rgba(106,83,144,.4);color:var(--ink);font-family:"Fraunces",serif;font-style:italic;font-size:12px}
+  .br{background:#eef3ec;border:1px solid var(--line);color:var(--ink-soft);max-height:196px;overflow:auto}
+  .br b{color:var(--ink);font-weight:600}
+  .pills{display:none;gap:5px;margin-top:7px;flex-wrap:wrap}
+  .pills.show{display:flex}
+  .pill{font-family:"JetBrains Mono",monospace;font-size:8px;letter-spacing:.08em;padding:3px 9px;border:1px solid rgba(106,83,144,.45);color:var(--lang);cursor:pointer;transition:.25s;background:transparent}
+  .pill.on{background:var(--lang);color:var(--paper);box-shadow:0 0 10px -3px var(--lang)}
+
+  /* blueprint — same card treatment as every other node; only the pulse marks it as central */
+  .n-bp.pulseglow{animation:bpglow 1.6s ease}
+  @keyframes bpglow{0%,100%{box-shadow:0 1px 2px rgba(31,50,26,.05),0 14px 34px -22px rgba(31,50,26,.35)}
+    45%{box-shadow:0 0 0 2px var(--sage),0 0 54px -8px var(--sage)}}
+  .bp-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .bp-head .nm{font-family:"Fraunces",serif;font-weight:500;font-size:21px;color:var(--ink)}
+  .bp-head .tech{font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+  .bp-head .desc{font-family:"Fraunces",serif;font-style:italic;font-size:11.5px;color:var(--ink-soft);margin-left:auto;letter-spacing:0}
+  .bp-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+  .ochip{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:0;padding:2.5px 8px;border:1px solid rgba(95,147,83,.45);color:var(--ink-soft);background:var(--paper)}
+  .ochip.rel{border-style:dashed;font-style:italic}
+  .bp-effects{display:flex;gap:10px;margin-top:9px;font-family:"JetBrains Mono",monospace;font-size:7.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-faint);flex-wrap:wrap}
+  .bp-effects span b{color:var(--know);font-weight:500}
+
+  /* stage captions — regions, not phases */
+  .zone-cap{position:absolute;font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint);display:flex;align-items:center;gap:10px}
+  .zone-cap::after{content:"";height:1px;width:var(--zc-w,60px);background:linear-gradient(90deg,var(--line),transparent)}
+  .zone-cap--span{font-size:14px;font-weight:600;color:var(--sage-deep);width:var(--zc-tw,300px)}
+  .zone-cap--span::after{flex:1 1 auto;width:auto;background:linear-gradient(90deg,var(--ink-faint) 0%,var(--ink-faint) 88%,transparent 100%)}
+  .zone-cap--noline{white-space:nowrap}
+  .zone-cap--noline::after{display:none}
+  .agents-cap{position:absolute;font-family:"JetBrains Mono",monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+
+  /* ============ drawer ============ */
+  .shade{position:fixed;inset:0;z-index:8;background:rgba(31,50,26,.35);opacity:0;pointer-events:none;transition:opacity .35s}
+  .shade.open{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;bottom:0;z-index:10000;width:min(500px,94vw);transform:translateX(103%);
+    transition:transform .42s cubic-bezier(.2,.7,.3,1);background:var(--paper);
+    border-left:1px solid var(--line);box-shadow:-30px 0 80px -30px rgba(31,50,26,.6);display:flex;flex-direction:column}
+  .drawer.open{transform:none}
+  .dr-head{padding:22px 28px 14px;border-bottom:1px solid var(--line-soft)}
+  .dr-kick{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--dc,var(--know))}
+  .dr-head h2{font-family:"Fraunces",serif;font-weight:400;font-size:27px;margin-top:5px;letter-spacing:.01em}
+  .dr-close{position:absolute;top:18px;right:20px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-faint);
+    border:1px solid var(--line);background:transparent;padding:6px 11px;cursor:pointer;transition:.25s}
+  .dr-close:hover{color:var(--ink);border-color:var(--forest)}
+  .dr-body{padding:20px 28px 34px;overflow:auto;flex:1}
+  .dr-body p{font-size:13.5px;line-height:1.62;color:var(--ink-soft);margin-bottom:14px}
+  .dr-body p b{color:var(--ink);font-weight:600}
+  .dr-body p em{font-family:"Fraunces",serif;color:var(--ink);letter-spacing:0}
+  .dr-body h4{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dc,var(--know));margin:20px 0 10px;display:flex;align-items:center;gap:10px}
+  .dr-body h4::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line),transparent)}
+  .exbox{border:1px solid var(--line-soft);background:#eef3ec;padding:12px 15px;margin-bottom:14px}
+  .exbox .lb{font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:7px}
+  .exbox .code{font-family:"JetBrains Mono",monospace;font-size:11.5px;line-height:1.8;color:var(--ink-soft)}
+  .exbox .code .s{color:var(--know)}.exbox .code .p{color:var(--ink-faint)}.exbox .code .o{color:var(--ink)}
+  .exbox .quote{font-family:"Fraunces",serif;font-style:italic;font-size:14px;color:var(--ink);line-height:1.5;letter-spacing:0}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px}
+  .cmp .side{border:1px solid;padding:11px 13px}
+  .cmp .side .lb{font-family:"JetBrains Mono",monospace;font-size:8px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+  .cmp .side ul{list-style:none;font-family:"JetBrains Mono",monospace;font-size:10.5px;line-height:2;color:var(--ink-soft)}
+  .cmp .no{border-color:rgba(178,62,27,.4)}.cmp .no .lb{color:var(--trust)}.cmp .no .miss{color:#c08a76;text-decoration:line-through}
+  .cmp .yes{border-color:var(--sage)}.cmp .yes .lb{color:var(--know)}.cmp .yes b{color:var(--know);font-weight:600}
+  .fx{display:flex;flex-direction:column;gap:9px;margin-bottom:14px}
+  .fx .f{border:1px solid var(--line-soft);border-left:2px solid var(--fc,var(--sage));padding:10px 13px;background:var(--paper)}
+  .fx .f h5{font-family:"Fraunces",serif;font-weight:500;font-size:14.5px;color:var(--ink)}
+  .fx .f p{font-size:12px;margin:4px 0 0}
+  .tierstb{width:100%;border-collapse:collapse;font-family:"JetBrains Mono",monospace;font-size:10px;margin-bottom:14px}
+  .tierstb td{padding:6px 8px;border-top:1px solid var(--line-soft);color:var(--ink-soft)}
+  .tierstb tr:first-child td{border-top:none}
+  .tierstb .tn{font-weight:600}
+  .dr-next{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.1em;color:var(--ink-faint);margin-top:18px}
+  .dr-next b{color:var(--terracotta);cursor:pointer;font-weight:500}
+
+  @media (prefers-reduced-motion:reduce){
+    #spark{display:none}
+  }
+  @media (max-width:820px){
+    header{gap:10px}
+  }
+</style>
+<style>
+/* IT/EN language switch */
+.lang-switch{position:fixed;top:14px;right:14px;z-index:9999;display:flex;gap:2px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;line-height:1;
+  background:var(--paper);border:1px solid var(--line);padding:3px}
+.lang-switch a{padding:4px 9px;text-decoration:none;color:var(--ink-faint);transition:color .2s,background .2s}
+.lang-switch a:hover{color:var(--ink)}
+.lang-switch a.on{color:var(--paper);background:var(--forest);cursor:default}
+header{padding-right:110px}
+@media print{.lang-switch{display:none}}
+</style>
+</head>
+<body>
+
+<div class="grid-lines"></div>
+
+<header>
+  <div class="brandline">
+    <div class="eyebrow"><span class="mv">Isagog&nbsp;·&nbsp;</span>The platform</div>
+    <h1><em>EXTRACT</em> your knowledge. Then <em>QUERY IT</em>.</h1>
+  </div>
+</header>
+
+<div class="stagewrap" id="stagewrap">
+  <div class="spacer" id="spacer">
+  <div class="stage" id="stage">
+
+    <svg class="wires" viewBox="0 0 1280 824" aria-hidden="true">
+      <!-- capture side -->
+      <path class="wire" id="w_a1" stroke="var(--know)" style="color:var(--know)" d="M216,222 C239,222 239,222 262,222"/>
+      <path class="wire" id="w_a3" stroke="var(--know)" style="color:var(--know)" d="M457,160 C480,140 486,115 510,110"/>
+      <path class="wire" id="w_a2" stroke="var(--know)" style="color:var(--know)" d="M457,206 C484,214 484,238 510,248"/>
+      <!-- guidance from the blueprint -->
+      <path class="wire g" id="w_g_ext" stroke="var(--know)" style="color:var(--know)" d="M356,650 C356,520 356,400 358,324"/>
+      <path class="wire g" id="w_g_kb"  stroke="var(--know)" style="color:var(--know)" d="M462,650 C458,520 452,400 510,340"/>
+      <path class="wire g" id="w_g_data" stroke="var(--know)" style="color:var(--know)" d="M500,650 C498,580 496,500 510,453"/>
+      <path class="wire g" id="w_g_mem" stroke="var(--know)" style="color:var(--know)" d="M637,650 C637,647 637,644 637,640"/>
+      <path class="wire g" id="w_g_ag"  stroke="var(--know)" style="color:var(--know)" d="M906,650 C906,630 906,600 906,560"/>
+      <!-- shared context bus: three knowledge cards → rail → orchestrator & agents -->
+      <path class="wire" id="w_r_sem"  stroke="var(--know)" style="color:var(--know)" d="M765,130 L778,130"/>
+      <path class="wire" id="w_r_kb"   stroke="var(--know)" style="color:var(--know)" d="M765,301 L778,301"/>
+      <path class="wire" id="w_r_data" stroke="var(--know)" style="color:var(--know)" d="M765,453 L778,453"/>
+      <path class="wire" id="w_r_mem"  stroke="var(--know)" style="color:var(--know)" d="M765,581 L778,581"/>
+      <path class="wire" id="w_rail"   stroke="var(--know)" style="color:var(--know)" d="M778,130 L778,581"/>
+      <path class="wire" id="w_t_orch" stroke="var(--know)" style="color:var(--know)" d="M778,222 L806,222"/>
+      <path class="wire" id="w_t_ag"   stroke="var(--know)" style="color:var(--know)" d="M778,366 L792,366"/>
+      <path class="wire" id="w_t_ag2"  stroke="var(--know)" style="color:var(--know)" d="M778,523 L792,523"/>
+      <!-- conversation side -->
+      <path class="wire" id="w_b_q"     stroke="var(--lang)"   style="color:var(--lang)"   d="M1072,250 C1040,236 1038,226 1006,220"/>
+      <path class="wire" id="w_b_route" stroke="var(--reason)" style="color:var(--reason)" d="M899,268 C899,276 899,284 899,292"/>
+      <path class="wire" id="w_b_out"   stroke="var(--reason)" style="color:var(--reason)" d="M919,292 C919,284 919,276 919,268"/>
+      <path class="wire g" id="w_b_llm" stroke="var(--lang)"   style="color:var(--lang)"   d="M911,164 C911,168 911,172 911,176"/>
+      <path class="wire" id="w_b_reply" stroke="var(--lang)"   style="color:var(--lang)"   d="M1016,255 C1044,258 1050,290 1072,300"/>
+      <g id="spark"></g>
+    </svg>
+
+    <div class="zone-cap zone-cap--span" id="cap-a" style="left:40px;top:26px;--zc-tw:417px">Extraction</div>
+    <div class="zone-cap zone-cap--span zone-cap--noline" id="cap-c" style="left:510px;top:26px;--zc-tw:255px">Shared knowledge</div>
+    <div class="zone-cap zone-cap--span" id="cap-b" style="left:806px;top:26px;--zc-tw:442px">Interaction</div>
+
+    <!-- documents -->
+    <div class="node" id="n_docs" data-info="docs" style="left:36px;top:140px;width:180px;height:172px;--ac:var(--know)">
+      <div class="role">sources <span class="info">i</span></div>
+      <h3>Your material</h3>
+      <div class="docstack"><div class="doc"><i></i><i></i><i></i><i></i><span class="ft">PDF</span></div>
+        <div class="doc"><i></i><i></i><i></i><i></i><span class="ft">DOC</span></div>
+        <div class="doc"><i></i><i></i><i></i><i></i><span class="ft">TXT</span></div></div>
+      <div class="docs-cap">archives · catalogues · reports</div>
+    </div>
+
+    <!-- extractor -->
+    <div class="node" id="n_ext" data-info="reader" style="left:262px;top:130px;width:195px;height:192px;--ac:var(--know)">
+      <div class="role">extraction <span class="info">i</span></div>
+      <h3>Extractor</h3>
+      <div class="sub">finds entities &amp; relations — guided by the blueprint</div>
+      <div class="snippet">…the <span class="ent e-art" id="e1"><span class="tag">Artist</span>Andrea Pazienza</span> retrospective <span class="ent e-exh" id="e2"><span class="tag">Exhibition</span>“Total Comics”</span> opens in <span class="ent e-spc" id="e3"><span class="tag">Space</span>Gallery&nbsp;5</span>…</div>
+      <div class="reader-cap">propose → you confirm → commit</div>
+    </div>
+
+    <!-- semantic similarity -->
+    <div class="node" id="n_sem" data-info="semantic" style="left:510px;top:52px;width:255px;height:156px;--ac:var(--know)">
+      <div class="role">vector database <span class="info">i</span></div>
+      <h3>Semantic similarity</h3>
+      <div class="sub">finds what is close in meaning, even in different words</div>
+      <svg id="vecdb" width="220" height="60" viewBox="0 0 220 60" style="display:block;margin-top:8px">
+        <circle class="vn vn-bg" cx="14" cy="8" r="2.5"/>
+        <circle class="vn vn-bg" cx="198" cy="50" r="2.5"/>
+        <circle class="vn vn-bg" cx="100" cy="6" r="2.5"/>
+        <circle class="vn vn-bg" cx="58" cy="52" r="2.5"/>
+        <line class="ve" x1="28" y1="26" x2="76" y2="16"/>
+        <circle class="vn" cx="28" cy="26" r="4"/><text x="4" y="42">hours</text>
+        <circle class="vn" cx="76" cy="16" r="4"/><text x="84" y="12">opening</text>
+        <text class="vs" x="40" y="16">0.88</text>
+        <line class="ve" x1="128" y1="44" x2="176" y2="32"/>
+        <circle class="vn" cx="128" cy="44" r="4"/><text x="104" y="58">route</text>
+        <circle class="vn" cx="176" cy="32" r="4"/><text x="176" y="22">itinerary</text>
+        <text class="vs" x="140" y="36">0.92</text>
+      </svg>
+    </div>
+
+    <!-- knowledge graph -->
+    <div class="node" id="n_kb" data-info="kb" style="left:510px;top:218px;width:255px;height:166px;--ac:var(--know)">
+      <div class="role">exact · auditable facts <span class="info">i</span></div>
+      <span class="kbcount"><b id="factcount">128</b> facts</span>
+      <h3>Knowledge Graph</h3>
+      <div class="kbsplit">
+        <div class="kbrow"><div class="lb">graph · every fact has a name and a source</div>
+          <svg id="minigraph" width="220" height="72" viewBox="0 0 220 72">
+            <line class="ge" x1="34" y1="42" x2="106" y2="24"/>
+            <line class="ge" x1="106" y1="24" x2="182" y2="50"/>
+            <circle class="gn" cx="34" cy="42" r="7"/>
+            <circle class="gn" cx="106" cy="24" r="7"/>
+            <circle class="gn" cx="182" cy="50" r="7"/>
+            <text x="10" y="60">Pazienza</text>
+            <text x="82" y="13">Total Comics</text>
+            <text x="160" y="68">Gallery 5</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- structured data -->
+    <div class="node" id="n_data" data-info="data" style="left:510px;top:394px;width:255px;height:118px;--ac:var(--know)">
+      <div class="role">database <span class="info">i</span></div>
+      <h3>Structured data</h3>
+      <svg id="dbvols" width="227" height="48" viewBox="0 0 227 48" style="display:block;margin-top:7px">
+        <path class="dbody" d="M16,6 v26 a22,6 0 0 0 44,0 v-26"/>
+        <ellipse class="dtop" cx="38" cy="6" rx="22" ry="6"/>
+        <path class="dring" d="M16,15 a22,6 0 0 0 44,0"/>
+        <path class="dbody" d="M91,12 v20 a22,6 0 0 0 44,0 v-20"/>
+        <ellipse class="dtop" cx="113" cy="12" rx="22" ry="6"/>
+        <path class="dring" d="M91,21 a22,6 0 0 0 44,0"/>
+        <path class="dbody" d="M166,18 v14 a22,6 0 0 0 44,0 v-14"/>
+        <ellipse class="dtop" cx="188" cy="18" rx="22" ry="6"/>
+        <path class="dring" d="M166,27 a22,6 0 0 0 44,0"/>
+        <text x="38" y="46" text-anchor="middle">SQL</text>
+        <text x="113" y="46" text-anchor="middle">CSV</text>
+        <text x="188" y="46" text-anchor="middle">API</text>
+      </svg>
+    </div>
+
+    <!-- memory -->
+    <div class="node" id="n_mem" data-info="memory" style="left:510px;top:522px;width:255px;height:118px;--ac:var(--trust)">
+      <div class="role" style="--ac:var(--trust)">what it remembers of you <span class="info">i</span></div>
+      <h3>Adaptive memory</h3>
+      <div class="memrow"><span class="cat">ArtInterest·</span><span style="color:var(--know)">Medium</span><span class="val">comics</span><span class="membadge mb-long">long</span><span class="cc"><i style="width:74%;background:var(--sage)"></i></span></div>
+      <div class="memrow"><span class="cat">Position·</span><span style="color:var(--reason)">Area</span><span class="val">Entrance</span><span class="membadge mb-sess">sess</span><span class="cc"><i style="width:52%;background:var(--reason)"></i></span></div>
+      <div class="memrow" id="memnew"><span class="cat">SpecialNeed·</span><span style="color:var(--trust)">Mobility</span><span class="val">wheelchair</span><span class="membadge mb-perm">perm</span><span class="cc"><i style="width:100%;background:var(--terracotta)"></i></span></div>
+    </div>
+
+    <!-- model's own knowledge -->
+    <div class="node n-llm" id="n_llm" data-info="llm" style="left:806px;top:52px;width:210px;height:112px;--ac:var(--lang)">
+      <div class="role">the generative core <span class="info">i</span></div>
+      <h3 style="font-size:15px">The model's language skills</h3>
+      <div class="llmline"><b>fluency</b> · tone · general culture</div>
+    </div>
+
+    <!-- orchestrator -->
+    <div class="node" id="n_orch" data-info="orch" style="left:806px;top:176px;width:210px;height:92px;--ac:var(--reason)">
+      <div class="role">the conductor <span class="info">i</span></div>
+      <h3 style="font-size:15px">Orchestrator</h3>
+      <div class="intents"><span class="intent" id="int-ask">ask</span><span class="intent" id="int-dir">direct</span><span class="intent" id="int-req">request</span><span class="intent" id="int-rea">react</span></div>
+    </div>
+
+    <!-- agents -->
+    <div class="agents-cap" style="left:806px;top:278px">specialist agents</div>
+    <div class="agents" style="left:792px;top:292px;width:229px;height:304px">
+      <div class="ag" id="ag_edu" data-info="ag-edu" style="--ac:var(--know)">
+        <div class="role">inquire</div><h4>Educator</h4>
+        <div class="knows">knows <b>the collection</b><br>reads taste memory</div>
+      </div>
+      <div class="ag" id="ag_nav" data-info="ag-nav" style="--ac:var(--reason)">
+        <div class="role">direction</div><h4>Navigator</h4>
+        <div class="knows">knows <b>the building</b><br>topology.yaml · step-free</div>
+      </div>
+      <div class="ag" id="ag_con" data-info="ag-con" style="--ac:var(--trust)">
+        <div class="role">services</div><h4>Concierge</h4>
+        <div class="knows">knows <b>hours &amp; services</b><br>sees the whole visitor</div>
+      </div>
+      <div class="ag" id="ag_fac" data-info="ag-fac" style="--ac:var(--lang)">
+        <div class="role">audience</div><h4>Facilitator</h4>
+        <div class="knows">modulates <b>the language</b><br>easy · young · expert</div>
+      </div>
+    </div>
+
+    <!-- user -->
+    <div class="node" id="n_user" data-info="user" style="left:1072px;top:176px;width:176px;height:464px;--ac:var(--lang)">
+      <div class="role">your audience <span class="info">i</span></div>
+      <div class="avatar" style="margin-top:6px">
+        <span class="face"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></span>
+        <div><h3 style="font-size:15px;margin:0">A visitor</h3><div class="sub">or a client, a reader, a colleague…</div></div>
+      </div>
+      <div class="bubble bq" id="bq"></div>
+      <div class="bubble br" id="br"></div>
+      <div class="pills" id="pills">
+        <button class="pill on" onclick="setRegister('std',this)">standard</button>
+        <button class="pill" onclick="setRegister('easy',this)">easy language</button>
+      </div>
+    </div>
+
+    <!-- blueprint -->
+    <div class="node n-bp" id="n_bp" data-info="blueprint" style="left:262px;top:650px;width:759px;height:154px;--ac:var(--sage)">
+      <div class="bp-head">
+        <span class="nm">The Knowledge Blueprint</span>
+        <span class="tech">technically: the ontology · W3C standards</span>
+        <span class="desc">the map of what matters in your world — every part above is informed by it</span>
+      </div>
+      <div class="bp-chips">
+        <span class="ochip">Artist</span><span class="ochip">Artwork</span><span class="ochip">Exhibition</span><span class="ochip">Space</span><span class="ochip">Event</span><span class="ochip">SpecialNeed</span><span class="ochip">ArtInterest</span>
+        <span class="ochip rel">displays</span><span class="ochip rel">locatedIn</span><span class="ochip rel">createdBy</span><span class="ochip rel">…</span>
+      </div>
+      <div class="bp-effects">
+        <span>↑ tells the Extractor <b>what to look for</b></span>
+        <span>↑ gives every fact <b>its place in the graph</b></span>
+        <span>↑ declares <b>what may be remembered</b></span>
+        <span>↑ the <b>shared language</b> of every agent</span>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+<div class="shade" id="shade" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer">
+  <div class="dr-head"><div class="dr-kick" id="dr-kick"></div><h2 id="dr-title"></h2>
+    <button class="dr-close" onclick="closeDrawer()">esc ✕</button></div>
+  <div class="dr-body" id="dr-body"></div>
+</aside>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+/* ================= layout scaling ================= */
+const W=1280,H=824;
+function fit(){
+  const wrap=$('#stagewrap');
+  let s=Math.min(wrap.clientWidth/W,wrap.clientHeight/H);
+  s=Math.max(s,.42);
+  $('#spacer').style.width=(W*s)+'px';$('#spacer').style.height=(H*s)+'px';
+  $('#stage').style.transform=`scale(${s})`;
+}
+addEventListener('resize',fit);
+new ResizeObserver(fit).observe(document.getElementById('stagewrap'));
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+addEventListener('load',fit);
+
+/* ================= particles — every flow always alive ================= */
+const FLOWS=[
+  {id:'w_a1',   c:'var(--know)',n:2,v:.5},
+  {id:'w_a2',   c:'var(--know)',n:2,v:.5},
+  {id:'w_a3',   c:'var(--know)',n:2,v:.5},
+  {id:'w_g_ext',c:'var(--know)',n:2,v:.22,r:1.8},
+  {id:'w_g_kb', c:'var(--know)',n:2,v:.22,r:1.8},
+  {id:'w_g_data',c:'var(--know)',n:2,v:.22,r:1.8},
+  {id:'w_g_mem',c:'var(--know)',n:1,v:.3,r:1.8},
+  {id:'w_g_ag', c:'var(--know)',n:1,v:.3,r:1.8},
+  {id:'w_rail',   c:'var(--know)',n:3,v:.3},
+  {id:'w_b_q',    c:'var(--lang)',n:2,v:.55},
+  {id:'w_b_route',c:'var(--reason)',n:1,v:.6},
+  {id:'w_b_out',  c:'var(--reason)',n:1,v:.6},
+  {id:'w_b_llm',  c:'var(--lang)',n:1,v:.3,r:1.8},
+  {id:'w_b_reply',c:'var(--lang)',n:2,v:.55},
+];
+const sparkG=$('#spark');
+FLOWS.forEach(f=>{
+  f.path=document.getElementById(f.id);f.len=f.path.getTotalLength();f.dots=[];
+  for(let i=0;i<f.n;i++){
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('r',f.r||2.6);c.style.fill=f.c;c.style.color=f.c;
+    sparkG.appendChild(c);
+    f.dots.push({el:c,t:i/f.n});
+  }
+});
+let last=performance.now();
+function tick(now){
+  const dt=Math.min((now-last)/1000,.05);last=now;
+  for(const f of FLOWS){
+    for(const d of f.dots){
+      d.t=(d.t+f.v*dt)%1;
+      const p=f.path.getPointAtLength(d.t*f.len);
+      d.el.setAttribute('cx',p.x);d.el.setAttribute('cy',p.y);
+      d.el.setAttribute('opacity',(.25+.75*Math.sin(Math.PI*d.t)).toFixed(2));
+    }
+  }
+  requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+
+/* ================= drawer / info ================= */
+const INFO={
+  blueprint:{c:'var(--know)',k:'the foundation — technically: the ontology',t:'The Knowledge Blueprint',h:`
+    <p>Every organisation has a hidden map: the <b>kinds of things that matter</b> to it — artists and artworks, or clients and contracts — and <b>how they relate</b>. The Knowledge Blueprint makes that map explicit. It is the single foundation everything above it stands on.</p>
+    <div class="exbox"><div class="lb">you write, in plain language</div>
+      <div class="quote">“An Exhibition is an Event that displays one or more Artworks.”</div></div>
+    <div class="exbox"><div class="lb">the platform proposes the formal version — you confirm</div>
+      <div class="code"><span class="s">:Exhibition</span> <span class="p">is a kind of</span> <span class="o">:Event</span><br><span class="s">:Exhibition</span> <span class="p">displays</span> <span class="o">:Artwork</span> <span class="p">(at least one)</span></div></div>
+    <h4>One blueprint, three profound effects</h4>
+    <div class="fx">
+      <div class="f" style="--fc:var(--know)"><h5>It shapes extraction</h5><p>The Extractor stops tagging generic “people and places” and starts recognising <b>your</b> kinds of things — Artists, Exhibitions, Spaces — and the relations between them.</p></div>
+      <div class="f" style="--fc:var(--know)"><h5>It shapes the graph</h5><p>Every fact lands typed and connected the way your domain expects, so answers trace back to named facts — not to a paraphrase.</p></div>
+      <div class="f" style="--fc:var(--trust)"><h5>It shapes memory</h5><p>The system may only remember what the blueprint declares rememberable. No invented memories, and precise revision: each memory has an exact address.</p></div>
+    </div>
+    <p>Under the hood it is built on open <b>W3C standards</b> (RDF · OWL), starting from the Isagog top-level blueprint — so you model your specifics, not the basics. Formal modelling used to take scarce specialists months; describing it in plain language collapses that cost.</p>`},
+  docs:{c:'var(--know)',k:'where the value hides',t:'Your unstructured material',h:`
+    <p>Archives, catalogues, contracts, reports, meeting transcripts, wikis — most organisational knowledge lives as <b>prose no system can act on</b>.</p>
+    <p>The platform reads these sources; they stay exactly where they are. Every fact extracted from them keeps a <b>pointer back to its origin</b>, so any answer can be audited to the page it came from.</p>
+    <div class="dr-next">next → click <b onclick="openInfo('reader')">the Extractor</b></div>`},
+  reader:{c:'var(--know)',k:'extraction · guided reading',t:'The Extractor — from prose to facts',h:`
+    <p>A language model reads your sources the way a domain expert would skim them. But the crucial part is <em>what it is told to look for</em>: the <b>Knowledge Blueprint guides the recognition</b>.</p>
+    <div class="cmp">
+      <div class="side no"><div class="lb">without a blueprint</div>
+        <ul><li>Andrea Pazienza → PERSON</li><li>Gallery 5 → LOCATION</li><li class="miss">“retrospective” → missed</li><li class="miss">relations → missed</li></ul></div>
+      <div class="side yes"><div class="lb">with your blueprint</div>
+        <ul><li>Andrea Pazienza → <b>Artist</b></li><li>Gallery 5 → <b>Space</b></li><li>“Total Comics” → <b>Exhibition</b></li><li>+ <b>displays · locatedIn</b></li></ul></div>
+    </div>
+    <p>Nothing enters the knowledge base unreviewed: every fact is <b>propose → confirm → commit</b>, with a person in the loop and provenance kept.</p>`},
+  semantic:{c:'var(--know)',k:'vector database · beyond exact words',t:'Semantic similarity',h:`
+    <p>Not all recall can rely on exact matches. Every fact is also converted into a <b>vector of meaning</b>, so a question phrased differently still finds the right facts.</p>
+    <div class="exbox"><div class="lb">same idea, different words</div>
+      <div class="code">“hours” <span class="p">≈</span> “opening” <span class="o">0.88</span><br>“route” <span class="p">≈</span> “itinerary” <span class="o">0.92</span></div></div>
+    <p>It lives alongside the Knowledge Graph, fed by the same Extractor: two ways of remembering the same fact, one exact and one fuzzy.</p>
+    <div class="dr-next">next → click the <b onclick="openInfo('kb')">Knowledge Graph</b> — its twin for exact facts</div>`},
+  kb:{c:'var(--know)',k:'exact · auditable facts',t:'The Knowledge Graph',h:`
+    <p>A <b>knowledge graph</b> (RDF, open W3C standards). Every fact enters typed by the blueprint, connected to the others, and <b>has a name</b>: it can be cited, corrected, retracted — and it keeps a pointer to the source it came from.</p>
+    <div class="exbox"><div class="lb">a fact, as stored</div>
+      <div class="code"><span class="s">:Andrea_Pazienza</span> <span class="p">creates</span> <span class="o">:Total_Comics</span> ;<br><span class="s">:Total_Comics</span> <span class="p">locatedIn</span> <span class="o">:Gallery_5</span> .</div></div>
+    <p><b>Live, not frozen.</b> Facts are corrected, added or retracted in place — no retraining, no waiting on a model vendor. And because facts are named, every answer <b>traces back to its sources</b>.</p>
+    <div class="dr-next">next → click <b onclick="openInfo('semantic')">Semantic similarity</b> — its twin for meaning</div>`},
+  data:{c:'var(--know)',k:'databases · systems you already run',t:'Structured data',h:`
+    <p>Not all knowledge is prose. Business systems, catalogues, spreadsheets and databases already hold <b>clean, current facts</b>: the platform connects them to the Knowledge Blueprint instead of making you copy them over by hand.</p>
+    <div class="exbox"><div class="lb">a column becomes a relation</div>
+      <div class="code"><span class="s">artworks.author_id</span> <span class="p">&rarr;</span> <span class="o">:Artwork createdBy :Artist</span></div></div>
+    <p>The tables <b>stay where they are</b> and keep changing: the link is live, so a correction in the source system shows up in answers without re-extracting anything.</p>
+    <p>From here on a structured fact counts for as much as one read out of a document: it enters the <b>same shared context</b>, and every agent reads it off the same bus.</p>`},
+  memory:{c:'var(--trust)',k:'the conversation that lasts',t:'Memory, shaped by the Blueprint',h:`
+    <p>While the Knowledge Graph holds what the organisation knows, <b>Memory holds what the system learns about each person</b> — from conversation itself. Every meaningful turn becomes a typed memory, keyed to a blueprint concept and pinned to the person's <b>own words</b>.</p>
+    <div class="exbox"><div class="lb">a memory, anatomised</div>
+      <div class="code"><span class="s">SpecialNeed·Mobility</span> = <span class="o">“wheelchair”</span><br><span class="p">tier: permanent · evidence: the exact utterance · weight: live</span></div></div>
+    <h4>It behaves like a mind</h4>
+    <table class="tierstb">
+      <tr><td class="tn" style="color:var(--trust)">permanent</td><td>who you are</td><td>never forgotten</td></tr>
+      <tr><td class="tn" style="color:var(--know)">long-term</td><td>tastes, habits</td><td>fades over ~230 turns</td></tr>
+      <tr><td class="tn" style="color:var(--reason)">session</td><td>today's plan</td><td>fades over ~14 turns</td></tr>
+      <tr><td class="tn" style="color:var(--lang)">ephemeral</td><td>passing detail</td><td>gone in a few turns</td></tr>
+    </table>
+    <p>Mention something again and it <b>strengthens</b>; drop it and it fades. Say <em>“actually, half an hour”</em> and exactly one memory is <b>overwritten in place</b>; say <em>“forget that”</em> and it is erased — surgical revision an ordinary chat log cannot do.</p>
+    <h4>Where the blueprint matters most</h4>
+    <p>The blueprint is a <b>guard rail memory cannot cross</b>: the system may only remember what the domain declared rememberable. That is the structural cure for invented memories — and it is why each agent can subscribe to <b>just its own slice</b> (the Navigator to position &amp; needs, the Educator to taste).</p>`},
+  orch:{c:'var(--reason)',k:'the conductor',t:'The Orchestrator',h:`
+    <p>Every turn of conversation is an act: <b>asking, directing, requesting, reacting</b>. The orchestrator reads which one it is and routes the turn to the specialist tuned for it, then weaves the reply together.</p>
+    <p>It runs on a <b>small open model</b> (mistral-small-24B in the reference deployment) — deterministic, inexpensive, and swappable. The intelligence lives in the knowledge and the orchestration, not in one giant proprietary model.</p>`},
+  llm:{c:'var(--lang)',k:'the generative core',t:'The model\'s language skills',h:`
+    <p>The language model contributes what it is genuinely best at: <b>fluent language, tone, and general culture</b> — the fabric that makes a reply feel human.</p>
+    <p>Your <b>domain facts come from the Knowledge Graph</b>, never from the model's guesswork. That division of labour is what makes replies both natural <em>and</em> grounded — and it means any model can sit here, open or frontier, <b>swapped without rebuilding</b> anything else.</p>
+    <div class="dr-next">next → click the <b onclick="openInfo('orch')">Orchestrator</b></div>`},
+  user:{c:'var(--lang)',k:'the other half of the dialogue',t:'Your audience',h:`
+    <p>A museum visitor, a journalist in an archive, a customer, a colleague. Each turn is <b>answered and remembered</b>: identity and needs are declared once and honoured every turn after — even across visits.</p>
+    <p>And the language adapts to <b>who is asking</b>: the same grounded answer can arrive as expert commentary, plain prose, or easy language.</p>`},
+  'ag-edu':{c:'var(--know)',k:'specialist · intent “ask”',t:'The Educator',h:`
+    <p>The domain expert of the swarm. It answers questions about <b>the collection</b> — artworks, artists, exhibitions — grounded strictly in the Knowledge Graph.</p>
+    <p>From memory it subscribes to <b>one family only: taste</b> (ArtInterest). It never sees logistics or positions — so wayfinding noise never dilutes the art talk. Focused inputs, focused answers.</p>`},
+  'ag-nav':{c:'var(--reason)',k:'specialist · intent “direct”',t:'The Navigator',h:`
+    <p>The wayfinder — and the clearest example of an agent carrying its <b>own specialised knowledge</b>: a <span class="mono" style="color:var(--reason)">topology file</span> describing the venue — rooms, corridors, lifts, and which links are step-free.</p>
+    <div class="exbox"><div class="lb">topology.yaml · excerpt</div>
+      <div class="code"><span class="s">Gallery_5</span>: {<span class="p">level</span>: 1, <span class="p">links</span>: [<span class="o">Lift_A</span>, <span class="o">Corridor_2</span>], <span class="p">step_free</span>: <span class="o">true</span>}</div></div>
+    <p>It combines that map with memory — <b>where you are</b> (Position) and <b>what you need</b> (SpecialNeed) — to compute a route that respects the person, not just the shortest path. Any agent in the platform can carry expert resources this way: price lists, regulations, procedures.</p>`},
+  'ag-con':{c:'var(--trust)',k:'specialist · services',t:'The Concierge',h:`
+    <p>Front of house: hours, tickets, services, accessibility formats. Unlike the focused specialists, the Concierge subscribes to <b>every memory family</b> — it sees the whole person.</p>
+    <p>That is what lets it <b>anticipate</b>: a visitor who once mentioned sign language is offered LIS materials before asking. Hospitality, by memory.</p>`},
+  'ag-fac':{c:'var(--lang)',k:'post-processor · audience',t:'The Facilitator',h:`
+    <p>The accessibility and audience layer. It takes any grounded reply and <b>re-registers the language</b>: easy-to-read language, young visitors, domain experts, other tongues — <em>same facts, right words</em>.</p>
+    <p>This is a general capability of the platform: the substance of an answer and the <b>voice it is delivered in</b> are decoupled, so one system serves every audience you have.</p>`},
+};
+function openInfo(key){
+  const inf=INFO[key];if(!inf)return;
+  $('#drawer').style.setProperty('--dc',inf.c);
+  $('#dr-kick').textContent=inf.k;$('#dr-title').textContent=inf.t;$('#dr-body').innerHTML=inf.h;
+  $('#dr-body').scrollTop=0;
+  $('#drawer').classList.add('open');$('#shade').classList.add('open');
+}
+function closeDrawer(){$('#drawer').classList.remove('open');$('#shade').classList.remove('open')}
+$$('[data-info]').forEach(n=>n.addEventListener('click',e=>{openInfo(n.dataset.info)}));
+addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});
+
+/* boot */
+fit();
+</script>
+</body>
+</html>
