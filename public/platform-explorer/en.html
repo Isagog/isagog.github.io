@@ -47,8 +47,8 @@
   /* ============ stage ============ */
   .stagewrap{position:relative;z-index:1;flex:1;overflow:auto;display:flex}
   .spacer{margin:0 auto;position:relative}
-  .stage{position:absolute;left:0;top:0;width:1280px;height:864px;transform-origin:0 0}
-  svg.wires{position:absolute;inset:0;width:1280px;height:864px;overflow:visible}
+  .stage{position:absolute;left:0;top:0;width:1280px;height:824px;transform-origin:0 0}
+  svg.wires{position:absolute;inset:0;width:1280px;height:824px;overflow:visible}
   .wire{fill:none;stroke-width:1.6;stroke-opacity:.4;transition:stroke-opacity .4s,stroke-width .4s}
   .wire.g{stroke-dasharray:2 7;stroke-opacity:.5}
   #spark circle{filter:drop-shadow(0 0 3px currentColor)}
@@ -261,41 +261,41 @@ header{padding-right:110px}
   <div class="spacer" id="spacer">
   <div class="stage" id="stage">
 
-    <svg class="wires" viewBox="0 0 1280 864" aria-hidden="true">
+    <svg class="wires" viewBox="0 0 1280 824" aria-hidden="true">
       <!-- capture side -->
-      <path class="wire" id="w_a1" stroke="var(--know)" style="color:var(--know)" d="M216,262 C239,262 239,262 262,262"/>
-      <path class="wire" id="w_a3" stroke="var(--know)" style="color:var(--know)" d="M457,200 C480,180 486,155 510,150"/>
-      <path class="wire" id="w_a2" stroke="var(--know)" style="color:var(--know)" d="M457,246 C484,254 484,278 510,288"/>
+      <path class="wire" id="w_a1" stroke="var(--know)" style="color:var(--know)" d="M216,222 C239,222 239,222 262,222"/>
+      <path class="wire" id="w_a3" stroke="var(--know)" style="color:var(--know)" d="M457,160 C480,140 486,115 510,110"/>
+      <path class="wire" id="w_a2" stroke="var(--know)" style="color:var(--know)" d="M457,206 C484,214 484,238 510,248"/>
       <!-- guidance from the blueprint -->
-      <path class="wire g" id="w_g_ext" stroke="var(--know)" style="color:var(--know)" d="M356,690 C356,560 356,440 358,364"/>
-      <path class="wire g" id="w_g_kb"  stroke="var(--know)" style="color:var(--know)" d="M462,690 C458,560 452,440 510,380"/>
-      <path class="wire g" id="w_g_data" stroke="var(--know)" style="color:var(--know)" d="M500,690 C498,620 496,540 510,493"/>
-      <path class="wire g" id="w_g_mem" stroke="var(--know)" style="color:var(--know)" d="M637,690 C637,687 637,684 637,680"/>
-      <path class="wire g" id="w_g_ag"  stroke="var(--know)" style="color:var(--know)" d="M906,690 C906,670 906,640 906,600"/>
+      <path class="wire g" id="w_g_ext" stroke="var(--know)" style="color:var(--know)" d="M356,650 C356,520 356,400 358,324"/>
+      <path class="wire g" id="w_g_kb"  stroke="var(--know)" style="color:var(--know)" d="M462,650 C458,520 452,400 510,340"/>
+      <path class="wire g" id="w_g_data" stroke="var(--know)" style="color:var(--know)" d="M500,650 C498,580 496,500 510,453"/>
+      <path class="wire g" id="w_g_mem" stroke="var(--know)" style="color:var(--know)" d="M637,650 C637,647 637,644 637,640"/>
+      <path class="wire g" id="w_g_ag"  stroke="var(--know)" style="color:var(--know)" d="M906,650 C906,630 906,600 906,560"/>
       <!-- shared context bus: three knowledge cards → rail → orchestrator & agents -->
-      <path class="wire" id="w_r_sem"  stroke="var(--know)" style="color:var(--know)" d="M765,170 L778,170"/>
-      <path class="wire" id="w_r_kb"   stroke="var(--know)" style="color:var(--know)" d="M765,341 L778,341"/>
-      <path class="wire" id="w_r_data" stroke="var(--know)" style="color:var(--know)" d="M765,493 L778,493"/>
-      <path class="wire" id="w_r_mem"  stroke="var(--know)" style="color:var(--know)" d="M765,621 L778,621"/>
-      <path class="wire" id="w_rail"   stroke="var(--know)" style="color:var(--know)" d="M778,170 L778,621"/>
-      <path class="wire" id="w_t_orch" stroke="var(--know)" style="color:var(--know)" d="M778,262 L806,262"/>
-      <path class="wire" id="w_t_ag"   stroke="var(--know)" style="color:var(--know)" d="M778,406 L792,406"/>
-      <path class="wire" id="w_t_ag2"  stroke="var(--know)" style="color:var(--know)" d="M778,563 L792,563"/>
+      <path class="wire" id="w_r_sem"  stroke="var(--know)" style="color:var(--know)" d="M765,130 L778,130"/>
+      <path class="wire" id="w_r_kb"   stroke="var(--know)" style="color:var(--know)" d="M765,301 L778,301"/>
+      <path class="wire" id="w_r_data" stroke="var(--know)" style="color:var(--know)" d="M765,453 L778,453"/>
+      <path class="wire" id="w_r_mem"  stroke="var(--know)" style="color:var(--know)" d="M765,581 L778,581"/>
+      <path class="wire" id="w_rail"   stroke="var(--know)" style="color:var(--know)" d="M778,130 L778,581"/>
+      <path class="wire" id="w_t_orch" stroke="var(--know)" style="color:var(--know)" d="M778,222 L806,222"/>
+      <path class="wire" id="w_t_ag"   stroke="var(--know)" style="color:var(--know)" d="M778,366 L792,366"/>
+      <path class="wire" id="w_t_ag2"  stroke="var(--know)" style="color:var(--know)" d="M778,523 L792,523"/>
       <!-- conversation side -->
-      <path class="wire" id="w_b_q"     stroke="var(--lang)"   style="color:var(--lang)"   d="M1072,290 C1040,276 1038,266 1006,260"/>
-      <path class="wire" id="w_b_route" stroke="var(--reason)" style="color:var(--reason)" d="M899,308 C899,316 899,324 899,332"/>
-      <path class="wire" id="w_b_out"   stroke="var(--reason)" style="color:var(--reason)" d="M919,332 C919,324 919,316 919,308"/>
-      <path class="wire g" id="w_b_llm" stroke="var(--lang)"   style="color:var(--lang)"   d="M911,204 C911,208 911,212 911,216"/>
-      <path class="wire" id="w_b_reply" stroke="var(--lang)"   style="color:var(--lang)"   d="M1016,295 C1044,298 1050,330 1072,340"/>
+      <path class="wire" id="w_b_q"     stroke="var(--lang)"   style="color:var(--lang)"   d="M1072,250 C1040,236 1038,226 1006,220"/>
+      <path class="wire" id="w_b_route" stroke="var(--reason)" style="color:var(--reason)" d="M899,268 C899,276 899,284 899,292"/>
+      <path class="wire" id="w_b_out"   stroke="var(--reason)" style="color:var(--reason)" d="M919,292 C919,284 919,276 919,268"/>
+      <path class="wire g" id="w_b_llm" stroke="var(--lang)"   style="color:var(--lang)"   d="M911,164 C911,168 911,172 911,176"/>
+      <path class="wire" id="w_b_reply" stroke="var(--lang)"   style="color:var(--lang)"   d="M1016,255 C1044,258 1050,290 1072,300"/>
       <g id="spark"></g>
     </svg>
 
-    <div class="zone-cap zone-cap--span" id="cap-a" style="left:40px;top:66px;--zc-tw:417px">Extraction</div>
-    <div class="zone-cap zone-cap--span zone-cap--noline" id="cap-c" style="left:510px;top:66px;--zc-tw:255px">Shared knowledge</div>
-    <div class="zone-cap zone-cap--span" id="cap-b" style="left:806px;top:66px;--zc-tw:442px">Interaction</div>
+    <div class="zone-cap zone-cap--span" id="cap-a" style="left:40px;top:26px;--zc-tw:417px">Extraction</div>
+    <div class="zone-cap zone-cap--span zone-cap--noline" id="cap-c" style="left:510px;top:26px;--zc-tw:255px">Shared knowledge</div>
+    <div class="zone-cap zone-cap--span" id="cap-b" style="left:806px;top:26px;--zc-tw:442px">Interaction</div>
 
     <!-- documents -->
-    <div class="node" id="n_docs" data-info="docs" style="left:36px;top:180px;width:180px;height:172px;--ac:var(--know)">
+    <div class="node" id="n_docs" data-info="docs" style="left:36px;top:140px;width:180px;height:172px;--ac:var(--know)">
       <div class="role">sources <span class="info">i</span></div>
       <h3>Your material</h3>
       <div class="docstack"><div class="doc"><i></i><i></i><i></i><i></i><span class="ft">PDF</span></div>
@@ -305,7 +305,7 @@ header{padding-right:110px}
     </div>
 
     <!-- extractor -->
-    <div class="node" id="n_ext" data-info="reader" style="left:262px;top:170px;width:195px;height:192px;--ac:var(--know)">
+    <div class="node" id="n_ext" data-info="reader" style="left:262px;top:130px;width:195px;height:192px;--ac:var(--know)">
       <div class="role">extraction <span class="info">i</span></div>
       <h3>Extractor</h3>
       <div class="sub">finds entities &amp; relations — guided by the blueprint</div>
@@ -314,7 +314,7 @@ header{padding-right:110px}
     </div>
 
     <!-- semantic similarity -->
-    <div class="node" id="n_sem" data-info="semantic" style="left:510px;top:92px;width:255px;height:156px;--ac:var(--know)">
+    <div class="node" id="n_sem" data-info="semantic" style="left:510px;top:52px;width:255px;height:156px;--ac:var(--know)">
       <div class="role">vector database <span class="info">i</span></div>
       <h3>Semantic similarity</h3>
       <div class="sub">finds what is close in meaning, even in different words</div>
@@ -335,7 +335,7 @@ header{padding-right:110px}
     </div>
 
     <!-- knowledge graph -->
-    <div class="node" id="n_kb" data-info="kb" style="left:510px;top:258px;width:255px;height:166px;--ac:var(--know)">
+    <div class="node" id="n_kb" data-info="kb" style="left:510px;top:218px;width:255px;height:166px;--ac:var(--know)">
       <div class="role">exact · auditable facts <span class="info">i</span></div>
       <span class="kbcount"><b id="factcount">128</b> facts</span>
       <h3>Knowledge Graph</h3>
@@ -356,7 +356,7 @@ header{padding-right:110px}
     </div>
 
     <!-- structured data -->
-    <div class="node" id="n_data" data-info="data" style="left:510px;top:434px;width:255px;height:118px;--ac:var(--know)">
+    <div class="node" id="n_data" data-info="data" style="left:510px;top:394px;width:255px;height:118px;--ac:var(--know)">
       <div class="role">database <span class="info">i</span></div>
       <h3>Structured data</h3>
       <svg id="dbvols" width="227" height="48" viewBox="0 0 227 48" style="display:block;margin-top:7px">
@@ -376,7 +376,7 @@ header{padding-right:110px}
     </div>
 
     <!-- memory -->
-    <div class="node" id="n_mem" data-info="memory" style="left:510px;top:562px;width:255px;height:118px;--ac:var(--trust)">
+    <div class="node" id="n_mem" data-info="memory" style="left:510px;top:522px;width:255px;height:118px;--ac:var(--trust)">
       <div class="role" style="--ac:var(--trust)">what it remembers of you <span class="info">i</span></div>
       <h3>Adaptive memory</h3>
       <div class="memrow"><span class="cat">ArtInterest·</span><span style="color:var(--know)">Medium</span><span class="val">comics</span><span class="membadge mb-long">long</span><span class="cc"><i style="width:74%;background:var(--sage)"></i></span></div>
@@ -385,22 +385,22 @@ header{padding-right:110px}
     </div>
 
     <!-- model's own knowledge -->
-    <div class="node n-llm" id="n_llm" data-info="llm" style="left:806px;top:92px;width:210px;height:112px;--ac:var(--lang)">
+    <div class="node n-llm" id="n_llm" data-info="llm" style="left:806px;top:52px;width:210px;height:112px;--ac:var(--lang)">
       <div class="role">the generative core <span class="info">i</span></div>
       <h3 style="font-size:15px">The model's language skills</h3>
       <div class="llmline"><b>fluency</b> · tone · general culture</div>
     </div>
 
     <!-- orchestrator -->
-    <div class="node" id="n_orch" data-info="orch" style="left:806px;top:216px;width:210px;height:92px;--ac:var(--reason)">
+    <div class="node" id="n_orch" data-info="orch" style="left:806px;top:176px;width:210px;height:92px;--ac:var(--reason)">
       <div class="role">the conductor <span class="info">i</span></div>
       <h3 style="font-size:15px">Orchestrator</h3>
       <div class="intents"><span class="intent" id="int-ask">ask</span><span class="intent" id="int-dir">direct</span><span class="intent" id="int-req">request</span><span class="intent" id="int-rea">react</span></div>
     </div>
 
     <!-- agents -->
-    <div class="agents-cap" style="left:806px;top:318px">specialist agents</div>
-    <div class="agents" style="left:792px;top:332px;width:229px;height:304px">
+    <div class="agents-cap" style="left:806px;top:278px">specialist agents</div>
+    <div class="agents" style="left:792px;top:292px;width:229px;height:304px">
       <div class="ag" id="ag_edu" data-info="ag-edu" style="--ac:var(--know)">
         <div class="role">inquire</div><h4>Educator</h4>
         <div class="knows">knows <b>the collection</b><br>reads taste memory</div>
@@ -420,7 +420,7 @@ header{padding-right:110px}
     </div>
 
     <!-- user -->
-    <div class="node" id="n_user" data-info="user" style="left:1072px;top:216px;width:176px;height:464px;--ac:var(--lang)">
+    <div class="node" id="n_user" data-info="user" style="left:1072px;top:176px;width:176px;height:464px;--ac:var(--lang)">
       <div class="role">your audience <span class="info">i</span></div>
       <div class="avatar" style="margin-top:6px">
         <span class="face"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></span>
@@ -435,7 +435,7 @@ header{padding-right:110px}
     </div>
 
     <!-- blueprint -->
-    <div class="node n-bp" id="n_bp" data-info="blueprint" style="left:262px;top:690px;width:759px;height:154px;--ac:var(--sage)">
+    <div class="node n-bp" id="n_bp" data-info="blueprint" style="left:262px;top:650px;width:759px;height:154px;--ac:var(--sage)">
       <div class="bp-head">
         <span class="nm">The Knowledge Blueprint</span>
         <span class="tech">technically: the ontology · W3C standards</span>
@@ -468,7 +468,7 @@ header{padding-right:110px}
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 
 /* ================= layout scaling ================= */
-const W=1280,H=864;
+const W=1280,H=824;
 function fit(){
   const wrap=$('#stagewrap');
   let s=Math.min(wrap.clientWidth/W,wrap.clientHeight/H);
