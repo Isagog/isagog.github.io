@@ -23,8 +23,8 @@ export const Header = () => {
 
   const navItems = [
     { href: "/", label: t("home") },
-    { href: "/about", label: t("about") },
     { href: "/platform", label: t("platform") },
+    { href: "/about", label: t("about") },
     { href: "/service", label: t("solution") },
     { href: "/project", label: t("project") },
     { href: "/blog", label: t("blog") },

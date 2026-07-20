@@ -22,7 +22,6 @@ const PlatformPage = async ({
           {tHero("description")}
         </p>
       </section>
-      <TextCarousel />
       <iframe
         src={`/platform-explorer/${locale === "it" ? "it" : "en"}.html`}
         title={
@@ -32,6 +31,7 @@ const PlatformPage = async ({
         }
         className="sm:block hidden w-full aspect-[1280/886] border-0"
       />
+      <TextCarousel />
     </div>
   );
 };
