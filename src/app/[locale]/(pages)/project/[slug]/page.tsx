@@ -25,7 +25,7 @@ const ProjectPostPage = async ({
     return (
       <div className="text-center min-h-[70vh] flex items-center flex-col justify-center ">
         <h1 className="text-2xl font-bold">Project not found</h1>
-        <Link href="/project" className="text-terracotta" prefetch>
+        <Link href="/project" className="text-terracotta">
           Go back to projects
         </Link>
       </div>

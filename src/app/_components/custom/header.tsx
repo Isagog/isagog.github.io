@@ -34,7 +34,7 @@ export const Header = () => {
   return (
     <header className="flex fixed top-0 z-50 w-full items-center border-b border-border bg-background">
       <div className="flex w-full items-center justify-between gap-2 px-3 sm:px-6 py-2">
-        <Link href="/" prefetch>
+        <Link href="/">
           <Image
             src="/logo-new.png"
             alt="logo isagog"
@@ -50,7 +50,6 @@ export const Header = () => {
               <Link
                 key={`${item.href}-${item.label}`}
                 href={item.href}
-                prefetch
                 className={cn(
                   "font-sans font-[400] text-primary hover:text-black text-base",
                   isActive && "text-[#000000] font-[400]"
@@ -76,7 +75,6 @@ export const Header = () => {
                 <DropdownMenuItem key={item.href} asChild>
                   <Link
                     href={item.href}
-                    prefetch
                     className={cn(
                       "font-sans font-[300] text-primary text-base",
                       pathname === item.href && "text-[#000000] font-[400]"
