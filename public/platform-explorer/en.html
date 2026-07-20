@@ -47,8 +47,8 @@
   /* ============ stage ============ */
   .stagewrap{position:relative;z-index:1;flex:1;overflow:auto;display:flex}
   .spacer{margin:0 auto;position:relative}
-  .stage{position:absolute;left:0;top:0;width:1280px;height:780px;transform-origin:0 0}
-  svg.wires{position:absolute;inset:0;width:1280px;height:780px;overflow:visible}
+  .stage{position:absolute;left:0;top:0;width:1280px;height:864px;transform-origin:0 0}
+  svg.wires{position:absolute;inset:0;width:1280px;height:864px;overflow:visible}
   .wire{fill:none;stroke-width:1.6;stroke-opacity:.4;transition:stroke-opacity .4s,stroke-width .4s}
   .wire.g{stroke-dasharray:2 7;stroke-opacity:.5}
   #spark circle{filter:drop-shadow(0 0 3px currentColor)}
@@ -109,6 +109,11 @@
   #vecdb .vn-bg{fill:rgba(95,147,83,.35);stroke:none}
   #vecdb text{font-family:"JetBrains Mono",monospace;font-size:7.5px;fill:var(--ink-soft)}
   #vecdb .vs{fill:var(--reason);font-weight:600}
+  /* structured data — database volumes */
+  #dbvols .dbody{fill:rgba(95,147,83,.14);stroke:var(--know);stroke-width:1}
+  #dbvols .dtop{fill:rgba(95,147,83,.32);stroke:var(--know);stroke-width:1}
+  #dbvols .dring{fill:none;stroke:var(--know);stroke-width:.8;stroke-opacity:.45}
+  #dbvols text{font-family:"JetBrains Mono",monospace;font-size:7px;fill:var(--ink-faint);letter-spacing:.04em}
 
   /* memory */
   .memrow{display:flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:9px;padding:5.5px 0;border-top:1px solid var(--line-soft)}
@@ -256,21 +261,23 @@ header{padding-right:110px}
   <div class="spacer" id="spacer">
   <div class="stage" id="stage">
 
-    <svg class="wires" viewBox="0 0 1280 780" aria-hidden="true">
+    <svg class="wires" viewBox="0 0 1280 864" aria-hidden="true">
       <!-- capture side -->
       <path class="wire" id="w_a1" stroke="var(--know)" style="color:var(--know)" d="M216,262 C239,262 239,262 262,262"/>
       <path class="wire" id="w_a3" stroke="var(--know)" style="color:var(--know)" d="M457,200 C480,180 486,155 510,150"/>
       <path class="wire" id="w_a2" stroke="var(--know)" style="color:var(--know)" d="M457,246 C484,254 484,278 510,288"/>
       <!-- guidance from the blueprint -->
-      <path class="wire g" id="w_g_ext" stroke="var(--know)" style="color:var(--know)" d="M356,606 C356,520 356,440 358,364"/>
-      <path class="wire g" id="w_g_kb"  stroke="var(--know)" style="color:var(--know)" d="M486,606 C480,540 472,440 510,380"/>
-      <path class="wire g" id="w_g_mem" stroke="var(--know)" style="color:var(--know)" d="M637,606 C637,602 637,599 637,596"/>
-      <path class="wire g" id="w_g_ag"  stroke="var(--know)" style="color:var(--know)" d="M906,606 C906,592 906,574 906,560"/>
+      <path class="wire g" id="w_g_ext" stroke="var(--know)" style="color:var(--know)" d="M356,690 C356,560 356,440 358,364"/>
+      <path class="wire g" id="w_g_kb"  stroke="var(--know)" style="color:var(--know)" d="M486,690 C480,560 472,440 510,380"/>
+      <path class="wire g" id="w_g_data" stroke="var(--know)" style="color:var(--know)" d="M440,690 C440,610 448,550 510,493"/>
+      <path class="wire g" id="w_g_mem" stroke="var(--know)" style="color:var(--know)" d="M637,690 C637,687 637,684 637,680"/>
+      <path class="wire g" id="w_g_ag"  stroke="var(--know)" style="color:var(--know)" d="M906,690 C906,650 906,600 906,560"/>
       <!-- shared context bus: three knowledge cards → rail → orchestrator & agents -->
       <path class="wire" id="w_r_sem"  stroke="var(--know)" style="color:var(--know)" d="M765,170 L778,170"/>
-      <path class="wire" id="w_r_kb"   stroke="var(--know)" style="color:var(--know)" d="M765,337 L778,337"/>
-      <path class="wire" id="w_r_mem"  stroke="var(--know)" style="color:var(--know)" d="M765,511 L778,511"/>
-      <path class="wire" id="w_rail"   stroke="var(--know)" style="color:var(--know)" d="M778,170 L778,511"/>
+      <path class="wire" id="w_r_kb"   stroke="var(--know)" style="color:var(--know)" d="M765,341 L778,341"/>
+      <path class="wire" id="w_r_data" stroke="var(--know)" style="color:var(--know)" d="M765,493 L778,493"/>
+      <path class="wire" id="w_r_mem"  stroke="var(--know)" style="color:var(--know)" d="M765,621 L778,621"/>
+      <path class="wire" id="w_rail"   stroke="var(--know)" style="color:var(--know)" d="M778,170 L778,621"/>
       <path class="wire" id="w_t_orch" stroke="var(--know)" style="color:var(--know)" d="M778,222 L806,222"/>
       <path class="wire" id="w_t_ag"   stroke="var(--know)" style="color:var(--know)" d="M778,430 L792,430"/>
       <!-- conversation side -->
@@ -327,7 +334,7 @@ header{padding-right:110px}
     </div>
 
     <!-- knowledge graph -->
-    <div class="node" id="n_kb" data-info="kb" style="left:510px;top:258px;width:255px;height:158px;--ac:var(--know)">
+    <div class="node" id="n_kb" data-info="kb" style="left:510px;top:258px;width:255px;height:166px;--ac:var(--know)">
       <div class="role">exact · auditable facts <span class="info">i</span></div>
       <span class="kbcount"><b id="factcount">128</b> facts</span>
       <h3>Knowledge Graph</h3>
@@ -347,8 +354,28 @@ header{padding-right:110px}
       </div>
     </div>
 
+    <!-- structured data -->
+    <div class="node" id="n_data" data-info="data" style="left:510px;top:434px;width:255px;height:118px;--ac:var(--know)">
+      <div class="role">database <span class="info">i</span></div>
+      <h3>Structured data</h3>
+      <svg id="dbvols" width="227" height="48" viewBox="0 0 227 48" style="display:block;margin-top:7px">
+        <path class="dbody" d="M16,6 v26 a22,6 0 0 0 44,0 v-26"/>
+        <ellipse class="dtop" cx="38" cy="6" rx="22" ry="6"/>
+        <path class="dring" d="M16,15 a22,6 0 0 0 44,0"/>
+        <path class="dbody" d="M91,12 v20 a22,6 0 0 0 44,0 v-20"/>
+        <ellipse class="dtop" cx="113" cy="12" rx="22" ry="6"/>
+        <path class="dring" d="M91,21 a22,6 0 0 0 44,0"/>
+        <path class="dbody" d="M166,18 v14 a22,6 0 0 0 44,0 v-14"/>
+        <ellipse class="dtop" cx="188" cy="18" rx="22" ry="6"/>
+        <path class="dring" d="M166,27 a22,6 0 0 0 44,0"/>
+        <text x="38" y="46" text-anchor="middle">SQL</text>
+        <text x="113" y="46" text-anchor="middle">CSV</text>
+        <text x="188" y="46" text-anchor="middle">API</text>
+      </svg>
+    </div>
+
     <!-- memory -->
-    <div class="node" id="n_mem" data-info="memory" style="left:510px;top:426px;width:255px;height:170px;--ac:var(--trust)">
+    <div class="node" id="n_mem" data-info="memory" style="left:510px;top:562px;width:255px;height:118px;--ac:var(--trust)">
       <div class="role" style="--ac:var(--trust)">what it remembers of you <span class="info">i</span></div>
       <h3>Adaptive memory</h3>
       <div class="memrow"><span class="cat">ArtInterest·</span><span style="color:var(--know)">Medium</span><span class="val">comics</span><span class="membadge mb-long">long</span><span class="cc"><i style="width:74%;background:var(--sage)"></i></span></div>
@@ -392,7 +419,7 @@ header{padding-right:110px}
     </div>
 
     <!-- user -->
-    <div class="node" id="n_user" data-info="user" style="left:1072px;top:176px;width:176px;height:420px;--ac:var(--lang)">
+    <div class="node" id="n_user" data-info="user" style="left:1072px;top:176px;width:176px;height:504px;--ac:var(--lang)">
       <div class="role">your audience <span class="info">i</span></div>
       <div class="avatar" style="margin-top:6px">
         <span class="face"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></span>
@@ -407,7 +434,7 @@ header{padding-right:110px}
     </div>
 
     <!-- blueprint -->
-    <div class="node n-bp" id="n_bp" data-info="blueprint" style="left:262px;top:606px;width:759px;height:154px;--ac:var(--sage)">
+    <div class="node n-bp" id="n_bp" data-info="blueprint" style="left:262px;top:690px;width:759px;height:154px;--ac:var(--sage)">
       <div class="bp-head">
         <span class="nm">The Knowledge Blueprint</span>
         <span class="tech">technically: the ontology · W3C standards</span>
@@ -440,7 +467,7 @@ header{padding-right:110px}
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 
 /* ================= layout scaling ================= */
-const W=1280,H=780;
+const W=1280,H=864;
 function fit(){
   const wrap=$('#stagewrap');
   let s=Math.min(wrap.clientWidth/W,wrap.clientHeight/H);
@@ -460,6 +487,7 @@ const FLOWS=[
   {id:'w_a3',   c:'var(--know)',n:2,v:.5},
   {id:'w_g_ext',c:'var(--know)',n:2,v:.22,r:1.8},
   {id:'w_g_kb', c:'var(--know)',n:2,v:.22,r:1.8},
+  {id:'w_g_data',c:'var(--know)',n:2,v:.22,r:1.8},
   {id:'w_g_mem',c:'var(--know)',n:1,v:.3,r:1.8},
   {id:'w_g_ag', c:'var(--know)',n:1,v:.3,r:1.8},
   {id:'w_rail',   c:'var(--know)',n:3,v:.3},
@@ -534,6 +562,12 @@ const INFO={
       <div class="code"><span class="s">:Andrea_Pazienza</span> <span class="p">creates</span> <span class="o">:Total_Comics</span> ;<br><span class="s">:Total_Comics</span> <span class="p">locatedIn</span> <span class="o">:Gallery_5</span> .</div></div>
     <p><b>Live, not frozen.</b> Facts are corrected, added or retracted in place — no retraining, no waiting on a model vendor. And because facts are named, every answer <b>traces back to its sources</b>.</p>
     <div class="dr-next">next → click <b onclick="openInfo('semantic')">Semantic similarity</b> — its twin for meaning</div>`},
+  data:{c:'var(--know)',k:'databases · systems you already run',t:'Structured data',h:`
+    <p>Not all knowledge is prose. Business systems, catalogues, spreadsheets and databases already hold <b>clean, current facts</b>: the platform connects them to the Knowledge Blueprint instead of making you copy them over by hand.</p>
+    <div class="exbox"><div class="lb">a column becomes a relation</div>
+      <div class="code"><span class="s">artworks.author_id</span> <span class="p">&rarr;</span> <span class="o">:Artwork createdBy :Artist</span></div></div>
+    <p>The tables <b>stay where they are</b> and keep changing: the link is live, so a correction in the source system shows up in answers without re-extracting anything.</p>
+    <p>From here on a structured fact counts for as much as one read out of a document: it enters the <b>same shared context</b>, and every agent reads it off the same bus.</p>`},
   memory:{c:'var(--trust)',k:'the conversation that lasts',t:'Memory, shaped by the Blueprint',h:`
     <p>While the Knowledge Graph holds what the organisation knows, <b>Memory holds what the system learns about each person</b> — from conversation itself. Every meaningful turn becomes a typed memory, keyed to a blueprint concept and pinned to the person's <b>own words</b>.</p>
     <div class="exbox"><div class="lb">a memory, anatomised</div>
