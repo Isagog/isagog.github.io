@@ -2,11 +2,27 @@
 
 import { useScopedI18n } from "@/packages/locales/client";
 import { Check } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const TextCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [height, setHeight] = useState<number>();
+  const activeSlideRef = useRef<HTMLDivElement>(null);
   const t = useScopedI18n("platform-page.text-carousel");
+
+  // Track the active slide's own height so the section never reserves room for
+  // the longest one; ResizeObserver also covers rewraps on resize/font load.
+  useEffect(() => {
+    const slide = activeSlideRef.current;
+    if (!slide) return;
+
+    const measure = () => setHeight(slide.getBoundingClientRect().height);
+    measure();
+
+    const observer = new ResizeObserver(measure);
+    observer.observe(slide);
+    return () => observer.disconnect();
+  }, [currentSlide]);
 
   const slides = [
     {
@@ -40,15 +56,19 @@ export const TextCarousel = () => {
   ];
 
   return (
-    <div className="relative w-[100%] bg-transparent  flex items-center justify-center overflow-hidden">
-      <div className="relative sm:w-2/3 w-full mx-5 grid">
+    <div className="relative w-[100%] bg-transparent  flex items-center justify-center">
+      <div
+        className="relative sm:w-2/3 w-full mx-5 overflow-hidden transition-[height] duration-500 ease-in-out"
+        style={{ height }}
+      >
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`[grid-area:1/1] w-full pt-8 sm:p-8 transition-opacity duration-500 ease-in-out ${
+            ref={currentSlide === index ? activeSlideRef : undefined}
+            className={`w-full pt-8 sm:p-8 transition-opacity duration-500 ease-in-out ${
               currentSlide === index
-                ? "opacity-100"
-                : "opacity-0 pointer-events-none"
+                ? "relative opacity-100"
+                : "absolute inset-x-0 top-0 opacity-0 pointer-events-none"
             }`}
           >
             <div className="md:space-y-6">
