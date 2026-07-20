@@ -77,7 +77,7 @@ const ServicePage = async ({
         <p className="text-center font-[400] text-2xl">
           {tWhyUs("description")}
         </p>
-        <Link href="https://cal.com/isagog" target="_blank" prefetch>
+        <Link href="https://cal.com/isagog" target="_blank">
           <Button
             variant="ghost"
             className="uppercase border-t font-sans border-terracotta rounded-none text-terracotta hover:bg-transparent hover:underline cursor-pointer"
