@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { LocaleLink as Link } from "@/app/_components/custom/locale-link";
 import { getScopedI18n, setStaticParamsLocale } from "@/packages/locales/server";
 import {
@@ -79,14 +80,38 @@ const HomePage = async ({
           imageUrl="/images/about-images/tree-palm.png"
         />
       </div>
-      <div
-        className="relative w-full bg-forest flex flex-col justify-center items-center  bg-cover bg-center text-center text-terracotta h-[498px] mt-12"
-        style={{
-          backgroundImage: "url('/images/tree.webp')",
-          backgroundBlendMode: "multiply",
-        }}
-      >
-        <div className="space-y-6 flex flex-col justify-center items-center">
+      <div className="relative w-full bg-mist overflow-hidden flex flex-col justify-center items-center text-center text-terracotta h-[498px] mt-12">
+        <div aria-hidden="true" className="absolute inset-0">
+          <Image
+            src="/images/about-images/tree-pine.png"
+            alt=""
+            width={400}
+            height={500}
+            className="absolute -left-10 bottom-0 h-[400px] w-auto object-contain"
+          />
+          <Image
+            src="/images/about-images/tree-cypress.png"
+            alt=""
+            width={400}
+            height={500}
+            className="hidden sm:block absolute left-[16%] bottom-0 h-[280px] w-auto object-contain opacity-80"
+          />
+          <Image
+            src="/images/about-images/tree-bushy.png"
+            alt=""
+            width={400}
+            height={500}
+            className="hidden sm:block absolute right-[16%] bottom-0 h-[260px] w-auto object-contain opacity-80"
+          />
+          <Image
+            src="/images/about-images/tree-palm.png"
+            alt=""
+            width={400}
+            height={500}
+            className="absolute -right-8 bottom-0 h-[420px] w-auto object-contain"
+          />
+        </div>
+        <div className="relative z-10 space-y-6 flex flex-col justify-center items-center">
           <p className="uppercase tracking-widests text-[22px] font-sans font-[400] leading-12">
             {tIntroHighlight("title")}
             <br />

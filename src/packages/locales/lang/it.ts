@@ -93,10 +93,10 @@ export default {
       },
     },
     "intro-highlight": {
-      title: "La tua impresa è più di quello che produce",
+      title: "La tua impresa è più di quello che produce,",
       description: "nasconde un tesoro di conoscenza",
       subtitle: "Scopriamolo insieme",
-      button: "Vuoi saperne di più? Scrivi a info@isagog.com",
+      button: "Scrivi a info@isagog.com",
     },
     highlight: {
       title: "*Un'intelligenza artificiale che unisce apprendimento e ragionamento",
@@ -270,7 +270,7 @@ export default {
       title: "Perché Isagog?",
       description:
         "Le nostre soluzioni si basano su una piattaforma AI aperta, che unisce creatività e logica per offrire risultati più \naffidabili e intelligenti.",
-      linkLabel: "Vuoi saperne di più? Scrivi a info@isagog.com",
+      linkLabel: "Scrivi a info@isagog.com",
     },
   },
   "platform-page": {
