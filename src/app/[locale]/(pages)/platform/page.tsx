@@ -1,3 +1,4 @@
+import { Monitor, Network } from "lucide-react";
 import { SectionTitle } from "@/app/_components/custom/section-title";
 import { getScopedI18n, setStaticParamsLocale } from "@/packages/locales/server";
 import { TextCarousel } from "./components/text-carousel";
@@ -32,9 +33,16 @@ const PlatformPage = async ({
         }
         className="sm:block hidden w-full aspect-[1280/886] border-0"
       />
-      <p className="sm:hidden block text-center font-serif font-[300] text-lg bg-mist text-forest mx-5 p-6">
-        {tDiagram("mobileNotice")}
-      </p>
+      <div className="sm:hidden flex flex-col items-center gap-3 text-center border border-forest/25 mx-5 p-8">
+        <Network className="text-terracotta" size={36} strokeWidth={1.5} />
+        <p className="font-serif font-[300] text-lg text-forest">
+          {tDiagram("mobileNotice")}
+        </p>
+        <p className="flex items-center gap-2 text-terracotta font-sans uppercase text-sm tracking-wide">
+          <Monitor size={18} strokeWidth={1.75} />
+          {tDiagram("mobileCta")}
+        </p>
+      </div>
       <TextCarousel />
     </div>
   );

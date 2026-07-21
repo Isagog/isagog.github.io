@@ -98,7 +98,7 @@ export default {
       button: "Write to info@isagog.com",
     },
     highlight: {
-      title: "*An artificial intelligence that unites learning and reasoning",
+      title: "An artificial intelligence that unites learning and reasoning",
       description:
         "Artificial intelligence has developed through these two currents:",
       "1": {
@@ -281,7 +281,8 @@ export default {
     },
     diagram: {
       mobileNotice:
-        "The interactive platform diagram needs a larger screen. Visit this page from a tablet or computer to explore it.",
+        "The interactive platform diagram isn't available on small screens.",
+      mobileCta: "Visit this page from a tablet or computer to explore it",
     },
     "image-with-title": {
       "1": {

@@ -99,7 +99,7 @@ export default {
       button: "Scrivi a info@isagog.com",
     },
     highlight: {
-      title: "*Un'intelligenza artificiale che unisce apprendimento e ragionamento",
+      title: "Un'intelligenza artificiale che unisce apprendimento e ragionamento",
       description:
         "L'intelligenza artificiale si e storicamente sviluppata seguendo  due  approcci principali:",
       "1": {
@@ -281,7 +281,8 @@ export default {
     },
     diagram: {
       mobileNotice:
-        "Il diagramma interattivo della piattaforma richiede uno schermo più grande. Visita questa pagina da tablet o computer per esplorarlo.",
+        "Il diagramma interattivo della piattaforma non è disponibile su schermi piccoli.",
+      mobileCta: "Visita questa pagina da tablet o computer per esplorarlo",
     },
     "image-with-title": {
       "1": {
