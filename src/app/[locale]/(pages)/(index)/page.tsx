@@ -97,9 +97,8 @@ const HomePage = async ({
           </p>
           <div className="border-y border-terracotta">
             <Link
-              href="https://cal.com/isagog"
-              target="_blank"
-              className="inline-block py-2 uppercase text-[15px] rounded-none text-terracotta hover:bg-transparent cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105"
+              href="mailto:info@isagog.com"
+              className="inline-block py-2 text-[15px] rounded-none text-terracotta hover:bg-transparent cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105"
             >
               {tIntroHighlight("button")}
             </Link>

@@ -95,7 +95,7 @@ export default {
       title: "Your organisation holds a wealth of knowledge",
       description: "",
       subtitle: "We help unlock its value",
-      button: "Book a meeting",
+      button: "Do you want to know more? Write to info@isagog.com",
     },
     highlight: {
       title: "*An artificial intelligence that unites learning and reasoning",
@@ -270,7 +270,7 @@ export default {
       title: "Why Isagog?",
       description:
         "Our solutions are based on an open AI platform that combines creativity and logic to offer more \nreliable and intelligent results.",
-      linkLabel: "Book a demo",
+      linkLabel: "Do you want to know more? Write to info@isagog.com",
     },
   },
   "platform-page": {
