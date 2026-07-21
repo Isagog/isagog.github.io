@@ -279,6 +279,10 @@ export default {
       description:
         "Generative AI writes well, but doesn't know what's true. The Isagog platform anchors language models to a knowledge graph built from your documents: every answer is grounded in facts, verifiable, and runs where you decide.",
     },
+    diagram: {
+      mobileNotice:
+        "The interactive platform diagram needs a larger screen. Visit this page from a tablet or computer to explore it.",
+    },
     "image-with-title": {
       "1": {
         title: "The platform architecture",

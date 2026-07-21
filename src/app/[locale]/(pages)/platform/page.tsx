@@ -11,6 +11,7 @@ const PlatformPage = async ({
   setStaticParamsLocale(locale);
 
   const tHero = await getScopedI18n("platform-page.hero");
+  const tDiagram = await getScopedI18n("platform-page.diagram");
 
   return (
     <div className="flex items-center flex-col gap-8 justify-center">
@@ -31,6 +32,9 @@ const PlatformPage = async ({
         }
         className="sm:block hidden w-full aspect-[1280/886] border-0"
       />
+      <p className="sm:hidden block text-center font-serif font-[300] text-lg bg-mist text-forest mx-5 p-6">
+        {tDiagram("mobileNotice")}
+      </p>
       <TextCarousel />
     </div>
   );

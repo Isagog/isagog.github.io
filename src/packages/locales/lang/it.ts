@@ -279,6 +279,10 @@ export default {
       description:
         "L'AI generativa scrive bene, ma non sa cosa è vero. La piattaforma Isagog ancora i modelli linguistici a un grafo di conoscenza costruito dai tuoi documenti: ogni risposta è fondata sui fatti, verificabile, e gira dove decidi tu.",
     },
+    diagram: {
+      mobileNotice:
+        "Il diagramma interattivo della piattaforma richiede uno schermo più grande. Visita questa pagina da tablet o computer per esplorarlo.",
+    },
     "image-with-title": {
       "1": {
         title: "L'architettura della piattaforma",
